@@ -14,13 +14,15 @@
 ├── docs/                     # ドキュメントディレクトリ
 │   ├── RELEASE_NOTES.md     # リリースノート
 │   ├── MANUAL.md            # ユーザーマニュアル
+│   ├── FAQ.md               # よくある質問
 │   └── images/              # ドキュメント用画像
-│       ├── login-screen.png
-│       ├── main-dashboard.png
-│       ├── clock-in.png
-│       ├── clock-out.png
-│       ├── attendance-history.png
-│       └── logout.png
+│       ├── login-screen.svg
+│       ├── main-dashboard.svg
+│       ├── clock-in.svg
+│       ├── clock-out.svg
+│       ├── attendance-history.svg
+│       └── logout.svg
+├── CONTRIBUTING.md           # コントリビューションガイド
 └── LICENSE                   # ライセンス情報
 ```
 
