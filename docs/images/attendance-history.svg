@@ -18,10 +18,7 @@
   <text x="35" y="216" font-family="Arial, sans-serif" font-size="14" fill="white">📋 勤怠履歴</text>
   
   <rect x="20" y="240" width="210" height="40" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
-  <text x="35" y="266" font-family="Arial, sans-serif" font-size="14" fill="#495057">📊 月次レポート</text>
-  
-  <rect x="20" y="290" width="210" height="40" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
-  <text x="35" y="316" font-family="Arial, sans-serif" font-size="14" fill="#495057">⚙️ 設定</text>
+  <text x="35" y="266" font-family="Arial, sans-serif" font-size="14" fill="#495057">⚙️ 設定</text>
   
   <!-- Main Content Area -->
   <rect x="270" y="100" width="910" height="680" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
@@ -46,10 +43,6 @@
   <!-- Search Button -->
   <rect x="770" y="190" width="80" height="25" fill="#007bff" stroke="none" rx="3"/>
   <text x="810" y="208" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">検索</text>
-  
-  <!-- Export Button -->
-  <rect x="1040" y="190" width="110" height="25" fill="#28a745" stroke="none" rx="3"/>
-  <text x="1095" y="208" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">CSV出力</text>
   
   <!-- Table -->
   <rect x="290" y="240" width="880" height="520" fill="white" stroke="#dee2e6" stroke-width="1" rx="5"/>
