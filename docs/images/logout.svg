@@ -22,15 +22,4 @@
   
   <rect x="350" y="130" width="130" height="40" fill="#fff3cd" stroke-width="0" rx="0 0 5 5"/>
   <text x="365" y="155" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc3545">🚪 ログアウト</text>
-  
-  <!-- Instruction Arrow -->
-  <path d="M 310 120 L 345 120" stroke="#dc3545" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#dc3545"/>
-    </marker>
-  </defs>
-  
-  <!-- Instruction Text -->
-  <text x="155" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#dc3545">ここをクリック</text>
 </svg>

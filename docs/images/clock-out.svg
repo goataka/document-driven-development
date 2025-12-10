@@ -21,9 +21,9 @@
   <!-- Work Summary -->
   <rect x="120" y="230" width="360" height="90" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
   <text x="300" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#495057">本日の勤務情報</text>
-  <text x="140" y="280" font-family="Arial, sans-serif" font-size="13" fill="#666">出勤時刻: 09:00:00</text>
-  <text x="140" y="302" font-family="Arial, sans-serif" font-size="13" fill="#666">退勤時刻: 18:00:00</text>
-  <text x="140" y="324" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">勤務時間: 9時間00分</text>
+  <text x="140" y="278" font-family="Arial, sans-serif" font-size="13" fill="#666">出勤時刻: 09:00:00</text>
+  <text x="140" y="298" font-family="Arial, sans-serif" font-size="13" fill="#666">退勤時刻: 18:00:00</text>
+  <text x="140" y="318" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">勤務時間: 9時間00分</text>
   
   <!-- Buttons -->
   <rect x="140" y="340" width="120" height="35" fill="#6c757d" stroke="none" rx="5"/>

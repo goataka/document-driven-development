@@ -28,21 +28,17 @@
   
   <!-- Date Filter -->
   <rect x="290" y="160" width="880" height="60" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
-  <text x="310" y="185" font-family="Arial, sans-serif" font-size="13" fill="#666">期間指定:</text>
+  <text x="310" y="185" font-family="Arial, sans-serif" font-size="13" fill="#666">表示月:</text>
   
-  <!-- Start Date -->
-  <text x="400" y="185" font-family="Arial, sans-serif" font-size="13" fill="#666">開始日</text>
-  <rect x="400" y="190" width="150" height="25" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
-  <text x="410" y="208" font-family="Arial, sans-serif" font-size="12" fill="#495057">2025/12/01</text>
+  <!-- Month Selector -->
+  <rect x="380" y="180" width="40" height="30" fill="#007bff" stroke="none" rx="3"/>
+  <text x="400" y="201" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">◀</text>
   
-  <!-- End Date -->
-  <text x="590" y="185" font-family="Arial, sans-serif" font-size="13" fill="#666">終了日</text>
-  <rect x="590" y="190" width="150" height="25" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
-  <text x="600" y="208" font-family="Arial, sans-serif" font-size="12" fill="#495057">2025/12/10</text>
+  <rect x="430" y="180" width="180" height="30" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
+  <text x="520" y="201" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月</text>
   
-  <!-- Search Button -->
-  <rect x="770" y="190" width="80" height="25" fill="#007bff" stroke="none" rx="3"/>
-  <text x="810" y="208" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">検索</text>
+  <rect x="620" y="180" width="40" height="30" fill="#007bff" stroke="none" rx="3"/>
+  <text x="640" y="201" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">▶</text>
   
   <!-- Table -->
   <rect x="290" y="240" width="880" height="520" fill="white" stroke="#dee2e6" stroke-width="1" rx="5"/>
@@ -110,14 +106,14 @@
   <rect x="1000" y="515" width="140" height="25" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
   <text x="1070" y="533" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
   
-  <!-- Row 7 -->
+  <!-- Row 7 - No entry -->
   <rect x="290" y="550" width="880" height="45" fill="white" stroke="#dee2e6" stroke-width="1"/>
-  <text x="330" y="578" font-family="Arial, sans-serif" font-size="13" fill="#212529">2025/12/02</text>
-  <text x="490" y="578" font-family="Arial, sans-serif" font-size="13" fill="#212529">09:05:00</text>
-  <text x="650" y="578" font-family="Arial, sans-serif" font-size="13" fill="#212529">18:00:00</text>
-  <text x="810" y="578" font-family="Arial, sans-serif" font-size="13" fill="#212529">8時間55分</text>
-  <rect x="1000" y="560" width="140" height="25" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
-  <text x="1070" y="578" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
+  <text x="330" y="578" font-family="Arial, sans-serif" font-size="13" fill="#999">2025/12/02</text>
+  <text x="490" y="578" font-family="Arial, sans-serif" font-size="13" fill="#999">-</text>
+  <text x="650" y="578" font-family="Arial, sans-serif" font-size="13" fill="#999">-</text>
+  <text x="810" y="578" font-family="Arial, sans-serif" font-size="13" fill="#999">-</text>
+  <rect x="1000" y="560" width="140" height="25" fill="#ffc107" fill-opacity="0.2" stroke="#ffc107" stroke-width="1" rx="3"/>
+  <text x="1070" y="578" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#856404">打刻なし</text>
   
   <!-- Summary Section -->
   <rect x="290" y="730" width="880" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="0 0 5 5"/>
