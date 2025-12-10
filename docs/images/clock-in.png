@@ -1,0 +1,27 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Modal Overlay -->
+  <rect x="0" y="0" width="600" height="400" fill="#000000" opacity="0.3"/>
+  
+  <!-- Modal Box -->
+  <rect x="100" y="100" width="400" height="200" fill="white" stroke="#28a745" stroke-width="3" rx="10"/>
+  
+  <!-- Modal Title -->
+  <text x="300" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#28a745">出勤打刻の確認</text>
+  
+  <!-- Modal Content -->
+  <text x="300" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">以下の時刻で出勤を記録します。</text>
+  
+  <!-- Time Display -->
+  <rect x="200" y="190" width="200" height="40" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <text x="300" y="217" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#28a745">09:00:00</text>
+  
+  <!-- Buttons -->
+  <rect x="140" y="250" width="120" height="35" fill="#6c757d" stroke="none" rx="5"/>
+  <text x="200" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">キャンセル</text>
+  
+  <rect x="340" y="250" width="120" height="35" fill="#28a745" stroke="none" rx="5"/>
+  <text x="400" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">確定</text>
+</svg>
