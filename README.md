@@ -19,11 +19,13 @@
 │   │   ├── startup.md          # スタートアップガイド
 │   │   └── troubleshooting.md  # トラブルシューティング
 │   ├── reference/               # 機能リファレンス
+│   │   ├── user-registration.md # ユーザー登録機能
 │   │   ├── login.md            # ログイン機能
 │   │   ├── logout.md           # ログアウト機能
 │   │   ├── clock-in-out.md     # 出勤・退勤打刻機能
 │   │   └── attendance-history.md # 勤怠履歴機能
 │   └── images/                  # ドキュメント用画像
+│       ├── user-registration.svg
 │       ├── login-screen.svg
 │       ├── main-dashboard.svg
 │       ├── clock-in.svg
@@ -44,6 +46,7 @@
 
 ### 📚 機能リファレンス
 各機能の詳細な使い方を個別に解説：
+- [ユーザー登録機能](docs/reference/user-registration.md)
 - [ログイン機能](docs/reference/login.md)
 - [ログアウト機能](docs/reference/logout.md)
 - [出勤・退勤打刻機能](docs/reference/clock-in-out.md)
@@ -65,7 +68,8 @@
 ### 主要機能
 
 1. **認証機能**
-   - ユーザー名とパスワードによるログイン
+   - ユーザー登録（メールアドレス、パスワード、会社コード）
+   - メールアドレスとパスワードによるログイン
    - セキュアなセッション管理
 
 2. **勤怠打刻機能**
