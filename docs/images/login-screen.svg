@@ -8,12 +8,12 @@
   <!-- Title -->
   <text x="400" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">勤怠管理システム</text>
   
-  <!-- Username Label -->
-  <text x="270" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666">ユーザー名</text>
+  <!-- Email Label -->
+  <text x="270" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666">メールアドレス</text>
   
-  <!-- Username Input -->
+  <!-- Email Input -->
   <rect x="270" y="210" width="260" height="35" fill="white" stroke="#ccc" stroke-width="1" rx="5"/>
-  <text x="280" y="232" font-family="Arial, sans-serif" font-size="14" fill="#999">username</text>
+  <text x="280" y="232" font-family="Arial, sans-serif" font-size="14" fill="#999">example@company.com</text>
   
   <!-- Password Label -->
   <text x="270" y="270" font-family="Arial, sans-serif" font-size="14" fill="#666">パスワード</text>
@@ -23,6 +23,6 @@
   <text x="280" y="302" font-family="Arial, sans-serif" font-size="14" fill="#999">••••••••</text>
   
   <!-- Login Button -->
-  <rect x="270" y="340" width="260" height="40" fill="#007bff" stroke="none" rx="5"/>
+  <rect x="270" y="340" width="260" height="40" fill="#007cc5" stroke="none" rx="5"/>
   <text x="400" y="367" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">ログイン</text>
 </svg>
