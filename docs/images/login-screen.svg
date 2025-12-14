@@ -13,14 +13,12 @@
   
   <!-- Email Input -->
   <rect x="270" y="210" width="260" height="35" fill="white" stroke="#ccc" stroke-width="1" rx="5"/>
-  <text x="280" y="232" font-family="Arial, sans-serif" font-size="14" fill="#999">example@company.com</text>
   
   <!-- Password Label -->
   <text x="270" y="270" font-family="Arial, sans-serif" font-size="14" fill="#666">パスワード</text>
   
   <!-- Password Input -->
   <rect x="270" y="280" width="260" height="35" fill="white" stroke="#ccc" stroke-width="1" rx="5"/>
-  <text x="280" y="302" font-family="Arial, sans-serif" font-size="14" fill="#999">••••••••</text>
   
   <!-- Login Button -->
   <rect x="270" y="340" width="260" height="40" fill="#007cc5" stroke="none" rx="5"/>

@@ -3,19 +3,19 @@
   <rect width="1200" height="700" fill="#f8f9fa"/>
   
   <!-- Header -->
-  <rect x="0" y="0" width="1200" height="80" fill="#343a40"/>
+  <rect x="0" y="0" width="1200" height="80" fill="#007cc5"/>
   <text x="30" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">勤怠管理システム</text>
   <text x="1050" y="50" font-family="Arial, sans-serif" font-size="14" fill="white">ユーザー名 ▼</text>
   
   <!-- Clock In/Out Buttons -->
   <g>
     <!-- Clock In Button -->
-    <rect x="50" y="120" width="200" height="100" fill="#28a745" stroke="none" rx="10"/>
+    <rect x="50" y="120" width="200" height="100" fill="#00a86b" stroke="none" rx="10"/>
     <text x="150" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">出勤</text>
     <text x="150" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">クリックして出勤打刻</text>
     
     <!-- Clock Out Button -->
-    <rect x="280" y="120" width="200" height="100" fill="#dc3545" stroke="none" rx="10"/>
+    <rect x="280" y="120" width="200" height="100" fill="#e64545" stroke="none" rx="10"/>
     <text x="380" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">退勤</text>
     <text x="380" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">クリックして退勤打刻</text>
   </g>
@@ -61,7 +61,7 @@
   <text x="280" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">09:00</text>
   <text x="470" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">-</text>
   <text x="660" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">-</text>
-  <text x="850" y="538" font-family="Arial, sans-serif" font-size="13" fill="#28a745">勤務中</text>
+  <text x="850" y="538" font-family="Arial, sans-serif" font-size="13" fill="#00a86b">勤務中</text>
   
   <rect x="70" y="550" width="1060" height="35" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
   <text x="90" y="573" font-family="Arial, sans-serif" font-size="13" fill="#212529">2025/12/09</text>

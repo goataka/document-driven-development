@@ -1,34 +1,30 @@
-<svg width="600" height="450" xmlns="http://www.w3.org/2000/svg">
+<svg width="600" height="380" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="600" height="450" fill="#f8f9fa"/>
+  <rect width="600" height="380" fill="#f8f9fa"/>
   
   <!-- Modal Overlay -->
-  <rect x="0" y="0" width="600" height="450" fill="#000000" opacity="0.3"/>
+  <rect x="0" y="0" width="600" height="380" fill="#000000" opacity="0.3"/>
   
   <!-- Modal Box -->
-  <rect x="100" y="80" width="400" height="290" fill="white" stroke="#dc3545" stroke-width="3" rx="10"/>
+  <rect x="100" y="60" width="400" height="260" fill="white" stroke="#dc3545" stroke-width="3" rx="10"/>
   
   <!-- Modal Title -->
-  <text x="300" y="125" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#dc3545">退勤打刻の確認</text>
+  <text x="300" y="105" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#dc3545">退勤打刻完了</text>
   
-  <!-- Modal Content -->
-  <text x="300" y="160" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">以下の時刻で退勤を記録します。</text>
+  <!-- Success Icon -->
+  <circle cx="300" cy="145" r="25" fill="#dc3545" fill-opacity="0.2" stroke="#dc3545" stroke-width="2"/>
+  <text x="300" y="155" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#dc3545">✓</text>
   
-  <!-- Time Display -->
-  <rect x="200" y="170" width="200" height="40" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
-  <text x="300" y="197" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#dc3545">18:00:00</text>
+  <!-- Message -->
+  <text x="300" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">退勤時刻を記録しました</text>
   
   <!-- Work Summary -->
-  <rect x="120" y="230" width="360" height="90" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
-  <text x="300" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#495057">本日の勤務情報</text>
-  <text x="140" y="278" font-family="Arial, sans-serif" font-size="13" fill="#666">出勤時刻: 09:00:00</text>
-  <text x="140" y="298" font-family="Arial, sans-serif" font-size="13" fill="#666">退勤時刻: 18:00:00</text>
-  <text x="140" y="318" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">勤務時間: 9時間00分</text>
+  <rect x="130" y="205" width="340" height="75" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="150" y="227" font-family="Arial, sans-serif" font-size="12" fill="#666">出勤: 09:00</text>
+  <text x="150" y="247" font-family="Arial, sans-serif" font-size="12" fill="#666">退勤: 18:00</text>
+  <text x="150" y="270" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#28a745">勤務時間: 9時間00分</text>
   
-  <!-- Buttons -->
-  <rect x="140" y="340" width="120" height="35" fill="#6c757d" stroke="none" rx="5"/>
-  <text x="200" y="364" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">キャンセル</text>
-  
-  <rect x="340" y="340" width="120" height="35" fill="#dc3545" stroke="none" rx="5"/>
-  <text x="400" y="364" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">確定</text>
+  <!-- Close Button -->
+  <rect x="250" y="295" width="100" height="35" fill="#dc3545" stroke="none" rx="5"/>
+  <text x="300" y="319" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">閉じる</text>
 </svg>
