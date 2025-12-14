@@ -6,7 +6,7 @@
   <rect x="0" y="0" width="600" height="350" fill="#000000" opacity="0.3"/>
   
   <!-- Modal Box -->
-  <rect x="100" y="80" width="400" height="190" fill="white" stroke="#dc3545" stroke-width="3" rx="10"/>
+  <rect x="100" y="80" width="400" height="230" fill="white" stroke="#dc3545" stroke-width="3" rx="10"/>
   
   <!-- Modal Title -->
   <text x="300" y="125" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#dc3545">退勤打刻完了</text>
@@ -18,10 +18,13 @@
   <!-- Message -->
   <text x="300" y="215" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">退勤時刻を記録しました</text>
   
+  <!-- Clock-out Time Display -->
+  <text x="300" y="238" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#dc3545">18:00:00</text>
+  
   <!-- Work Hours Display -->
-  <text x="300" y="238" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#28a745">勤務時間: 9時間00分</text>
+  <text x="300" y="258" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#28a745">勤務時間: 9時間00分</text>
   
   <!-- Close Button -->
-  <rect x="250" y="255" width="100" height="35" fill="#dc3545" stroke="none" rx="5"/>
-  <text x="300" y="279" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">閉じる</text>
+  <rect x="250" y="275" width="100" height="35" fill="#dc3545" stroke="none" rx="5"/>
+  <text x="300" y="299" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">閉じる</text>
 </svg>

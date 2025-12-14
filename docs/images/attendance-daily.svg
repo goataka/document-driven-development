@@ -1,0 +1,76 @@
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="#007cc5"/>
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">勤怠管理システム - 勤務実績（日次）</text>
+  <text x="1050" y="50" font-family="Arial, sans-serif" font-size="14" fill="white">ユーザー名 ▼</text>
+  
+  <!-- Sidebar Menu -->
+  <rect x="0" y="80" width="250" height="620" fill="#e9ecef" stroke="#dee2e6" stroke-width="1"/>
+  <text x="20" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#495057">メニュー</text>
+  
+  <rect x="20" y="140" width="210" height="40" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="35" y="166" font-family="Arial, sans-serif" font-size="14" fill="white">🏠 ダッシュボード</text>
+  
+  <rect x="20" y="190" width="210" height="40" fill="#6c757d" stroke="none" rx="5"/>
+  <text x="35" y="216" font-family="Arial, sans-serif" font-size="14" fill="white">📊 勤務実績</text>
+  
+  <rect x="20" y="240" width="210" height="40" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <text x="35" y="266" font-family="Arial, sans-serif" font-size="14" fill="#495057">⚙️ 設定</text>
+  
+  <!-- Main Content Area -->
+  <rect x="270" y="100" width="910" height="580" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  
+  <!-- Title -->
+  <text x="290" y="140" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">勤務実績（日次）</text>
+  
+  <!-- Date Selector -->
+  <rect x="420" y="118" width="40" height="30" fill="#007cc5" stroke="none" rx="3"/>
+  <text x="440" y="139" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">◀</text>
+  
+  <rect x="470" y="118" width="180" height="30" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
+  <text x="560" y="139" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月8日（月）</text>
+  
+  <rect x="660" y="118" width="40" height="30" fill="#007cc5" stroke="none" rx="3"/>
+  <text x="680" y="139" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">▶</text>
+  
+  <!-- Summary Card -->
+  <rect x="290" y="170" width="880" height="480" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  
+  <!-- Date Header -->
+  <rect x="290" y="170" width="880" height="50" fill="#007cc5" stroke="none" rx="10 10 0 0"/>
+  <text x="730" y="205" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2025年12月8日（月）の勤務実績</text>
+  
+  <!-- Content Area -->
+  <g transform="translate(0, 50)">
+    <!-- Clock-in Time -->
+    <rect x="350" y="200" width="250" height="80" fill="#f8f9fa" stroke="#007cc5" stroke-width="2" rx="8"/>
+    <text x="475" y="225" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#666">出勤時刻</text>
+    <text x="475" y="260" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#007cc5">09:00</text>
+    
+    <!-- Clock-out Time -->
+    <rect x="650" y="200" width="250" height="80" fill="#f8f9fa" stroke="#dc3545" stroke-width="2" rx="8"/>
+    <text x="775" y="225" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#666">退勤時刻</text>
+    <text x="775" y="260" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#dc3545">18:00</text>
+    
+    <!-- Work Hours -->
+    <rect x="350" y="310" width="250" height="80" fill="#f8f9fa" stroke="#28a745" stroke-width="2" rx="8"/>
+    <text x="475" y="335" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#666">勤務時間</text>
+    <text x="475" y="370" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#28a745">9時間00分</text>
+    
+    <!-- Overtime Hours -->
+    <rect x="650" y="310" width="250" height="80" fill="#f8f9fa" stroke="#dc3545" stroke-width="2" rx="8"/>
+    <text x="775" y="335" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#666">残業時間</text>
+    <text x="775" y="370" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#dc3545">1時間00分</text>
+    
+    <!-- Status -->
+    <rect x="500" y="420" width="350" height="60" fill="#6c757d" fill-opacity="0.1" stroke="#6c757d" stroke-width="2" rx="8"/>
+    <text x="675" y="458" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6c757d">ステータス: 退勤済み</text>
+    
+    <!-- Note -->
+    <text x="730" y="530" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#666">※所定労働時間: 8時間</text>
+    <text x="730" y="550" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#666">※残業時間 = 勤務時間 - 所定労働時間</text>
+  </g>
+</svg>
