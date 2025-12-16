@@ -23,9 +23,6 @@
   <!-- Main Content Area -->
   <rect x="270" y="100" width="910" height="580" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   
-  <!-- Title -->
-  <text x="290" y="140" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">勤務実績（日次）</text>
-  
   <!-- Date Selector -->
   <rect x="420" y="118" width="40" height="30" fill="#007cc5" stroke="none" rx="3"/>
   <text x="440" y="139" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">◀</text>
@@ -41,7 +38,7 @@
   
   <!-- Date Header -->
   <rect x="290" y="170" width="880" height="50" fill="#007cc5" stroke="none" rx="10 10 0 0"/>
-  <text x="730" y="205" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2025年12月8日（月）の勤務実績</text>
+  <text x="730" y="205" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">2025年12月8日（月）</text>
   
   <!-- Content Area -->
   <g transform="translate(0, 50)">
