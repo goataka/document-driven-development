@@ -996,10 +996,11 @@ import { AttendanceService } from './attendance.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Attendance } from './entities/attendance.entity';
 import { BadRequestException } from '@nestjs/common';
+import { Repository } from 'typeorm';
 
 describe('AttendanceService', () => {
   let service: AttendanceService;
-  let mockRepository: any;
+  let mockRepository: jest.Mocked<Partial<Repository<Attendance>>>;
 
   beforeEach(async () => {
     mockRepository = {
@@ -1237,7 +1238,7 @@ describe('Attendance API (e2e)', () => {
         .expect((res) => {
           expect(res.body).toHaveProperty('id');
           expect(res.body).toHaveProperty('clockInTime');
-          expect(res.body.clockOutTime).toBeNull();
+          expect(res.body).toHaveProperty('clockOutTime', null);
         });
     });
 
@@ -1341,37 +1342,48 @@ import { expect } from '@playwright/test';
 import { ICustomWorld } from '../support/world';
 import { LoginPage } from '../support/page-objects/LoginPage';
 
+// ヘルパー関数でnullチェックを集約
+function ensurePage(world: ICustomWorld) {
+  if (!world.page) throw new Error('Page not initialized');
+  return world.page;
+}
+
+function ensureLoginPage(world: ICustomWorld) {
+  if (!world.loginPage) throw new Error('Login page not initialized');
+  return world.loginPage;
+}
+
 Given('ログインページを表示している', async function (this: ICustomWorld) {
-  if (!this.page) throw new Error('Page not initialized');
-  this.loginPage = new LoginPage(this.page);
+  const page = ensurePage(this);
+  this.loginPage = new LoginPage(page);
   await this.loginPage.goto();
 });
 
 When('メールアドレス {string} を入力する', async function (this: ICustomWorld, email: string) {
-  if (!this.loginPage) throw new Error('Login page not initialized');
-  await this.loginPage.fillEmail(email);
+  const loginPage = ensureLoginPage(this);
+  await loginPage.fillEmail(email);
 });
 
 When('パスワード {string} を入力する', async function (this: ICustomWorld, password: string) {
-  if (!this.loginPage) throw new Error('Login page not initialized');
-  await this.loginPage.fillPassword(password);
+  const loginPage = ensureLoginPage(this);
+  await loginPage.fillPassword(password);
 });
 
 When('{string} ボタンをクリックする', async function (this: ICustomWorld, buttonText: string) {
-  if (!this.page) throw new Error('Page not initialized');
+  const page = ensurePage(this);
   // data-testid属性を優先、フォールバックとしてテキスト検索
-  await this.page.click(`[data-testid="${buttonText}-button"], button:has-text("${buttonText}")`);
+  await page.click(`[data-testid="${buttonText}-button"], button:has-text("${buttonText}")`);
 });
 
 Then('ダッシュボードページが表示される', async function (this: ICustomWorld) {
-  if (!this.page) throw new Error('Page not initialized');
-  await expect(this.page).toHaveURL(/.*dashboard/);
+  const page = ensurePage(this);
+  await expect(page).toHaveURL(/.*dashboard/);
 });
 
 Then('エラーメッセージ {string} が表示される', async function (this: ICustomWorld, message: string) {
-  if (!this.page) throw new Error('Page not initialized');
+  const page = ensurePage(this);
   // data-testid属性を使用してより安定したセレクタに
-  await expect(this.page.locator('[data-testid="error-message"]')).toContainText(message);
+  await expect(page.locator('[data-testid="error-message"]')).toContainText(message);
 });
 ```
 
@@ -1556,8 +1568,8 @@ jobs:
         run: |
           npm ci
           npm run start:prod &
-          # ヘルスチェックで起動を待機
-          npx wait-on http://localhost:3000/health --timeout 60000
+          # APIサーバーの起動を待機（標準的なエンドポイントで確認）
+          npx wait-on http://localhost:3000/api --timeout 60000
       
       - name: Start Frontend
         working-directory: ./frontend
