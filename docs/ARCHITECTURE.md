@@ -68,9 +68,9 @@
 | **フレームワーク** | React | 18.x | UIライブラリ |
 | **言語** | TypeScript | 5.x | 型安全な開発 |
 | **ビルドツール** | Vite | 5.x | 高速な開発サーバーとビルド |
-| **状態管理** | Zustand / Redux Toolkit | 最新 | グローバル状態管理 |
+| **状態管理** | Zustand（推奨） | 最新 | グローバル状態管理（シンプル・軽量）<br/>※複雑な状態管理が必要な場合はRedux Toolkitも検討可 |
 | **ルーティング** | React Router | 6.x | クライアントサイドルーティング |
-| **UIライブラリ** | Material-UI (MUI) / Ant Design | 5.x | UIコンポーネント |
+| **UIライブラリ** | Material-UI (MUI) | 5.x | UIコンポーネント（推奨）<br/>※デザイン要件により他ライブラリも検討可 |
 | **フォーム管理** | React Hook Form | 7.x | フォームバリデーション |
 | **HTTP通信** | Axios | 1.x | APIリクエスト |
 | **日付処理** | date-fns | 3.x | 日付の操作と表示 |
@@ -84,7 +84,7 @@
 | **フレームワーク** | NestJS | 10.x | サーバーサイドフレームワーク |
 | **言語** | TypeScript | 5.x | 型安全な開発 |
 | **ランタイム** | Node.js | 20.x LTS | JavaScriptランタイム |
-| **ORM** | TypeORM / Prisma | 最新 | データベースアクセス |
+| **ORM** | TypeORM（推奨） | 最新 | データベースアクセス<br/>※NestJSとの統合が良好、デコレータベース<br/>※型安全性重視の場合はPrismaも検討可 |
 | **バリデーション** | class-validator + class-transformer | 最新 | リクエストバリデーション |
 | **認証** | Passport.js + JWT | 最新 | 認証・認可 |
 | **API仕様** | Swagger (OpenAPI) | 最新 | API仕様書自動生成 |
@@ -607,10 +607,9 @@ export class User {
   @Column()
   companyCode: string;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   @UpdateDateColumn()
   updatedAt: Date;
 
@@ -642,10 +641,9 @@ export class Attendance {
   @Column({ type: 'int', nullable: true })
   workDurationMinutes: number | null;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   @UpdateDateColumn()
   updatedAt: Date;
 }
