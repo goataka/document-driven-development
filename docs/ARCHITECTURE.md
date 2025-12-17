@@ -1026,9 +1026,10 @@ describe('AttendanceService', () => {
   describe('clockIn', () => {
     it('出勤打刻が正常に記録される', async () => {
       const userId = 'user-123';
+      const now = new Date();
       mockRepository.findOne.mockResolvedValue(null);
-      mockRepository.create.mockReturnValue({ userId, clockInTime: new Date() });
-      mockRepository.save.mockResolvedValue({ id: '1', userId, clockInTime: new Date() });
+      mockRepository.create.mockReturnValue({ userId, clockInTime: now } as Partial<Attendance>);
+      mockRepository.save.mockResolvedValue({ id: '1', userId, clockInTime: now } as Attendance);
 
       const result = await service.clockIn(userId);
 
@@ -1039,7 +1040,7 @@ describe('AttendanceService', () => {
 
     it('既に出勤済みの場合はエラーを投げる', async () => {
       const userId = 'user-123';
-      mockRepository.findOne.mockResolvedValue({ userId, clockInTime: new Date() });
+      mockRepository.findOne.mockResolvedValue({ userId, clockInTime: new Date() } as Attendance);
 
       await expect(service.clockIn(userId)).rejects.toThrow(BadRequestException);
     });
@@ -1371,8 +1372,12 @@ When('パスワード {string} を入力する', async function (this: ICustomWo
 
 When('{string} ボタンをクリックする', async function (this: ICustomWorld, buttonText: string) {
   const page = ensurePage(this);
+  // セキュリティ: 特殊文字をエスケープ
+  const escapedText = buttonText.replace(/['"\\]/g, '\\$&');
   // data-testid属性を優先、フォールバックとしてテキスト検索
-  await page.click(`[data-testid="${buttonText}-button"], button:has-text("${buttonText}")`);
+  const testIdSelector = `[data-testid="${escapedText}-button"]`;
+  const textSelector = `button:has-text("${escapedText}")`;
+  await page.click(`${testIdSelector}, ${textSelector}`);
 });
 
 Then('ダッシュボードページが表示される', async function (this: ICustomWorld) {
@@ -1565,20 +1570,26 @@ jobs:
       
       - name: Start Backend
         working-directory: ./backend
+        env:
+          API_URL: http://localhost:3000/api
+          HEALTH_CHECK_TIMEOUT: 60000
         run: |
           npm ci
           npm run start:prod &
-          # APIサーバーの起動を待機（標準的なエンドポイントで確認）
-          npx wait-on http://localhost:3000/api --timeout 60000
+          # APIサーバーの起動を待機（環境変数で設定可能）
+          npx wait-on ${API_URL} --timeout ${HEALTH_CHECK_TIMEOUT}
       
       - name: Start Frontend
         working-directory: ./frontend
+        env:
+          FRONTEND_URL: http://localhost:5173
+          HEALTH_CHECK_TIMEOUT: 60000
         run: |
           npm ci
           npm run build
           npm run preview &
-          # フロントエンドの起動を待機
-          npx wait-on http://localhost:5173 --timeout 60000
+          # フロントエンドの起動を待機（環境変数で設定可能）
+          npx wait-on ${FRONTEND_URL} --timeout ${HEALTH_CHECK_TIMEOUT}
       
       - name: Run E2E Tests
         run: |
