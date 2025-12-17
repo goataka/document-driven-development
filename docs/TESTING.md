@@ -1,468 +1,65 @@
-# 実装例集
+# テスト戦略
 
-本ドキュメントは、[システムアーキテクチャ設計書](./ARCHITECTURE.md)で定義された設計方針に基づく具体的な実装例を提供します。
+本ドキュメントは、システム全体のテスト戦略と実装方法の詳細を説明します。
+
+**関連ドキュメント**: [システムアーキテクチャ設計書](./ARCHITECTURE.md)
 
 ## 目次
 
-1. [フロントエンド実装例](#フロントエンド実装例)
-2. [バックエンド実装例](#バックエンド実装例)
-3. [テスト実装例](#テスト実装例)
-4. [CI/CD設定例](#cicd設定例)
+1. [テストピラミッド](#テストピラミッド)
+2. [単体テスト](#単体テスト)
+3. [コンポーネントテスト (Storybook)](#コンポーネントテスト-storybook)
+4. [統合テスト](#統合テスト)
+5. [E2Eテスト (Cucumber + Playwright)](#e2eテスト-cucumber--playwright)
+6. [テストカバレッジ目標](#テストカバレッジ目標)
+7. [CI/CD統合](#cicd統合)
+8. [ベストプラクティス](#ベストプラクティス)
 
 ---
 
-## フロントエンド実装例
+## テストピラミッド
 
-### コンポーネント実装
+テストは品質保証の要であり、以下の複数のレイヤーで包括的にテストを実施します。
 
-#### Buttonコンポーネント
-
-```typescript
-// src/components/common/Button/Button.tsx
-interface ButtonProps {
-  label: string;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
-  disabled?: boolean;
-}
-
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  onClick,
-  variant = 'primary',
-  disabled = false
-}) => {
-  return (
-    <button
-      className={`btn btn-${variant}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {label}
-    </button>
-  );
-};
 ```
-
-### 状態管理実装
-
-#### Zustandストア例
-
-```typescript
-// src/store/authStore.ts
-import { create } from 'zustand';
-
-interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-}
-
-export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-  token: null,
-  isAuthenticated: false,
-  login: async (email, password) => {
-    const { user, token } = await authService.login(email, password);
-    set({ user, token, isAuthenticated: true });
-  },
-  logout: () => {
-    set({ user: null, token: null, isAuthenticated: false });
-  }
-}));
-```
-
-### ルーティング実装
-
-```typescript
-// src/routes/index.tsx
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { Layout } from '../components/layouts/Layout';
-import { Login } from '../pages/Login';
-import { Register } from '../pages/Register';
-import { Dashboard } from '../pages/Dashboard';
-import { ClockInOut } from '../pages/ClockInOut';
-import { AttendanceHistory } from '../pages/AttendanceHistory';
-import { ProtectedRoute } from '../components/ProtectedRoute';
-
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      { index: true, element: <Navigate to="/dashboard" replace /> },
-      { path: 'login', element: <Login /> },
-      { path: 'register', element: <Register /> },
-      {
-        path: 'dashboard',
-        element: <ProtectedRoute><Dashboard /></ProtectedRoute>
-      },
-      {
-        path: 'clock',
-        element: <ProtectedRoute><ClockInOut /></ProtectedRoute>
-      },
-      {
-        path: 'history',
-        element: <ProtectedRoute><AttendanceHistory /></ProtectedRoute>
-      }
-    ]
-  }
-]);
-```
-
-### API通信実装
-
-#### Axios設定
-
-```typescript
-// src/services/api.ts
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
-
-// リクエストインターセプター（トークン付与）
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
-
-// レスポンスインターセプター（エラーハンドリング）
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      // トークン無効 -> ログアウト処理
-      localStorage.removeItem('token');
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  }
-);
-
-export default api;
+           ┌─────────────────┐
+           │   E2Eテスト     │  少数・遅い・高コスト
+           │   (Cucumber +   │
+           │   Playwright)   │
+           └─────────────────┘
+                   △
+                  ╱ ╲
+                 ╱   ╲
+                ╱     ╲
+               ╱       ╲
+         ┌────────────────┐
+         │  統合テスト     │   中程度
+         │  (Jest)        │
+         └────────────────┘
+                △
+               ╱ ╲
+              ╱   ╲
+             ╱     ╲
+            ╱       ╲
+      ┌──────────────────┐
+      │   単体テスト      │   多数・速い・低コスト
+      │   (Jest/Vitest)  │
+      └──────────────────┘
 ```
 
 ---
 
-## バックエンド実装例
+## 単体テスト
 
-### モジュール構成
+### フロントエンド: Vitest + React Testing Library
 
-#### AuthModule
+**対象**:
+- ユーティリティ関数
+- カスタムフック
+- 状態管理ロジック
+- 個別のReactコンポーネント
 
-```typescript
-// src/modules/auth/auth.module.ts
-import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-import { UsersModule } from '../users/users.module';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
-import { JwtStrategy } from './strategies/jwt.strategy';
-
-@Module({
-  imports: [
-    UsersModule,
-    PassportModule,
-    JwtModule.register({
-      secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '7d' }
-    })
-  ],
-  controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
-  exports: [AuthService]
-})
-export class AuthModule {}
-```
-
-### コントローラー実装
-
-#### AttendanceController
-
-```typescript
-// src/modules/attendance/attendance.controller.ts
-import { Controller, Post, Get, Query, UseGuards } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { GetUser } from '../auth/decorators/get-user.decorator';
-import { AttendanceService } from './attendance.service';
-import { User } from '../users/entities/user.entity';
-import { GetHistoryDto } from './dto/get-history.dto';
-import { Attendance } from './entities/attendance.entity';
-
-@Controller('attendance')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
-@ApiTags('attendance')
-export class AttendanceController {
-  constructor(private readonly attendanceService: AttendanceService) {}
-
-  @Post('clock-in')
-  @ApiOperation({ summary: '出勤打刻' })
-  @ApiResponse({ status: 201, description: '打刻成功' })
-  async clockIn(@GetUser() user: User): Promise<Attendance> {
-    return this.attendanceService.clockIn(user.id);
-  }
-
-  @Post('clock-out')
-  @ApiOperation({ summary: '退勤打刻' })
-  async clockOut(@GetUser() user: User): Promise<Attendance> {
-    return this.attendanceService.clockOut(user.id);
-  }
-
-  @Get('history')
-  @ApiOperation({ summary: '勤怠履歴取得' })
-  async getHistory(
-    @GetUser() user: User,
-    @Query() query: GetHistoryDto
-  ): Promise<Attendance[]> {
-    return this.attendanceService.getHistory(user.id, query);
-  }
-}
-```
-
-### サービス層実装
-
-#### AttendanceService
-
-```typescript
-// src/modules/attendance/attendance.service.ts
-import { Injectable, BadRequestException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Not, IsNull, Between } from 'typeorm';
-import { Attendance } from './entities/attendance.entity';
-import { GetHistoryDto } from './dto/get-history.dto';
-
-@Injectable()
-export class AttendanceService {
-  constructor(
-    @InjectRepository(Attendance)
-    private attendanceRepository: Repository<Attendance>
-  ) {}
-
-  async clockIn(userId: string): Promise<Attendance> {
-    // 既に出勤打刻済みかチェック
-    const existing = await this.attendanceRepository.findOne({
-      where: {
-        userId,
-        clockInTime: Not(IsNull()),
-        clockOutTime: IsNull()
-      }
-    });
-
-    if (existing) {
-      throw new BadRequestException('既に出勤打刻済みです');
-    }
-
-    const attendance = this.attendanceRepository.create({
-      userId,
-      clockInTime: new Date()
-    });
-
-    return this.attendanceRepository.save(attendance);
-  }
-
-  async clockOut(userId: string): Promise<Attendance> {
-    const attendance = await this.attendanceRepository.findOne({
-      where: {
-        userId,
-        clockInTime: Not(IsNull()),
-        clockOutTime: IsNull()
-      }
-    });
-
-    if (!attendance) {
-      throw new BadRequestException('出勤打刻が見つかりません');
-    }
-
-    attendance.clockOutTime = new Date();
-    return this.attendanceRepository.save(attendance);
-  }
-
-  async getHistory(
-    userId: string,
-    query: GetHistoryDto
-  ): Promise<Attendance[]> {
-    const { startDate, endDate } = query;
-    
-    return this.attendanceRepository.find({
-      where: {
-        userId,
-        clockInTime: Between(startDate, endDate)
-      },
-      order: { clockInTime: 'DESC' }
-    });
-  }
-}
-```
-
-### DTO実装
-
-#### GetHistoryDto
-
-```typescript
-// src/modules/attendance/dto/get-history.dto.ts
-import { ApiProperty } from '@nestjs/swagger';
-import { IsDateString, IsOptional, IsInt, Min, Max } from 'class-validator';
-
-export class GetHistoryDto {
-  @ApiProperty({ description: '開始日', example: '2024-01-01' })
-  @IsDateString()
-  startDate: string;
-
-  @ApiProperty({ description: '終了日', example: '2024-01-31' })
-  @IsDateString()
-  endDate: string;
-
-  @ApiProperty({ description: 'ページ番号', example: 1, required: false })
-  @IsOptional()
-  @IsInt()
-  @Min(1)
-  page?: number = 1;
-
-  @ApiProperty({ description: '1ページあたりの件数', example: 20, required: false })
-  @IsOptional()
-  @IsInt()
-  @Min(1)
-  @Max(100)
-  limit?: number = 20;
-}
-```
-
-### エンティティ定義
-
-#### User Entity
-
-```typescript
-// src/modules/users/entities/user.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Index, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Attendance } from '../../attendance/entities/attendance.entity';
-
-@Entity('users')
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column({ unique: true })
-  @Index()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  companyCode: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
-  @OneToMany(() => Attendance, (attendance) => attendance.user)
-  attendances: Attendance[];
-}
-```
-
-#### Attendance Entity
-
-```typescript
-// src/modules/attendance/entities/attendance.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, Index, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../users/entities/user.entity';
-
-@Entity('attendances')
-export class Attendance {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column()
-  @Index()
-  userId: string;
-
-  @ManyToOne(() => User, (user) => user.attendances)
-  @JoinColumn({ name: 'userId' })
-  user: User;
-
-  @Column({ type: 'timestamp' })
-  @Index()
-  clockInTime: Date;
-
-  @Column({ type: 'timestamp', nullable: true })
-  clockOutTime: Date | null;
-
-  @Column({ type: 'int', nullable: true })
-  workDurationMinutes: number | null;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-}
-```
-
-### セキュリティ実装
-
-#### CORS設定
-
-```typescript
-// src/main.ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  
-  app.enableCors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-  });
-  
-  await app.listen(3000);
-}
-bootstrap();
-```
-
-#### Helmet実装
-
-```typescript
-import helmet from 'helmet';
-app.use(helmet());
-```
-
-#### レート制限
-
-```typescript
-import rateLimit from 'express-rate-limit';
-
-app.use(
-  rateLimit({
-    windowMs: 15 * 60 * 1000, // 15分
-    max: 100 // 最大100リクエスト
-  })
-);
-```
-
----
-
-## テスト実装例
-
-### 単体テスト
-
-#### フロントエンド: Vitest設定
+#### Vitest設定
 
 ```typescript
 // vitest.config.ts
@@ -487,7 +84,7 @@ export default defineConfig({
 });
 ```
 
-#### フロントエンド: フックテスト例
+#### フックテスト例
 
 ```typescript
 // src/hooks/__tests__/useAuth.test.ts
@@ -520,7 +117,7 @@ describe('useAuth', () => {
 });
 ```
 
-#### フロントエンド: コンポーネントテスト例
+#### コンポーネントテスト例
 
 ```typescript
 // src/components/Button/__tests__/Button.test.tsx
@@ -554,7 +151,16 @@ describe('Button', () => {
 });
 ```
 
-#### バックエンド: サービステスト例
+---
+
+### バックエンド: Jest
+
+**対象**:
+- サービス層のビジネスロジック
+- ユーティリティ関数
+- バリデーションロジック
+
+#### サービステスト例
 
 ```typescript
 // src/modules/attendance/attendance.service.spec.ts
@@ -615,9 +221,17 @@ describe('AttendanceService', () => {
 });
 ```
 
-### コンポーネントテスト: Storybook
+---
 
-#### Storybook設定
+## コンポーネントテスト (Storybook)
+
+**目的**:
+- コンポーネントの視覚的な確認
+- 様々な状態（props）での動作確認
+- UIカタログの作成
+- デザインシステムの文書化
+
+### Storybook設定
 
 ```typescript
 // .storybook/main.ts
@@ -643,7 +257,7 @@ const config: StorybookConfig = {
 export default config;
 ```
 
-#### Story例
+### Story例
 
 ```typescript
 // src/components/Button/Button.stories.tsx
@@ -694,7 +308,7 @@ export const Disabled: Story = {
 };
 ```
 
-#### Interactionテスト
+### Interactionテスト
 
 ```typescript
 // src/components/LoginForm/LoginForm.stories.tsx
@@ -733,7 +347,28 @@ export const FilledForm: Story = {
 };
 ```
 
-### 統合テスト: Jest + Supertest
+**実行コマンド**:
+
+```bash
+# Storybookの起動
+npm run storybook
+
+# ビルド
+npm run build-storybook
+```
+
+---
+
+## 統合テスト
+
+### バックエンド統合テスト: Jest + Supertest
+
+**対象**:
+- APIエンドポイントの動作確認
+- 認証・認可フローの確認
+- データベースとの連携確認
+
+#### テスト例
 
 ```typescript
 // test/attendance.e2e-spec.ts
@@ -804,9 +439,43 @@ describe('Attendance API (e2e)', () => {
 });
 ```
 
-### E2Eテスト: Cucumber + Playwright
+---
 
-#### Feature例
+## E2Eテスト (Cucumber + Playwright)
+
+**目的**:
+- ユーザーシナリオ全体の動作確認
+- ブラウザでの実際の挙動確認
+- ビジネス要件の検証
+
+**技術スタック**:
+- **Cucumber**: BDD（振る舞い駆動開発）フレームワーク、Gherkin記法
+- **Playwright**: クロスブラウザ自動化ツール
+
+### ディレクトリ構成
+
+```
+e2e/
+├── features/                    # Gherkin feature files
+│   ├── login.feature
+│   ├── clock-in-out.feature
+│   └── attendance-history.feature
+├── step-definitions/            # ステップ定義
+│   ├── auth.steps.ts
+│   ├── attendance.steps.ts
+│   └── common.steps.ts
+├── support/                     # ヘルパー
+│   ├── world.ts
+│   ├── hooks.ts
+│   └── page-objects/
+│       ├── LoginPage.ts
+│       ├── DashboardPage.ts
+│       └── AttendanceHistoryPage.ts
+├── cucumber.js                  # Cucumber設定
+└── playwright.config.ts         # Playwright設定
+```
+
+### Feature例
 
 ```gherkin
 # e2e/features/login.feature
@@ -836,7 +505,7 @@ describe('Attendance API (e2e)', () => {
     かつ ログインページに留まる
 ```
 
-#### ステップ定義
+### ステップ定義例
 
 ```typescript
 // e2e/step-definitions/auth.steps.ts
@@ -874,16 +543,9 @@ When('パスワード {string} を入力する', async function (this: ICustomWo
 
 When('{string} ボタンをクリックする', async function (this: ICustomWorld, buttonText: string) {
   const page = ensurePage(this);
-  // セキュリティ: 特殊文字をより包括的にエスケープ
-  const escapedText = buttonText.replace(/['"\\<>]/g, (char) => {
-    const escapes: Record<string, string> = {
-      "'": "\\'", '"': '\\"', '\\': '\\\\', '<': '&lt;', '>': '&gt;'
-    };
-    return escapes[char] || char;
-  });
   // data-testid属性を優先（より安全）、フォールバックとしてテキスト検索
-  const testIdSelector = `[data-testid="${escapedText}-button"]`;
-  const textSelector = `button:has-text("${escapedText}")`;
+  const testIdSelector = `[data-testid="${buttonText}-button"]`;
+  const textSelector = `button:has-text("${buttonText}")`;
   await page.click(`${testIdSelector}, ${textSelector}`);
 });
 
@@ -899,7 +561,7 @@ Then('エラーメッセージ {string} が表示される', async function (thi
 });
 ```
 
-#### Page Object例
+### Page Object例
 
 ```typescript
 // e2e/support/page-objects/LoginPage.ts
@@ -942,7 +604,7 @@ export class LoginPage {
 }
 ```
 
-#### Playwright設定
+### Playwright設定
 
 ```typescript
 // e2e/playwright.config.ts
@@ -977,11 +639,37 @@ const config: PlaywrightTestConfig = {
 export default config;
 ```
 
+**実行コマンド**:
+
+```bash
+# E2Eテストの実行
+npm run test:e2e
+
+# 特定のfeatureのみ実行
+npm run test:e2e -- --name="ログイン機能"
+
+# ヘッドレスモードをオフにして実行
+npm run test:e2e -- --headed
+
+# 特定のブラウザで実行
+npm run test:e2e -- --project=chromium
+```
+
 ---
 
-## CI/CD設定例
+## テストカバレッジ目標
 
-### GitHub Actions設定
+| テストタイプ | 目標カバレッジ | 対象 |
+|------------|-------------|------|
+| 単体テスト | 80%以上 | ビジネスロジック、ユーティリティ関数 |
+| 統合テスト | 主要APIエンドポイント全て | API層 |
+| E2Eテスト | 主要ユーザーフロー全て | システム全体 |
+
+---
+
+## CI/CD統合
+
+### GitHub Actions設定例
 
 ```yaml
 # .github/workflows/test.yml
@@ -1093,28 +781,28 @@ jobs:
           path: e2e/playwright-report/
 ```
 
-### 環境変数設定例
+---
 
-#### フロントエンド (.env)
+## ベストプラクティス
 
-```env
-VITE_API_URL=http://localhost:3000/api
-VITE_APP_NAME=勤怠管理システム
-```
+1. **テストの独立性**: 各テストは他のテストに依存せず独立して実行可能であること
+2. **データのセットアップ**: テストデータは各テストで準備し、クリーンアップすること
+3. **モックの活用**: 外部依存を適切にモック化すること
+4. **明確なテスト名**: テストケース名は何をテストしているか明確にすること
+5. **AAA パターン**: Arrange（準備）、Act（実行）、Assert（検証）の順で書くこと
+6. **data-testid属性の使用**: E2Eテストでは`data-testid`属性を使用して安定したセレクタを実現すること（国際化対応にも有効）
+7. **null安全性**: TypeScriptのnon-null assertion operator (`!`) を避け、適切なnullチェックを行うこと
+8. **CI/CD統合**: 全テストがCI/CDパイプラインで自動実行されること
+9. **レポート**: テスト結果とカバレッジレポートを可視化すること
 
-#### バックエンド (.env)
+---
 
-```env
-NODE_ENV=development
-PORT=3000
-DATABASE_URL=postgresql://user:password@localhost:5432/attendance_db
-JWT_SECRET=your-secret-key-change-in-production
-JWT_EXPIRATION=7d
-FRONTEND_URL=http://localhost:5173
-```
+**関連ドキュメント**:
+- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [フロントエンド設計](./FRONTEND.md)
+- [バックエンド設計](./BACKEND.md)
 
 ---
 
 **最終更新日**: 2024年12月17日  
-**バージョン**: 1.0.0  
-**関連ドキュメント**: [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+**バージョン**: 1.0.0
