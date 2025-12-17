@@ -119,46 +119,36 @@
 
 ### 全体構成図
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                         クライアント                          │
-│                    (Webブラウザ: Chrome, Edge等)              │
-└────────────────────────────┬────────────────────────────────┘
-                             │ HTTPS
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                     CDN / Static Hosting                     │
-│                   (React SPA - Vite Build)                   │
-└────────────────────────────┬────────────────────────────────┘
-                             │ REST API (HTTPS)
-                             │ JSON
-┌────────────────────────────▼────────────────────────────────┐
-│                     API Gateway / Load Balancer              │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────▼────────────────────────────────┐
-│                    NestJS Application Server                 │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Controllers (API Endpoints)                         │   │
-│  └─────────────────┬────────────────────────────────────┘   │
-│  ┌─────────────────▼────────────────────────────────────┐   │
-│  │  Services (Business Logic)                           │   │
-│  └─────────────────┬────────────────────────────────────┘   │
-│  ┌─────────────────▼────────────────────────────────────┐   │
-│  │  Repositories (Data Access)                          │   │
-│  └─────────────────┬────────────────────────────────────┘   │
-└────────────────────┼────────────────────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────────────────────┐
-│                     PostgreSQL Database                      │
-│              (Users, Attendance Records, etc.)               │
-└──────────────────────────────────────────────────────────────┘
-
-オプション:
-┌──────────────────────────────────────────────────────────────┐
-│                         Redis Cache                          │
-│                  (Session, Token Store)                      │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    Client[クライアント<br/>Webブラウザ: Chrome, Edge等]
+    CDN[CDN / Static Hosting<br/>React SPA - Vite Build]
+    Gateway[API Gateway / Load Balancer]
+    NestJS[NestJS Application Server]
+    Controllers[Controllers<br/>API Endpoints]
+    Services[Services<br/>Business Logic]
+    Repositories[Repositories<br/>Data Access]
+    DB[(PostgreSQL Database<br/>Users, Attendance Records)]
+    Redis[(Redis Cache<br/>Session, Token Store<br/>オプション)]
+    
+    Client -->|HTTPS| CDN
+    CDN -->|REST API HTTPS<br/>JSON| Gateway
+    Gateway --> NestJS
+    NestJS --> Controllers
+    Controllers --> Services
+    Services --> Repositories
+    Repositories --> DB
+    NestJS -.->|オプション| Redis
+    
+    style Client fill:#e1f5ff
+    style CDN fill:#fff4e1
+    style Gateway fill:#ffe1f5
+    style NestJS fill:#f0e1ff
+    style Controllers fill:#e1ffe1
+    style Services fill:#e1ffe1
+    style Repositories fill:#e1ffe1
+    style DB fill:#ffe1e1
+    style Redis fill:#fff4e1
 ```
 
 ### データフロー
