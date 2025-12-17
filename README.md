@@ -11,14 +11,15 @@
 ```
 .
 ├── README.md                     # このファイル
-├── docs/                         # ドキュメントディレクトリ
+├── spec/                         # 技術仕様ディレクトリ
 │   ├── ARCHITECTURE.md           # システムアーキテクチャ設計書（概要）
 │   ├── FRONTEND.md               # フロントエンド設計詳細
 │   ├── BACKEND.md                # バックエンド設計詳細
 │   ├── DATABASE.md               # データベース設計詳細
 │   ├── API.md                    # API設計詳細
 │   ├── SECURITY.md               # セキュリティ設計詳細
-│   ├── TESTING.md                # テスト戦略詳細
+│   └── TESTING.md                # テスト戦略詳細
+├── docs/                         # ユーザードキュメントディレクトリ
 │   ├── MANUAL.md                # マニュアルナビゲーション
 │   ├── RELEASE_NOTES.md         # リリースノート
 │   ├── FAQ.md                   # よくある質問
@@ -45,30 +46,30 @@
 
 ## ドキュメント
 
-### 技術ドキュメント
+### 技術仕様（spec/）
 
-#### 🏗️ [システムアーキテクチャ設計書](docs/ARCHITECTURE.md)
+#### 🏗️ [システムアーキテクチャ設計書](spec/ARCHITECTURE.md)
 システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
 
-#### 📱 [フロントエンド設計](docs/FRONTEND.md)
+#### 📱 [フロントエンド設計](spec/FRONTEND.md)
 React + TypeScriptの詳細設計とコンポーネント実装例。
 
-#### 🔧 [バックエンド設計](docs/BACKEND.md)
+#### 🔧 [バックエンド設計](spec/BACKEND.md)
 NestJS + TypeScriptの詳細設計とサービス実装例。
 
-#### 💾 [データベース設計](docs/DATABASE.md)
+#### 💾 [データベース設計](spec/DATABASE.md)
 PostgreSQLのテーブル設計とマイグレーション戦略。
 
-#### 🌐 [API設計](docs/API.md)
+#### 🌐 [API設計](spec/API.md)
 RESTful APIのエンドポイント仕様とレスポンス形式。
 
-#### 🔒 [セキュリティ](docs/SECURITY.md)
+#### 🔒 [セキュリティ](spec/SECURITY.md)
 認証・認可とセキュリティ対策の詳細。
 
-#### ✅ [テスト戦略](docs/TESTING.md)
+#### ✅ [テスト戦略](spec/TESTING.md)
 包括的なテスト戦略と実装例（単体、統合、E2E）。
 
-### ユーザードキュメント
+### ユーザードキュメント（docs/）
 
 #### 📘 [ユーザーマニュアル](docs/MANUAL.md)
 各種ドキュメントへのナビゲーションページ。目的に応じた適切なドキュメントを案内します。
