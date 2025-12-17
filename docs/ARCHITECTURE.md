@@ -1342,28 +1342,36 @@ import { ICustomWorld } from '../support/world';
 import { LoginPage } from '../support/page-objects/LoginPage';
 
 Given('ログインページを表示している', async function (this: ICustomWorld) {
-  this.loginPage = new LoginPage(this.page!);
+  if (!this.page) throw new Error('Page not initialized');
+  this.loginPage = new LoginPage(this.page);
   await this.loginPage.goto();
 });
 
 When('メールアドレス {string} を入力する', async function (this: ICustomWorld, email: string) {
-  await this.loginPage!.fillEmail(email);
+  if (!this.loginPage) throw new Error('Login page not initialized');
+  await this.loginPage.fillEmail(email);
 });
 
 When('パスワード {string} を入力する', async function (this: ICustomWorld, password: string) {
-  await this.loginPage!.fillPassword(password);
+  if (!this.loginPage) throw new Error('Login page not initialized');
+  await this.loginPage.fillPassword(password);
 });
 
 When('{string} ボタンをクリックする', async function (this: ICustomWorld, buttonText: string) {
-  await this.page!.click(`button:has-text("${buttonText}")`);
+  if (!this.page) throw new Error('Page not initialized');
+  // data-testid属性を優先、フォールバックとしてテキスト検索
+  await this.page.click(`[data-testid="${buttonText}-button"], button:has-text("${buttonText}")`);
 });
 
 Then('ダッシュボードページが表示される', async function (this: ICustomWorld) {
-  await expect(this.page!).toHaveURL(/.*dashboard/);
+  if (!this.page) throw new Error('Page not initialized');
+  await expect(this.page).toHaveURL(/.*dashboard/);
 });
 
 Then('エラーメッセージ {string} が表示される', async function (this: ICustomWorld, message: string) {
-  await expect(this.page!.locator('.error-message')).toContainText(message);
+  if (!this.page) throw new Error('Page not initialized');
+  // data-testid属性を使用してより安定したセレクタに
+  await expect(this.page.locator('[data-testid="error-message"]')).toContainText(message);
 });
 ```
 
@@ -1484,8 +1492,8 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       
@@ -1494,7 +1502,7 @@ jobs:
         working-directory: ./frontend
         run: |
           npm ci
-          npm run test:unit -- --coverage
+          npm run test -- --coverage
       
       # バックエンド単体テスト
       - name: Backend Unit Tests
@@ -1519,8 +1527,8 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       
@@ -1535,19 +1543,30 @@ jobs:
   e2e-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       
       - name: Install Playwright
         run: npx playwright install --with-deps
       
-      - name: Start Application
+      - name: Start Backend
+        working-directory: ./backend
         run: |
-          cd backend && npm ci && npm run start:prod &
-          cd frontend && npm ci && npm run build && npm run preview &
-          sleep 10
+          npm ci
+          npm run start:prod &
+          # ヘルスチェックで起動を待機
+          npx wait-on http://localhost:3000/health --timeout 60000
+      
+      - name: Start Frontend
+        working-directory: ./frontend
+        run: |
+          npm ci
+          npm run build
+          npm run preview &
+          # フロントエンドの起動を待機
+          npx wait-on http://localhost:5173 --timeout 60000
       
       - name: Run E2E Tests
         run: |
@@ -1557,7 +1576,7 @@ jobs:
       
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: e2e/playwright-report/
@@ -1570,8 +1589,10 @@ jobs:
 3. **モックの活用**: 外部依存を適切にモック化すること
 4. **明確なテスト名**: テストケース名は何をテストしているか明確にすること
 5. **AAA パターン**: Arrange（準備）、Act（実行）、Assert（検証）の順で書くこと
-6. **CI/CD統合**: 全テストがCI/CDパイプラインで自動実行されること
-7. **レポート**: テスト結果とカバレッジレポートを可視化すること
+6. **data-testid属性の使用**: E2Eテストでは`data-testid`属性を使用して安定したセレクタを実現すること（国際化対応にも有効）
+7. **null安全性**: TypeScriptのnon-null assertion operator (`!`) を避け、適切なnullチェックを行うこと
+8. **CI/CD統合**: 全テストがCI/CDパイプラインで自動実行されること
+9. **レポート**: テスト結果とカバレッジレポートを可視化すること
 
 ---
 
