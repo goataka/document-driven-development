@@ -1372,9 +1372,14 @@ When('パスワード {string} を入力する', async function (this: ICustomWo
 
 When('{string} ボタンをクリックする', async function (this: ICustomWorld, buttonText: string) {
   const page = ensurePage(this);
-  // セキュリティ: 特殊文字をエスケープ
-  const escapedText = buttonText.replace(/['"\\]/g, '\\$&');
-  // data-testid属性を優先、フォールバックとしてテキスト検索
+  // セキュリティ: 特殊文字をより包括的にエスケープ
+  const escapedText = buttonText.replace(/['"\\<>]/g, (char) => {
+    const escapes: Record<string, string> = {
+      "'": "\\'", '"': '\\"', '\\': '\\\\', '<': '&lt;', '>': '&gt;'
+    };
+    return escapes[char] || char;
+  });
+  // data-testid属性を優先（より安全）、フォールバックとしてテキスト検索
   const testIdSelector = `[data-testid="${escapedText}-button"]`;
   const textSelector = `button:has-text("${escapedText}")`;
   await page.click(`${testIdSelector}, ${textSelector}`);
@@ -1576,8 +1581,8 @@ jobs:
         run: |
           npm ci
           npm run start:prod &
-          # APIサーバーの起動を待機（環境変数で設定可能）
-          npx wait-on ${API_URL} --timeout ${HEALTH_CHECK_TIMEOUT}
+          # APIサーバーの起動を待機（環境変数で設定可能、クォートで安全に）
+          npx wait-on "${API_URL}" --timeout "${HEALTH_CHECK_TIMEOUT}"
       
       - name: Start Frontend
         working-directory: ./frontend
@@ -1588,8 +1593,8 @@ jobs:
           npm ci
           npm run build
           npm run preview &
-          # フロントエンドの起動を待機（環境変数で設定可能）
-          npx wait-on ${FRONTEND_URL} --timeout ${HEALTH_CHECK_TIMEOUT}
+          # フロントエンドの起動を待機（環境変数で設定可能、クォートで安全に）
+          npx wait-on "${FRONTEND_URL}" --timeout "${HEALTH_CHECK_TIMEOUT}"
       
       - name: Run E2E Tests
         run: |
