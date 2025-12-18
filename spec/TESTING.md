@@ -11,9 +11,14 @@
 3. [コンポーネントテスト (Storybook)](#コンポーネントテスト-storybook)
 4. [統合テスト](#統合テスト)
 5. [E2Eテスト (Cucumber + Playwright)](#e2eテスト-cucumber--playwright)
-6. [テストカバレッジ目標](#テストカバレッジ目標)
-7. [CI/CD統合](#cicd統合)
-8. [ベストプラクティス](#ベストプラクティス)
+6. [スナップショットテスト](#スナップショットテスト)
+7. [アクセシビリティテスト](#アクセシビリティテスト)
+8. [パフォーマンステスト](#パフォーマンステスト)
+9. [セキュリティ・脆弱性テスト](#セキュリティ脆弱性テスト)
+10. [依存関係管理と自動更新](#依存関係管理と自動更新)
+11. [テストカバレッジ目標](#テストカバレッジ目標)
+12. [CI/CD統合](#cicd統合)
+13. [ベストプラクティス](#ベストプラクティス)
 
 ---
 
@@ -657,13 +662,907 @@ npm run test:e2e -- --project=chromium
 
 ---
 
+## スナップショットテスト
+
+スナップショットテストは、UIコンポーネントの予期しない変更を検出するために使用します。
+
+### フロントエンド: Vitest + React
+
+#### スナップショットテスト設定
+
+```typescript
+// vitest.config.ts（スナップショット設定を追加）
+export default defineConfig({
+  test: {
+    // ... 他の設定
+    snapshotSerializers: ['@testing-library/jest-dom/serializers'],
+  }
+});
+```
+
+#### コンポーネントスナップショットテスト例
+
+```typescript
+// src/components/Button/__tests__/Button.snapshot.test.tsx
+import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { Button } from '../Button';
+
+describe('Button スナップショットテスト', () => {
+  it('デフォルトのボタンをスナップショット', () => {
+    const { container } = render(<Button>クリック</Button>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('primary variantのボタンをスナップショット', () => {
+    const { container } = render(
+      <Button variant="primary">送信</Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('disabledボタンをスナップショット', () => {
+    const { container } = render(
+      <Button disabled>無効</Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('loadingボタンをスナップショット', () => {
+    const { container } = render(
+      <Button loading>読み込み中</Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
+```
+
+#### スナップショット更新コマンド
+
+```bash
+# スナップショットを更新
+npm test -- -u
+
+# 特定のファイルのスナップショットを更新
+npm test Button.snapshot.test.tsx -- -u
+```
+
+### ベストプラクティス
+
+1. **小さな単位でテスト**: 大きなコンポーネントツリー全体ではなく、小さな単位でスナップショット
+2. **頻繁に見直し**: スナップショットの更新時は差分を必ず確認
+3. **意図的な変更のみ**: 意図しない変更がないか注意深くレビュー
+4. **動的データの除外**: タイムスタンプやランダムIDなど動的データはモック化
+
+---
+
+## アクセシビリティテスト
+
+アクセシビリティテストは、すべてのユーザーがアプリケーションを使用できることを保証します。
+
+### ツール: jest-axe + axe-core
+
+#### インストール
+
+```bash
+npm install --save-dev jest-axe axe-core @axe-core/playwright
+```
+
+#### jest-axe設定
+
+```typescript
+// src/test/setup.ts
+import { toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+```
+
+#### コンポーネントアクセシビリティテスト例
+
+```typescript
+// src/components/LoginForm/__tests__/LoginForm.a11y.test.tsx
+import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import { describe, it, expect } from 'vitest';
+import { LoginForm } from '../LoginForm';
+
+expect.extend(toHaveNoViolations);
+
+describe('LoginForm アクセシビリティテスト', () => {
+  it('WCAG 2.1 Level AA基準に準拠すること', async () => {
+    const { container } = render(<LoginForm />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it('フォーム要素に適切なラベルがあること', async () => {
+    const { container, getByLabelText } = render(<LoginForm />);
+    
+    // ラベルで要素を取得できることを確認
+    expect(getByLabelText('メールアドレス')).toBeInTheDocument();
+    expect(getByLabelText('パスワード')).toBeInTheDocument();
+    
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it('エラーメッセージが適切にアナウンスされること', async () => {
+    const { container, getByRole } = render(
+      <LoginForm error="認証に失敗しました" />
+    );
+    
+    // aria-liveリージョンが存在することを確認
+    const alert = getByRole('alert');
+    expect(alert).toHaveTextContent('認証に失敗しました');
+    
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});
+```
+
+### E2E アクセシビリティテスト (Playwright)
+
+```typescript
+// e2e/tests/accessibility.spec.ts
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+test.describe('アクセシビリティテスト', () => {
+  test('トップページがアクセシビリティ基準を満たすこと', async ({ page }) => {
+    await page.goto('/');
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
+  test('ログインページがキーボード操作可能なこと', async ({ page }) => {
+    await page.goto('/login');
+    
+    // Tab キーで全てのインタラクティブ要素にアクセス可能
+    await page.keyboard.press('Tab'); // メールアドレスフィールド
+    await expect(page.locator('[name="email"]')).toBeFocused();
+    
+    await page.keyboard.press('Tab'); // パスワードフィールド
+    await expect(page.locator('[name="password"]')).toBeFocused();
+    
+    await page.keyboard.press('Tab'); // ログインボタン
+    await expect(page.locator('button[type="submit"]')).toBeFocused();
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
+  test('フォームバリデーションエラーが適切にアナウンスされること', async ({ page }) => {
+    await page.goto('/login');
+    
+    // 空でログインを試行
+    await page.click('button[type="submit"]');
+    
+    // エラーメッセージのaria-live属性を確認
+    const errorMessage = page.locator('[role="alert"]');
+    await expect(errorMessage).toBeVisible();
+    
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .analyze();
+    
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
+```
+
+### アクセシビリティチェックリスト
+
+- ✅ すべてのフォーム要素に適切な`<label>`がある
+- ✅ 画像に代替テキスト（`alt`属性）がある
+- ✅ 色だけで情報を伝えていない
+- ✅ キーボードだけで全操作が可能
+- ✅ フォーカスインジケーターが明確
+- ✅ 適切なARIA属性（`role`, `aria-label`, `aria-live`など）
+- ✅ 十分なコントラスト比（4.5:1以上）
+- ✅ スクリーンリーダーで適切に読み上げられる
+
+---
+
+## パフォーマンステスト
+
+パフォーマンステストは、アプリケーションの応答速度と効率性を測定します。
+
+### Lighthouse CI
+
+#### インストールと設定
+
+```bash
+npm install --save-dev @lhci/cli
+```
+
+```javascript
+// lighthouserc.js
+module.exports = {
+  ci: {
+    collect: {
+      url: ['http://localhost:3000/', 'http://localhost:3000/login'],
+      numberOfRuns: 3,
+      settings: {
+        preset: 'desktop',
+      },
+    },
+    assert: {
+      preset: 'lighthouse:recommended',
+      assertions: {
+        'categories:performance': ['error', { minScore: 0.9 }],
+        'categories:accessibility': ['error', { minScore: 0.9 }],
+        'categories:best-practices': ['error', { minScore: 0.9 }],
+        'categories:seo': ['error', { minScore: 0.9 }],
+        // Core Web Vitals
+        'first-contentful-paint': ['error', { maxNumericValue: 2000 }],
+        'largest-contentful-paint': ['error', { maxNumericValue: 2500 }],
+        'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
+        'total-blocking-time': ['error', { maxNumericValue: 300 }],
+      },
+    },
+    upload: {
+      target: 'temporary-public-storage',
+    },
+  },
+};
+```
+
+#### Lighthouse CI コマンド
+
+```bash
+# Lighthouse CI 実行
+npm run lhci:collect
+npm run lhci:assert
+
+# package.json に追加
+"scripts": {
+  "lhci:collect": "lhci collect",
+  "lhci:assert": "lhci assert",
+  "lhci:upload": "lhci upload"
+}
+```
+
+### Playwright パフォーマンステスト
+
+```typescript
+// e2e/tests/performance.spec.ts
+import { test, expect } from '@playwright/test';
+
+test.describe('パフォーマンステスト', () => {
+  test('トップページが3秒以内に読み込まれること', async ({ page }) => {
+    const startTime = Date.now();
+    
+    await page.goto('/', { waitUntil: 'networkidle' });
+    
+    const loadTime = Date.now() - startTime;
+    expect(loadTime).toBeLessThan(3000);
+  });
+
+  test('ログイン処理が2秒以内に完了すること', async ({ page }) => {
+    await page.goto('/login');
+    
+    await page.fill('[name="email"]', 'test@example.com');
+    await page.fill('[name="password"]', 'password123');
+    
+    const startTime = Date.now();
+    await page.click('button[type="submit"]');
+    await page.waitForURL('/dashboard');
+    
+    const loginTime = Date.now() - startTime;
+    expect(loginTime).toBeLessThan(2000);
+  });
+
+  test('大量データの表示が5秒以内に完了すること', async ({ page }) => {
+    await page.goto('/attendance-history');
+    
+    const startTime = Date.now();
+    
+    // 最初の行と最後の行が表示されるまで待つ
+    await page.waitForSelector('[data-testid="attendance-row"]:first-child');
+    await page.waitForSelector('[data-testid="attendance-row"]:last-child');
+    
+    const renderTime = Date.now() - startTime;
+    expect(renderTime).toBeLessThan(5000);
+  });
+
+  test('APIレスポンスが1秒以内であること', async ({ page }) => {
+    await page.goto('/dashboard');
+    
+    // API リクエストを監視
+    const responsePromise = page.waitForResponse(
+      response => response.url().includes('/api/attendance') && response.status() === 200
+    );
+    
+    const startTime = Date.now();
+    await page.click('[data-testid="refresh-button"]');
+    const response = await responsePromise;
+    const responseTime = Date.now() - startTime;
+    
+    expect(responseTime).toBeLessThan(1000);
+    expect(response.status()).toBe(200);
+  });
+});
+```
+
+### バックエンドパフォーマンステスト
+
+```typescript
+// backend/test/performance/api.performance.spec.ts
+import { Test } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { AppModule } from '../../src/app.module';
+
+describe('API パフォーマンステスト', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    const moduleRef = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleRef.createNestApplication();
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it('GET /api/users が100ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .get('/api/users')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(100);
+    expect(response.body).toBeDefined();
+  });
+
+  it('GET /api/attendance が200ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .get('/api/attendance?limit=100')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(200);
+    expect(response.body.data).toHaveLength(100);
+  });
+
+  it('POST /api/attendance/clock-in が150ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .post('/api/attendance/clock-in')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(201);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(150);
+    expect(response.body.id).toBeDefined();
+  });
+});
+```
+
+### パフォーマンス目標
+
+| メトリクス | 目標値 |
+|----------|-------|
+| First Contentful Paint (FCP) | < 2.0秒 |
+| Largest Contentful Paint (LCP) | < 2.5秒 |
+| Total Blocking Time (TBT) | < 300ms |
+| Cumulative Layout Shift (CLS) | < 0.1 |
+| Time to Interactive (TTI) | < 3.5秒 |
+| API レスポンス時間 | < 200ms (P95) |
+
+---
+
+## セキュリティ・脆弱性テスト
+
+セキュリティテストは、アプリケーションの脆弱性を検出し、セキュアな実装を保証します。
+
+### npm audit
+
+定期的に依存関係の脆弱性をチェックします。
+
+```bash
+# 脆弱性スキャン
+npm audit
+
+# 自動修正（メジャーバージョンは除く）
+npm audit fix
+
+# 全ての修正を適用
+npm audit fix --force
+```
+
+### Snyk
+
+より高度な脆弱性検出とモニタリングにはSnykを使用します。
+
+#### インストールと設定
+
+```bash
+# Snyk CLI のインストール
+npm install -g snyk
+
+# 認証
+snyk auth
+
+# プロジェクトをテスト
+snyk test
+
+# 継続的なモニタリング
+snyk monitor
+```
+
+#### CI/CD統合
+
+```yaml
+# .github/workflows/security.yml
+name: Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    # 毎日午前2時に実行
+    - cron: '0 2 * * *'
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+      
+      - name: Run Snyk Security Scan
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+      
+      - name: Upload Snyk results to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk.sarif
+```
+
+### OWASP ZAP (動的セキュリティテスト)
+
+#### Docker で実行
+
+```bash
+# OWASP ZAP のベースラインスキャン
+docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+  -t http://localhost:3000 \
+  -r zap-report.html
+
+# フルスキャン
+docker run -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py \
+  -t http://localhost:3000 \
+  -r zap-full-report.html
+```
+
+### セキュリティテスト項目
+
+#### 認証・認可テスト
+
+```typescript
+// backend/test/security/auth.security.spec.ts
+import { Test } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { AppModule } from '../../src/app.module';
+
+describe('認証・認可セキュリティテスト', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    const moduleRef = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleRef.createNestApplication();
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it('認証なしでは保護されたエンドポイントにアクセスできないこと', async () => {
+    await request(app.getHttpServer())
+      .get('/api/users')
+      .expect(401);
+  });
+
+  it('無効なトークンでは認証できないこと', async () => {
+    await request(app.getHttpServer())
+      .get('/api/users')
+      .set('Authorization', 'Bearer invalid-token')
+      .expect(401);
+  });
+
+  it('有効期限切れのトークンでは認証できないこと', async () => {
+    const expiredToken = 'expired-jwt-token';
+    
+    await request(app.getHttpServer())
+      .get('/api/users')
+      .set('Authorization', `Bearer ${expiredToken}`)
+      .expect(401);
+  });
+
+  it('他のユーザーのデータにアクセスできないこと', async () => {
+    const userAToken = 'valid-token-for-user-a';
+    const userBId = 'user-b-id';
+    
+    await request(app.getHttpServer())
+      .get(`/api/users/${userBId}`)
+      .set('Authorization', `Bearer ${userAToken}`)
+      .expect(403);
+  });
+
+  it('管理者権限が必要なエンドポイントは一般ユーザーがアクセスできないこと', async () => {
+    const userToken = 'valid-token-for-regular-user';
+    
+    await request(app.getHttpServer())
+      .post('/api/admin/users')
+      .set('Authorization', `Bearer ${userToken}`)
+      .send({ email: 'test@example.com', role: 'admin' })
+      .expect(403);
+  });
+});
+```
+
+#### インジェクション攻撃テスト
+
+```typescript
+// backend/test/security/injection.security.spec.ts
+describe('インジェクション攻撃テスト', () => {
+  it('SQLインジェクション攻撃を防ぐこと', async () => {
+    const maliciousInput = "'; DROP TABLE users; --";
+    
+    await request(app.getHttpServer())
+      .get('/api/users')
+      .query({ search: maliciousInput })
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+    
+    // テーブルが削除されていないことを確認
+    await request(app.getHttpServer())
+      .get('/api/users')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+  });
+
+  it('XSS攻撃を防ぐこと', async () => {
+    const xssPayload = '<script>alert("XSS")</script>';
+    
+    const response = await request(app.getHttpServer())
+      .post('/api/attendance/memo')
+      .set('Authorization', 'Bearer valid-token')
+      .send({ memo: xssPayload })
+      .expect(201);
+    
+    // レスポンスでスクリプトがエスケープされていることを確認
+    expect(response.body.memo).not.toContain('<script>');
+    expect(response.body.memo).toContain('&lt;script&gt;');
+  });
+
+  it('コマンドインジェクション攻撃を防ぐこと', async () => {
+    const maliciousFilename = 'file.txt; rm -rf /';
+    
+    await request(app.getHttpServer())
+      .post('/api/export')
+      .set('Authorization', 'Bearer valid-token')
+      .send({ filename: maliciousFilename })
+      .expect(400); // バリデーションエラー
+  });
+});
+```
+
+#### レート制限テスト
+
+```typescript
+// backend/test/security/rate-limit.security.spec.ts
+describe('レート制限テスト', () => {
+  it('短時間に大量のリクエストが制限されること', async () => {
+    const requests = Array(100).fill(null).map(() =>
+      request(app.getHttpServer())
+        .post('/api/auth/login')
+        .send({ email: 'test@example.com', password: 'password' })
+    );
+    
+    const responses = await Promise.all(requests);
+    
+    // 一部のリクエストが429 (Too Many Requests) であることを確認
+    const tooManyRequestsCount = responses.filter(r => r.status === 429).length;
+    expect(tooManyRequestsCount).toBeGreaterThan(0);
+  });
+});
+```
+
+### セキュリティチェックリスト
+
+- ✅ 全てのユーザー入力をバリデーション
+- ✅ SQLインジェクション対策（パラメータ化クエリ使用）
+- ✅ XSS対策（出力エスケープ）
+- ✅ CSRF対策（トークン検証）
+- ✅ 適切な認証・認可実装
+- ✅ パスワードの安全なハッシュ化（bcrypt）
+- ✅ HTTPS通信の強制
+- ✅ セキュリティヘッダーの設定（Helmet使用）
+- ✅ レート制限の実装
+- ✅ 定期的な依存関係の更新と脆弱性スキャン
+
+---
+
+## 依存関係管理と自動更新
+
+依存関係を最新かつ安全な状態に保つための戦略とツールです。
+
+### Dependabot
+
+GitHub Dependabotを使用して、依存関係の自動更新を設定します。
+
+#### 設定ファイル
+
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  # npm dependencies (frontend)
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "team-developers"
+    assignees:
+      - "tech-lead"
+    labels:
+      - "dependencies"
+      - "frontend"
+    commit-message:
+      prefix: "chore(deps):"
+    # セキュリティアップデートは即座にマージ
+    # 通常のアップデートはレビュー後にマージ
+    versioning-strategy: increase
+    
+  # npm dependencies (backend)
+  - package-ecosystem: "npm"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "team-developers"
+    assignees:
+      - "tech-lead"
+    labels:
+      - "dependencies"
+      - "backend"
+    commit-message:
+      prefix: "chore(deps):"
+    versioning-strategy: increase
+    
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    labels:
+      - "dependencies"
+      - "ci-cd"
+    commit-message:
+      prefix: "chore(ci):"
+```
+
+### Renovate（代替オプション）
+
+Renovate は Dependabot よりも柔軟な設定が可能です。
+
+```json
+// renovate.json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "schedule": ["every weekend"],
+  "timezone": "Asia/Tokyo",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["^@types/"],
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["typescript", "eslint", "prettier"],
+      "groupName": "linting and formatting"
+    },
+    {
+      "matchPackagePatterns": ["^@testing-library/", "^vitest", "^jest"],
+      "groupName": "testing tools"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@team-security"]
+  }
+}
+```
+
+### 依存関係チェックのワークフロー
+
+```yaml
+# .github/workflows/dependency-check.yml
+name: Dependency Check
+
+on:
+  schedule:
+    # 毎週月曜日午前9時に実行
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Check for outdated packages
+        run: npm outdated || true
+      
+      - name: Check for security vulnerabilities
+        run: npm audit --audit-level=moderate
+      
+      - name: Run Snyk test
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      
+      - name: Check for deprecated packages
+        run: npx check-dependencies
+      
+      - name: Generate dependency report
+        run: |
+          echo "# 依存関係レポート" > dependency-report.md
+          echo "## Outdated Packages" >> dependency-report.md
+          npm outdated --json >> dependency-report.md || true
+          echo "## Security Audit" >> dependency-report.md
+          npm audit --json >> dependency-report.md || true
+      
+      - name: Upload dependency report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-report
+          path: dependency-report.md
+```
+
+### npm-check-updates
+
+手動で依存関係を更新する場合に便利なツールです。
+
+```bash
+# npm-check-updates のインストール
+npm install -g npm-check-updates
+
+# 更新可能なパッケージを確認
+ncu
+
+# 全てのパッケージを最新版に更新
+ncu -u
+
+# インストール
+npm install
+
+# テスト実行
+npm test
+```
+
+### 依存関係管理のベストプラクティス
+
+1. **定期的な更新**: 週次でDependabotによる自動更新を実行
+2. **セキュリティパッチ優先**: セキュリティアップデートは即座に適用
+3. **グループ化**: 関連する依存関係をグループ化して一括更新
+4. **自動マージ**: パッチ・マイナーバージョンの更新は自動マージ
+5. **メジャーバージョン**: 手動レビュー必須
+6. **テスト必須**: CI/CDでの自動テストをパス後にマージ
+7. **ロックファイルのコミット**: `package-lock.json` を必ずコミット
+8. **監査ログ**: 更新履歴とテスト結果を記録
+
+### package.json のバージョン管理戦略
+
+```json
+{
+  "dependencies": {
+    // ピン留め（推奨：本番環境の重要なライブラリ）
+    "react": "18.2.0",
+    
+    // マイナー・パッチ更新許可（推奨：安定したライブラリ）
+    "axios": "^1.6.0",
+    
+    // パッチ更新のみ許可（慎重な場合）
+    "lodash": "~4.17.21"
+  },
+  "devDependencies": {
+    // 開発ツールは柔軟に更新可能
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  }
+}
+```
+
+---
+
 ## テストカバレッジ目標
 
 | テストタイプ | 目標カバレッジ | 対象 |
 |------------|-------------|------|
 | 単体テスト | 80%以上 | ビジネスロジック、ユーティリティ関数 |
+| スナップショットテスト | 全UIコンポーネント | UIコンポーネントの視覚的回帰 |
 | 統合テスト | 主要APIエンドポイント全て | API層 |
 | E2Eテスト | 主要ユーザーフロー全て | システム全体 |
+| アクセシビリティテスト | 全ページ・コンポーネント | WCAG 2.1 Level AA準拠 |
+| パフォーマンステスト | 全主要ページ | Core Web Vitals目標達成 |
+| セキュリティテスト | 全APIエンドポイント | 脆弱性ゼロ |
 
 ---
 
@@ -794,6 +1693,12 @@ jobs:
 7. **null安全性**: TypeScriptのnon-null assertion operator (`!`) を避け、適切なnullチェックを行うこと
 8. **CI/CD統合**: 全テストがCI/CDパイプラインで自動実行されること
 9. **レポート**: テスト結果とカバレッジレポートを可視化すること
+10. **スナップショットレビュー**: スナップショット更新時は差分を必ず確認すること
+11. **アクセシビリティ優先**: 全UIコンポーネントでアクセシビリティテストを実施すること
+12. **パフォーマンス監視**: 定期的にパフォーマンステストを実行し、劣化を早期検出すること
+13. **セキュリティファースト**: セキュリティテストを開発サイクルに組み込むこと
+14. **依存関係の最新化**: 定期的に依存関係を更新し、脆弱性を解消すること
+15. **テスト自動化**: 手動テストを最小限にし、自動化可能なテストは全て自動化すること
 
 ---
 
@@ -804,5 +1709,5 @@ jobs:
 
 ---
 
-**最終更新日**: 2024年12月17日  
-**バージョン**: 1.0.0
+**最終更新日**: 2024年12月18日  
+**バージョン**: 2.0.0
