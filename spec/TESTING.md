@@ -1,6 +1,7 @@
 # テスト戦略
 
 本ドキュメントは、システム全体のテスト戦略と実装方法の詳細を説明します。
+**すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: [システムアーキテクチャ設計書](./ARCHITECTURE.md)
 
@@ -1072,6 +1073,7 @@ describe('API パフォーマンステスト', () => {
 ## セキュリティ・脆弱性テスト
 
 セキュリティテストは、アプリケーションの脆弱性を検出し、セキュアな実装を保証します。
+すべて無料のツールを使用します。
 
 ### npm audit
 
@@ -1088,24 +1090,25 @@ npm audit fix
 npm audit fix --force
 ```
 
-### Snyk
+### audit-ci
 
-より高度な脆弱性検出とモニタリングにはSnykを使用します。
+CI/CDで脆弱性チェックを強制するために、audit-ciを使用します（無料）。
 
 #### インストールと設定
 
 ```bash
-# Snyk CLI のインストール
-npm install -g snyk
+# audit-ci のインストール
+npm install --save-dev audit-ci
+```
 
-# 認証
-snyk auth
+#### package.json に追加
 
-# プロジェクトをテスト
-snyk test
-
-# 継続的なモニタリング
-snyk monitor
+```json
+{
+  "scripts": {
+    "audit:check": "audit-ci --moderate"
+  }
+}
 ```
 
 #### CI/CD統合
@@ -1141,17 +1144,58 @@ jobs:
       - name: Run npm audit
         run: npm audit --audit-level=moderate
       
-      - name: Run Snyk Security Scan
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
+      - name: Run audit-ci
+        run: npx audit-ci --moderate
       
-      - name: Upload Snyk results to GitHub
-        uses: github/codeql-action/upload-sarif@v3
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        if: github.event_name == 'pull_request'
+```
+
+### GitHub CodeQL (無料)
+
+GitHub の組み込みセキュリティスキャン機能を活用します。
+
+```yaml
+# .github/workflows/codeql.yml
+name: CodeQL Analysis
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript', 'typescript']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
         with:
-          sarif_file: snyk.sarif
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
 ```
 
 ### OWASP ZAP (動的セキュリティテスト)
@@ -1328,9 +1372,9 @@ describe('レート制限テスト', () => {
 
 依存関係を最新かつ安全な状態に保つための戦略とツールです。
 
-### Dependabot
+### Dependabot（無料：GitHub標準機能）
 
-GitHub Dependabotを使用して、依存関係の自動更新を設定します。
+GitHub Dependabotを使用して、依存関係の自動更新を設定します。パブリック・プライベートリポジトリともに無料で利用可能です。
 
 #### 設定ファイル
 
@@ -1395,9 +1439,9 @@ updates:
       prefix: "chore(ci):"
 ```
 
-### Renovate（代替オプション）
+### Renovate（無料：オープンソース・セルフホスト可能）
 
-Renovate は Dependabot よりも柔軟な設定が可能です。
+Renovate は Dependabot よりも柔軟な設定が可能です。オープンソースプロジェクトでは無料、セルフホストも可能です。
 
 ```json
 // renovate.json
@@ -1473,10 +1517,8 @@ jobs:
       - name: Check for security vulnerabilities
         run: npm audit --audit-level=moderate
       
-      - name: Run Snyk test
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Run audit-ci
+        run: npx audit-ci --moderate
       
       - name: Check for deprecated packages
         run: npx check-dependencies
