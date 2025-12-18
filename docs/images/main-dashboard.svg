@@ -10,18 +10,18 @@
   <!-- Clock In/Out Buttons -->
   <g>
     <!-- Clock In Button -->
-    <rect x="50" y="120" width="200" height="100" fill="#00a86b" stroke="none" rx="10"/>
+    <rect x="50" y="120" width="200" height="100" fill="#28a745" stroke="none" rx="10"/>
     <text x="150" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">出勤</text>
     <text x="150" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">クリックして出勤打刻</text>
     
     <!-- Clock Out Button -->
-    <rect x="280" y="120" width="200" height="100" fill="#e64545" stroke="none" rx="10"/>
+    <rect x="280" y="120" width="200" height="100" fill="#dc3545" stroke="none" rx="10"/>
     <text x="380" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">退勤</text>
     <text x="380" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">クリックして退勤打刻</text>
   </g>
   
   <!-- Current Status Panel -->
-  <rect x="50" y="250" width="430" height="150" fill="white" stroke="#ddd" stroke-width="2" rx="10"/>
+  <rect x="50" y="250" width="430" height="150" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   <text x="70" y="285" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">本日の勤務状況</text>
   
   <!-- Status Info -->
@@ -30,21 +30,21 @@
   <text x="70" y="370" font-family="Arial, sans-serif" font-size="14" fill="#666">状態: 勤務中</text>
   
   <!-- Quick Access Menu -->
-  <rect x="520" y="120" width="630" height="280" fill="white" stroke="#ddd" stroke-width="2" rx="10"/>
+  <rect x="520" y="120" width="630" height="280" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   <text x="540" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">クイックアクセス</text>
   
   <!-- Menu Items -->
-  <rect x="540" y="180" width="280" height="60" fill="#e9ecef" stroke="#adb5bd" stroke-width="1" rx="5"/>
+  <rect x="540" y="180" width="280" height="60" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
   <text x="560" y="217" font-family="Arial, sans-serif" font-size="16" fill="#333">📋 勤怠履歴を見る</text>
   
-  <rect x="850" y="180" width="280" height="60" fill="#e9ecef" stroke="#adb5bd" stroke-width="1" rx="5"/>
+  <rect x="850" y="180" width="280" height="60" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
   <text x="870" y="217" font-family="Arial, sans-serif" font-size="16" fill="#333">⚙️ 設定</text>
   
-  <rect x="540" y="260" width="280" height="60" fill="#e9ecef" stroke="#adb5bd" stroke-width="1" rx="5"/>
+  <rect x="540" y="260" width="280" height="60" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
   <text x="560" y="297" font-family="Arial, sans-serif" font-size="16" fill="#333">❓ ヘルプ</text>
   
   <!-- Recent Activity -->
-  <rect x="50" y="430" width="1100" height="240" fill="white" stroke="#ddd" stroke-width="2" rx="10"/>
+  <rect x="50" y="430" width="1100" height="240" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   <text x="70" y="465" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">最近の勤怠記録</text>
   
   <!-- Table Header -->
@@ -61,7 +61,7 @@
   <text x="280" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">09:00</text>
   <text x="470" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">-</text>
   <text x="660" y="538" font-family="Arial, sans-serif" font-size="13" fill="#212529">-</text>
-  <text x="850" y="538" font-family="Arial, sans-serif" font-size="13" fill="#00a86b">勤務中</text>
+  <text x="850" y="538" font-family="Arial, sans-serif" font-size="13" fill="#28a745">勤務中</text>
   
   <rect x="70" y="550" width="1060" height="35" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
   <text x="90" y="573" font-family="Arial, sans-serif" font-size="13" fill="#212529">2025/12/09</text>
