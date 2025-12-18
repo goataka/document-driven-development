@@ -15,6 +15,7 @@
 
 ---
 
+## スナップショットテスト
 
 スナップショットテストは、UIコンポーネントの予期しない変更を検出するために使用します。
 
@@ -85,6 +86,10 @@ npm test Button.snapshot.test.tsx -- -u
 2. **頻繁に見直し**: スナップショットの更新時は差分を必ず確認
 3. **意図的な変更のみ**: 意図しない変更がないか注意深くレビュー
 4. **動的データの除外**: タイムスタンプやランダムIDなど動的データはモック化
+
+---
+
+
 
 ---
 
@@ -221,6 +226,10 @@ test.describe('アクセシビリティテスト', () => {
 
 ---
 
+
+
+---
+
 ## パフォーマンステスト
 
 パフォーマンステストは、アプリケーションの応答速度と効率性を測定します。
@@ -293,6 +302,135 @@ test.describe('パフォーマンステスト', () => {
     await page.goto('/', { waitUntil: 'networkidle' });
     
     const loadTime = Date.now() - startTime;
+    expect(loadTime).toBeLessThan(3000);
+  });
+
+  test('ログイン処理が2秒以内に完了すること', async ({ page }) => {
+    await page.goto('/login');
+    
+    await page.fill('[name="email"]', 'test@example.com');
+    await page.fill('[name="password"]', 'password123');
+    
+    const startTime = Date.now();
+    await page.click('button[type="submit"]');
+    await page.waitForURL('/dashboard');
+    
+    const loginTime = Date.now() - startTime;
+    expect(loginTime).toBeLessThan(2000);
+  });
+
+  test('大量データの表示が5秒以内に完了すること', async ({ page }) => {
+    await page.goto('/attendance-history');
+    
+    const startTime = Date.now();
+    
+    // 最初の行と最後の行が表示されるまで待つ
+    await page.waitForSelector('[data-testid="attendance-row"]:first-child');
+    await page.waitForSelector('[data-testid="attendance-row"]:last-child');
+    
+    const renderTime = Date.now() - startTime;
+    expect(renderTime).toBeLessThan(5000);
+  });
+
+  test('APIレスポンスが1秒以内であること', async ({ page }) => {
+    await page.goto('/dashboard');
+    
+    // API リクエストを監視
+    const responsePromise = page.waitForResponse(
+      response => response.url().includes('/api/attendance') && response.status() === 200
+    );
+    
+    const startTime = Date.now();
+    await page.click('[data-testid="refresh-button"]');
+    const response = await responsePromise;
+    const responseTime = Date.now() - startTime;
+    
+    expect(responseTime).toBeLessThan(1000);
+    expect(response.status()).toBe(200);
+  });
+});
+```
+
+### バックエンドパフォーマンステスト
+
+```typescript
+// backend/test/performance/api.performance.spec.ts
+import { Test } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { AppModule } from '../../src/app.module';
+
+describe('API パフォーマンステスト', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    const moduleRef = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleRef.createNestApplication();
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it('GET /api/users が100ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .get('/api/users')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(100);
+    expect(response.body).toBeDefined();
+  });
+
+  it('GET /api/attendance が200ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .get('/api/attendance?limit=100')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(200);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(200);
+    expect(response.body.data).toHaveLength(100);
+  });
+
+  it('POST /api/attendance/clock-in が150ms以内にレスポンスすること', async () => {
+    const startTime = Date.now();
+    
+    const response = await request(app.getHttpServer())
+      .post('/api/attendance/clock-in')
+      .set('Authorization', 'Bearer valid-token')
+      .expect(201);
+    
+    const responseTime = Date.now() - startTime;
+    expect(responseTime).toBeLessThan(150);
+    expect(response.body.id).toBeDefined();
+  });
+});
+```
+
+### パフォーマンス目標
+
+| メトリクス | 目標値 |
+|----------|-------|
+| First Contentful Paint (FCP) | < 2.0秒 |
+| Largest Contentful Paint (LCP) | < 2.5秒 |
+| Total Blocking Time (TBT) | < 300ms |
+| Cumulative Layout Shift (CLS) | < 0.1 |
+| Time to Interactive (TTI) | < 3.5秒 |
+| API レスポンス時間 | < 200ms (P95) |
+
+---
+
+
 
 ---
 
