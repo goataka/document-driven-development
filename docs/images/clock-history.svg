@@ -156,7 +156,7 @@
   <text x="1640" y="908" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#28a745">記録済み</text>
   
   <!-- Pagination -->
-  <g transform="translate(650, 770)">
+  <g transform="translate(800, 980)">
     <rect x="0" y="0" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
     <text x="32" y="28" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">◀</text>
     

@@ -25,25 +25,25 @@
   
   <!-- Month Navigation (Centered) -->
   <g>
-    <rect x="832" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
-    <text x="864" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">◀</text>
+    <rect x="952" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="984" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">◀</text>
     
-    <rect x="912" y="159" width="288" height="40" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
-    <text x="1056" y="187" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月</text>
+    <rect x="1032" y="159" width="288" height="40" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
+    <text x="1176" y="187" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月</text>
     
-    <rect x="1216" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
-    <text x="1248" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">▶</text>
+    <rect x="1336" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="1368" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">▶</text>
   </g>
   
   <!-- Summary Section -->
   <rect x="464" y="222" width="1408" height="135" fill="white" stroke="#007cc5" stroke-width="4" rx="8"/>
-  <g transform="translate(730, 195)">
-    <text x="-150" y="27" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">勤務時間</text>
-    <text x="-150" y="67" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#007cc5">63時間15分</text>
+  <g>
+    <text x="816" y="267" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">勤務時間</text>
+    <text x="816" y="327" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#007cc5">63時間15分</text>
   </g>
-  <g transform="translate(730, 195)">
-    <text x="240" y="27" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">残業時間</text>
-    <text x="240" y="67" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#dc3545">5時間15分</text>
+  <g>
+    <text x="1520" y="267" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">残業時間</text>
+    <text x="1520" y="327" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#dc3545">5時間15分</text>
   </g>
   
   <!-- Table -->
@@ -148,7 +148,7 @@
   <text x="1704" y="841" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
   
   <!-- Pagination at bottom -->
-  <g transform="translate(650, 780)">
+  <g transform="translate(800, 990)">
     <rect x="0" y="0" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
     <text x="32" y="28" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">◀</text>
     
