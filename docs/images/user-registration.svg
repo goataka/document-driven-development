@@ -1,42 +1,42 @@
-<svg width="800" height="520" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="800" height="520" fill="#f8f9fa"/>
+  <rect width="1200" height="800" fill="#f8f9fa"/>
   
   <!-- Registration Box -->
-  <rect x="200" y="50" width="400" height="420" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  <rect x="300" y="77" width="600" height="646" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   
   <!-- Title -->
-  <text x="400" y="100" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">新規ユーザー登録</text>
+  <text x="600" y="154" font-family="Arial, sans-serif" font-size="37" font-weight="bold" text-anchor="middle" fill="#333">新規ユーザー登録</text>
   
   <!-- Name Label -->
-  <text x="220" y="145" font-family="Arial, sans-serif" font-size="14" fill="#666">氏名</text>
+  <text x="330" y="223" font-family="Arial, sans-serif" font-size="22" fill="#666">氏名</text>
   
   <!-- Name Input -->
-  <rect x="220" y="155" width="360" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="330" y="238" width="540" height="54" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Email Label -->
-  <text x="220" y="215" font-family="Arial, sans-serif" font-size="14" fill="#666">メールアドレス</text>
+  <text x="330" y="331" font-family="Arial, sans-serif" font-size="22" fill="#666">メールアドレス</text>
   
   <!-- Email Input -->
-  <rect x="220" y="225" width="360" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="330" y="346" width="540" height="54" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Password Label -->
-  <text x="220" y="285" font-family="Arial, sans-serif" font-size="14" fill="#666">パスワード</text>
+  <text x="330" y="438" font-family="Arial, sans-serif" font-size="22" fill="#666">パスワード</text>
   
   <!-- Password Input -->
-  <rect x="220" y="295" width="360" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="330" y="454" width="540" height="54" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Password Confirm Label -->
-  <text x="220" y="355" font-family="Arial, sans-serif" font-size="14" fill="#666">パスワード（確認）</text>
+  <text x="330" y="546" font-family="Arial, sans-serif" font-size="22" fill="#666">パスワード（確認）</text>
   
   <!-- Password Confirm Input -->
-  <rect x="220" y="365" width="360" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="330" y="562" width="540" height="54" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Register Button -->
-  <rect x="220" y="420" width="360" height="40" fill="#007cc5" stroke="none" rx="5"/>
-  <text x="400" y="447" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">登録</text>
+  <rect x="330" y="646" width="540" height="62" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="600" y="687" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">登録</text>
   
   <!-- Login Link -->
-  <text x="400" y="485" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">すでにアカウントをお持ちの方は</text>
-  <text x="400" y="502" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#007cc5" style="text-decoration: underline; cursor: pointer;">ログイン</text>
+  <text x="600" y="746" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">すでにアカウントをお持ちの方は</text>
+  <text x="600" y="772" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#007cc5" style="text-decoration: underline; cursor: pointer;">ログイン</text>
 </svg>
