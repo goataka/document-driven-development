@@ -248,7 +248,13 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 
 ## テスト戦略
 
-テスト戦略の詳細については、[テスト戦略ドキュメント](./TESTING.md)を参照してください。
+テスト戦略の詳細については、以下のドキュメントを参照してください：
+
+- **[テスト戦略（概要・単体・コンポーネント）](./TESTING.md)**: テストピラミッド、単体テスト（Jest/Vitest）、Storybook
+- **[統合・E2Eテスト](./TESTING_INTEGRATION.md)**: Jest + Supertest、Cucumber + Playwright
+- **[品質テスト](./TESTING_QUALITY.md)**: スナップショット、アクセシビリティ（WCAG 2.1）、パフォーマンス（Lighthouse CI）
+- **[セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)**: npm audit、audit-ci、GitHub CodeQL、OWASP ZAP
+- **[依存関係管理](./TESTING_DEPENDENCIES.md)**: Dependabot、Renovate
 
 ### 概要
 
@@ -396,7 +402,11 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 - **[データベース設計](./DATABASE.md)**: PostgreSQLのスキーマ設計
 - **[API設計](./API.md)**: RESTful APIの仕様
 - **[セキュリティ](./SECURITY.md)**: セキュリティ対策の詳細
-- **[テスト戦略](./TESTING.md)**: 包括的なテスト戦略
+- **[テスト戦略](./TESTING.md)**: テスト戦略概要・単体・コンポーネント
+  - [統合・E2Eテスト](./TESTING_INTEGRATION.md)
+  - [品質テスト](./TESTING_QUALITY.md)
+  - [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
+  - [依存関係管理](./TESTING_DEPENDENCIES.md)
 
 #### ユーザードキュメント
 

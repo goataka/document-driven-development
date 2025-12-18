@@ -18,7 +18,11 @@
 │   ├── DATABASE.md               # データベース設計詳細
 │   ├── API.md                    # API設計詳細
 │   ├── SECURITY.md               # セキュリティ設計詳細
-│   └── TESTING.md                # テスト戦略詳細
+│   ├── TESTING.md                # テスト戦略（概要・単体・コンポーネント）
+│   ├── TESTING_INTEGRATION.md    # 統合・E2Eテスト
+│   ├── TESTING_QUALITY.md        # 品質テスト（スナップショット・アクセシビリティ・パフォーマンス）
+│   ├── TESTING_SECURITY.md       # セキュリティ・脆弱性テスト
+│   └── TESTING_DEPENDENCIES.md   # 依存関係管理と自動更新
 ├── docs/                         # ユーザードキュメントディレクトリ
 │   ├── MANUAL.md                # マニュアルナビゲーション
 │   ├── RELEASE_NOTES.md         # リリースノート
@@ -67,7 +71,13 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 認証・認可とセキュリティ対策の詳細。
 
 #### ✅ [テスト戦略](spec/TESTING.md)
-包括的なテスト戦略と実装例（単体、統合、E2E）。
+テスト戦略の概要と基本テスト（単体テスト・コンポーネントテスト・Storybook）。
+
+##### 詳細なテストドキュメント:
+- [統合・E2Eテスト](spec/TESTING_INTEGRATION.md) - Jest + Supertest統合テスト、Cucumber + Playwright E2Eテスト
+- [品質テスト](spec/TESTING_QUALITY.md) - スナップショット、アクセシビリティ（WCAG 2.1）、パフォーマンス（Lighthouse CI）
+- [セキュリティ・脆弱性テスト](spec/TESTING_SECURITY.md) - npm audit、audit-ci、GitHub CodeQL、OWASP ZAP（すべて無料）
+- [依存関係管理と自動更新](spec/TESTING_DEPENDENCIES.md) - Dependabot、Renovate（すべて無料）
 
 ### ユーザードキュメント（docs/）
 
