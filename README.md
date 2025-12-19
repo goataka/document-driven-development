@@ -34,31 +34,31 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 #### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
 テスト戦略の全体像とテストピラミッド。
 
-#### [単体テスト](docs/test/UNIT.md)
+#### 🧪 [単体テスト](docs/test/UNIT.md)
 Jest（backend）、Vitest + React Testing Library（frontend）。
 
-#### [コンポーネントテスト](docs/test/COMPONENT.md)
+#### 🎨 [コンポーネントテスト](docs/test/COMPONENT.md)
 Storybook、ビジュアルテスト。
 
-#### [統合テスト](docs/test/INTEGRATION.md)
+#### 🔗 [統合テスト](docs/test/INTEGRATION.md)
 Jest + Supertest APIテスト。
 
-#### [E2Eテスト](docs/test/E2E.md)
+#### 🎭 [E2Eテスト](docs/test/E2E.md)
 Cucumber + Playwright、BDDテスト。
 
-#### [スナップショットテスト](docs/test/SNAPSHOT.md)
+#### 📸 [スナップショットテスト](docs/test/SNAPSHOT.md)
 Vitestスナップショット、視覚的回帰テスト。
 
-#### [アクセシビリティテスト](docs/test/ACCESSIBILITY.md)
+#### ♿ [アクセシビリティテスト](docs/test/ACCESSIBILITY.md)
 WCAG 2.1 Level AA準拠、jest-axe。
 
-#### [パフォーマンステスト](docs/test/PERFORMANCE.md)
+#### ⚡ [パフォーマンステスト](docs/test/PERFORMANCE.md)
 Lighthouse CI、Core Web Vitals。
 
-#### [静的セキュリティテスト](docs/test/SECURITY.md)
+#### 🔐 [静的セキュリティテスト](docs/test/SECURITY.md)
 npm audit、audit-ci、GitHub CodeQL（すべて無料）。
 
-#### [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
+#### 🛡️ [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
 OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 
 ## ユーザー向けドキュメント（docs/user/）
