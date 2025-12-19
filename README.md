@@ -6,9 +6,7 @@
 
 ドキュメント駆動開発とは、実装に先立ってドキュメントを作成し、システムの仕様や動作を明確にすることで、より質の高い開発を目指す手法です。
 
-## ドキュメント
-
-### 実装仕様（docs/implement/）
+## 実装（docs/implement/）
 
 #### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
 システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
@@ -31,22 +29,39 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 #### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-### ✅ テスト戦略（docs/test/）
+## テスト戦略（docs/test/）
 
 #### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
 テスト戦略の全体像とテストピラミッド。
 
-- [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
-- [コンポーネントテスト](docs/test/COMPONENT.md) - Storybook、ビジュアルテスト
-- [統合テスト](docs/test/INTEGRATION.md) - Jest + Supertest APIテスト
-- [E2Eテスト](docs/test/E2E.md) - Cucumber + Playwright、BDDテスト
-- [スナップショットテスト](docs/test/SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
-- [アクセシビリティテスト](docs/test/ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
-- [パフォーマンステスト](docs/test/PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
-- [静的セキュリティテスト](docs/test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
-- [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
+#### [単体テスト](docs/test/UNIT.md)
+Jest（backend）、Vitest + React Testing Library（frontend）。
 
-### 📘 [ユーザー向けドキュメント](docs/user/)
+#### [コンポーネントテスト](docs/test/COMPONENT.md)
+Storybook、ビジュアルテスト。
+
+#### [統合テスト](docs/test/INTEGRATION.md)
+Jest + Supertest APIテスト。
+
+#### [E2Eテスト](docs/test/E2E.md)
+Cucumber + Playwright、BDDテスト。
+
+#### [スナップショットテスト](docs/test/SNAPSHOT.md)
+Vitestスナップショット、視覚的回帰テスト。
+
+#### [アクセシビリティテスト](docs/test/ACCESSIBILITY.md)
+WCAG 2.1 Level AA準拠、jest-axe。
+
+#### [パフォーマンステスト](docs/test/PERFORMANCE.md)
+Lighthouse CI、Core Web Vitals。
+
+#### [静的セキュリティテスト](docs/test/SECURITY.md)
+npm audit、audit-ci、GitHub CodeQL（すべて無料）。
+
+#### [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
+OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
+
+## ユーザー向けドキュメント（docs/user/）
 
 ユーザーマニュアル、スタートアップガイド、機能リファレンス、FAQ、リリースノートなど、システムの利用に関する全てのドキュメント。
 
