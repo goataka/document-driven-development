@@ -6,7 +6,7 @@
 **関連ドキュメント**: 
 - [システムアーキテクチャ設計書](../implement/)
 - [テスト戦略概要](../test/)
-- [静的セキュリティテスト](../test/SECURITY.md)
+- [静的セキュリティテスト](../test/SECURITY_STATIC.md)
 
 ## 目次
 
@@ -289,4 +289,4 @@ npm test
 
 - [システムアーキテクチャ設計書](../implement/)
 - [テスト戦略概要](../test/)
-- [静的セキュリティテスト](../test/SECURITY.md)
+- [静的セキュリティテスト](../test/SECURITY_STATIC.md)
