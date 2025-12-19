@@ -42,8 +42,8 @@ graph LR
 ```
 
 ### 使用例
-```markdown
-## システム構成図
+
+Mermaidを使用したシステム構成図の例：
 
 ```mermaid
 graph TD
@@ -51,7 +51,15 @@ graph TD
     B --> C[バックエンド<br/>NestJS]
     C --> D[(データベース<br/>PostgreSQL)]
 ```
-```
+
+マークダウンでは以下のように記述します：
+
+    ```mermaid
+    graph TD
+        A[フロントエンド<br/>React] --> B[API<br/>REST]
+        B --> C[バックエンド<br/>NestJS]
+        C --> D[(データベース<br/>PostgreSQL)]
+    ```
 
 ## コミュニケーション
 
@@ -134,10 +142,8 @@ function calculateWorkingHours(clockIn: Date, clockOut: Date): number {
 ```
 
 ### 図の配置
-```markdown
-## システムフロー
 
-以下のフローで処理を行います。
+シーケンス図の例：
 
 ```mermaid
 sequenceDiagram
@@ -153,7 +159,23 @@ sequenceDiagram
     B-->>F: トークン発行
     F-->>U: ログイン完了
 ```
-```
+
+マークダウンでは以下のように記述します：
+
+    ```mermaid
+    sequenceDiagram
+        participant U as ユーザー
+        participant F as フロントエンド
+        participant B as バックエンド
+        participant D as データベース
+        
+        U->>F: ログイン
+        F->>B: 認証リクエスト
+        B->>D: ユーザー情報取得
+        D-->>B: ユーザーデータ
+        B-->>F: トークン発行
+        F-->>U: ログイン完了
+    ```
 
 ## コミット規約
 
