@@ -4,8 +4,9 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./TESTING.md)
 - [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [テスト戦略概要](../test/TESTING.md)
+- [静的セキュリティテスト](../test/TESTING_SECURITY.md)
 
 ## 目次
 
@@ -286,7 +287,6 @@ npm test
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./TESTING.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-- [品質テスト](./TESTING_QUALITY.md)
-- [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
+- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [テスト戦略概要](../test/TESTING.md)
+- [静的セキュリティテスト](../test/TESTING_SECURITY.md)

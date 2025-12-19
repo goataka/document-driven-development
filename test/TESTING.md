@@ -4,7 +4,7 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
 - [統合・E2Eテスト](./TESTING_INTEGRATION.md)
 - [品質テスト (スナップショット・アクセシビリティ・パフォーマンス)](./TESTING_QUALITY.md)
 - [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)

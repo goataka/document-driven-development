@@ -4,7 +4,7 @@
 
 **関連ドキュメント**: 
 - [テスト戦略概要](./TESTING.md)
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
 
 ## 目次
 
@@ -359,6 +359,8 @@ npm run test:e2e -- --project=chromium
 ## 関連ドキュメント
 
 - [テスト戦略概要](./TESTING.md)
-- [品質テスト](./TESTING_QUALITY.md)
-- [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
-- [依存関係管理と自動更新](./TESTING_DEPENDENCIES.md)
+- [スナップショットテスト](./TESTING_SNAPSHOT.md)
+- [アクセシビリティテスト](./TESTING_ACCESSIBILITY.md)
+- [パフォーマンステスト](./TESTING_PERFORMANCE.md)
+- [静的セキュリティテスト](./TESTING_SECURITY.md)
+- [動的セキュリティテスト](./TESTING_SECURITY_DYNAMIC.md)

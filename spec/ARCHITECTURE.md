@@ -250,11 +250,14 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 
 テスト戦略の詳細については、以下のドキュメントを参照してください：
 
-- **[テスト戦略（概要・単体・コンポーネント）](./TESTING.md)**: テストピラミッド、単体テスト（Jest/Vitest）、Storybook
-- **[統合・E2Eテスト](./TESTING_INTEGRATION.md)**: Jest + Supertest、Cucumber + Playwright
-- **[品質テスト](./TESTING_QUALITY.md)**: スナップショット、アクセシビリティ（WCAG 2.1）、パフォーマンス（Lighthouse CI）
-- **[セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)**: npm audit、audit-ci、GitHub CodeQL、OWASP ZAP
-- **[依存関係管理](./TESTING_DEPENDENCIES.md)**: Dependabot、Renovate
+- **[テスト戦略（概要・単体・コンポーネント）](../test/TESTING.md)**: テストピラミッド、単体テスト（Jest/Vitest）、Storybook
+- **[統合・E2Eテスト](../test/TESTING_INTEGRATION.md)**: Jest + Supertest、Cucumber + Playwright
+- **[スナップショットテスト](../test/TESTING_SNAPSHOT.md)**: Vitestスナップショット、視覚的回帰テスト
+- **[アクセシビリティテスト](../test/TESTING_ACCESSIBILITY.md)**: WCAG 2.1 Level AA準拠、jest-axe
+- **[パフォーマンステスト](../test/TESTING_PERFORMANCE.md)**: Lighthouse CI、Core Web Vitals
+- **[静的セキュリティテスト](../test/TESTING_SECURITY.md)**: npm audit、audit-ci、GitHub CodeQL
+- **[動的セキュリティテスト](../test/TESTING_SECURITY_DYNAMIC.md)**: OWASP ZAP、インジェクション攻撃テスト
+- **[依存関係管理](./DEPENDENCIES.md)**: Dependabot、Renovate
 
 ### 概要
 
@@ -347,7 +350,7 @@ npm run migration:run
 
 ### CI/CDパイプライン
 
-GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュメント](./TESTING.md#cicd統合)を参照してください。
+GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュメント](../test/TESTING.md#cicd統合)を参照してください。
 
 ### デプロイ先候補
 
@@ -402,11 +405,14 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 - **[データベース設計](./DATABASE.md)**: PostgreSQLのスキーマ設計
 - **[API設計](./API.md)**: RESTful APIの仕様
 - **[セキュリティ](./SECURITY.md)**: セキュリティ対策の詳細
-- **[テスト戦略](./TESTING.md)**: テスト戦略概要・単体・コンポーネント
-  - [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-  - [品質テスト](./TESTING_QUALITY.md)
-  - [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
-  - [依存関係管理](./TESTING_DEPENDENCIES.md)
+- **[テスト戦略](../test/TESTING.md)**: テスト戦略概要・単体・コンポーネント
+  - [統合・E2Eテスト](../test/TESTING_INTEGRATION.md)
+  - [スナップショットテスト](../test/TESTING_SNAPSHOT.md)
+  - [アクセシビリティテスト](../test/TESTING_ACCESSIBILITY.md)
+  - [パフォーマンステスト](../test/TESTING_PERFORMANCE.md)
+  - [静的セキュリティテスト](../test/TESTING_SECURITY.md)
+  - [動的セキュリティテスト](../test/TESTING_SECURITY_DYNAMIC.md)
+- **[依存関係管理](./DEPENDENCIES.md)**: 依存関係の自動更新とセキュリティスキャン
 
 #### ユーザードキュメント
 
