@@ -61,7 +61,7 @@
 
 ### 実装仕様（docs/implement/）
 
-#### 🏗️ [システムアーキテクチャ設計書](docs/implement/)
+#### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
 システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
 
 #### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
@@ -84,7 +84,7 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 
 ### ✅ テスト戦略（docs/test/）
 
-#### ✅ [テスト戦略概要](docs/test/)
+#### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
 テスト戦略の全体像とテストピラミッド。
 
 - [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
