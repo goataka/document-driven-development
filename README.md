@@ -75,7 +75,7 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 📖 [スタートアップガイド](docs/user/guides/startup.md)
 初めてシステムを使う方向けの基本的な使い方ガイド。
 
-#### 📚 [機能リファレンス](docs/user/)
+#### 📚 [機能リファレンス](docs/user/README.md)
 各機能の詳細な使い方（ユーザー登録、ログイン、ログアウト、出勤・退勤打刻、勤怠履歴）。
 
 #### 🔧 [トラブルシューティング](docs/user/guides/troubleshooting.md)
