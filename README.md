@@ -13,6 +13,13 @@
 ├── README.md                     # このファイル
 ├── agent.md                      # AIエージェント向け指示書
 ├── docs/                         # ドキュメントディレクトリ
+│   ├── agreement/                # 共通規約
+│   │   ├── writing-style.md     # 文章スタイル規約
+│   │   ├── diagram-style.md     # 図表作成規約
+│   │   ├── communication.md     # コミュニケーション規約
+│   │   ├── commit-convention.md # コミット規約
+│   │   ├── code-comment.md      # コードコメント規約
+│   │   └── document-structure.md # ドキュメント構造規約
 │   ├── implement/                # 実装仕様ディレクトリ
 │   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
 │   │   ├── FRONTEND.md          # フロントエンド設計詳細
@@ -157,11 +164,13 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 
 AIエージェントがこのリポジトリで作業する際のガイドラインを[agent.md](agent.md)に記載しています。
 
-主な内容：
-- 文章スタイル（箇条書き、3文以内の制限）
-- 図表の記述（Mermaidの使用）
-- コミュニケーション（日本語の使用）
-- コード記述（過剰なコメントの回避）
+プロジェクト全体で統一された規約は[docs/agreement/](docs/agreement/)に定義されています：
+- 文章スタイル規約
+- 図表作成規約（Mermaid使用）
+- コミュニケーション規約（日本語）
+- コミット規約
+- コードコメント規約
+- ドキュメント構造規約
 
 ## コントリビューション
 
