@@ -6,55 +6,6 @@
 
 ドキュメント駆動開発とは、実装に先立ってドキュメントを作成し、システムの仕様や動作を明確にすることで、より質の高い開発を目指す手法です。
 
-```
-.
-├── README.md                     # このファイル
-├── docs/                         # ドキュメントディレクトリ
-│   ├── implement/                # 実装仕様ディレクトリ
-│   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
-│   │   ├── FRONTEND.md          # フロントエンド設計詳細
-│   │   ├── BACKEND.md           # バックエンド設計詳細
-│   │   ├── DATABASE.md          # データベース設計詳細
-│   │   ├── API.md               # API設計詳細
-│   │   ├── SECURITY.md          # セキュリティ設計詳細
-│   │   └── DEPENDENCIES.md      # 依存関係管理と自動更新
-│   ├── test/                    # テスト戦略ディレクトリ
-│   │   ├── OVERVIEW.md          # テスト戦略概要
-│   │   ├── UNIT.md              # 単体テスト
-│   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
-│   │   ├── INTEGRATION.md       # 統合テスト
-│   │   ├── E2E.md               # E2Eテスト（Cucumber + Playwright）
-│   │   ├── SNAPSHOT.md          # スナップショットテスト
-│   │   ├── ACCESSIBILITY.md     # アクセシビリティテスト（WCAG 2.1）
-│   │   ├── PERFORMANCE.md       # パフォーマンステスト（Lighthouse CI）
-│   │   ├── SECURITY.md          # 静的セキュリティテスト
-│   │   └── SECURITY_DYNAMIC.md  # 動的セキュリティテスト（OWASP ZAP）
-│   └── user/                    # ユーザーマニュアル
-│       ├── README.md           # ユーザー向けドキュメント一覧
-│       ├── MANUAL.md           # マニュアルナビゲーション
-│       ├── RELEASE_NOTES.md    # リリースノート
-│       ├── FAQ.md              # よくある質問
-│       ├── guides/              # ガイド
-│       │   ├── startup.md      # スタートアップガイド
-│       │   └── troubleshooting.md # トラブルシューティング
-│       ├── reference/           # 機能リファレンス
-│       │   ├── user-registration.md # ユーザー登録機能
-│       │   ├── login.md        # ログイン機能
-│       │   ├── logout.md       # ログアウト機能
-│       │   ├── clock-in-out.md # 出勤・退勤打刻機能
-│       │   └── attendance-history.md # 勤怠履歴機能
-│       └── images/              # ドキュメント用画像
-│           ├── user-registration.svg
-│           ├── login.svg
-│           ├── main-dashboard.svg
-│           ├── clock-in.svg
-│           ├── clock-out.svg
-│           ├── attendance-history.svg
-│           └── logout.svg
-├── CONTRIBUTING.md               # コントリビューションガイド
-└── LICENSE                       # ライセンス情報
-```
-
 ## ドキュメント
 
 ### 実装仕様（docs/implement/）
