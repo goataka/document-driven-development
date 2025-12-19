@@ -12,6 +12,25 @@
 .
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
+│   ├── implement/                # 実装仕様ディレクトリ
+│   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
+│   │   ├── FRONTEND.md          # フロントエンド設計詳細
+│   │   ├── BACKEND.md           # バックエンド設計詳細
+│   │   ├── DATABASE.md          # データベース設計詳細
+│   │   ├── API.md               # API設計詳細
+│   │   ├── SECURITY.md          # セキュリティ設計詳細
+│   │   └── DEPENDENCIES.md      # 依存関係管理と自動更新
+│   ├── test/                    # テスト戦略ディレクトリ
+│   │   ├── OVERVIEW.md          # テスト戦略概要
+│   │   ├── UNIT.md              # 単体テスト
+│   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
+│   │   ├── INTEGRATION.md       # 統合テスト
+│   │   ├── E2E.md               # E2Eテスト（Cucumber + Playwright）
+│   │   ├── SNAPSHOT.md          # スナップショットテスト
+│   │   ├── ACCESSIBILITY.md     # アクセシビリティテスト（WCAG 2.1）
+│   │   ├── PERFORMANCE.md       # パフォーマンステスト（Lighthouse CI）
+│   │   ├── SECURITY.md          # 静的セキュリティテスト
+│   │   └── SECURITY_DYNAMIC.md  # 動的セキュリティテスト（OWASP ZAP）
 │   └── user/                    # ユーザーマニュアル
 │       ├── README.md           # ユーザー向けドキュメント一覧
 │       ├── MANUAL.md           # マニュアルナビゲーション
@@ -28,7 +47,7 @@
 │       │   └── attendance-history.md # 勤怠履歴機能
 │       └── images/              # ドキュメント用画像
 │           ├── user-registration.svg
-│           ├── login-screen.svg
+│           ├── login.svg
 │           ├── main-dashboard.svg
 │           ├── clock-in.svg
 │           ├── clock-out.svg
@@ -40,7 +59,46 @@
 
 ## ドキュメント
 
+### 実装仕様（docs/implement/）
+
+#### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
+システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
+
+#### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
+React + TypeScriptの詳細設計とコンポーネント実装例。
+
+#### 🔧 [バックエンド設計](docs/implement/BACKEND.md)
+NestJS + TypeScriptの詳細設計とサービス実装例。
+
+#### 💾 [データベース設計](docs/implement/DATABASE.md)
+PostgreSQLのテーブル設計とマイグレーション戦略。
+
+#### 🌐 [API設計](docs/implement/API.md)
+RESTful APIのエンドポイント仕様とレスポンス形式。
+
+#### 🔒 [セキュリティ](docs/implement/SECURITY.md)
+認証・認可とセキュリティ対策の詳細。
+
+#### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
+Dependabot、Renovateによる自動更新（すべて無料）。
+
+### ✅ テスト戦略（docs/test/）
+
+#### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
+テスト戦略の全体像とテストピラミッド。
+
+- [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
+- [コンポーネントテスト](docs/test/COMPONENT.md) - Storybook、ビジュアルテスト
+- [統合テスト](docs/test/INTEGRATION.md) - Jest + Supertest APIテスト
+- [E2Eテスト](docs/test/E2E.md) - Cucumber + Playwright、BDDテスト
+- [スナップショットテスト](docs/test/SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
+- [アクセシビリティテスト](docs/test/ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
+- [パフォーマンステスト](docs/test/PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
+- [静的セキュリティテスト](docs/test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
+- [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
+
 ### 📘 [ユーザー向けドキュメント](docs/user/)
+
 ユーザーマニュアル、スタートアップガイド、機能リファレンス、FAQ、リリースノートなど、システムの利用に関する全てのドキュメント。
 
 ## システム要件
@@ -67,20 +125,22 @@
 
 このプロジェクトはドキュメント駆動開発に基づいており、以下の順序で進めます：
 
-1. ✅ **ドキュメント作成**（現在のフェーズ）
+1. ✅ **ドキュメント作成**（完了）
    - リリースノートの作成
    - ユーザーマニュアルの作成
    - 画面イメージの作成
 
-2. 🔄 **要件定義**（次のフェーズ）
+2. ✅ **アーキテクチャ設計**（完了）
+   - システムアーキテクチャ設計
+   - 技術スタックの選定
+   - 開発方針の策定
+
+3. 🔄 **要件定義と詳細設計**（次のフェーズ）
    - 機能要件の詳細化
    - 非機能要件の定義
    - API仕様の策定
-
-3. ⏳ **設計**（予定）
-   - システムアーキテクチャ設計
-   - データベース設計
-   - UI/UX設計
+   - データベース詳細設計
+   - UI/UX詳細設計
 
 4. ⏳ **実装**（予定）
    - バックエンド開発
