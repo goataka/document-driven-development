@@ -11,34 +11,37 @@
 ```
 .
 ├── README.md                     # このファイル
-├── spec/                         # 技術仕様ディレクトリ
-│   ├── ARCHITECTURE.md           # システムアーキテクチャ設計書（概要）
-│   ├── FRONTEND.md               # フロントエンド設計詳細
-│   ├── BACKEND.md                # バックエンド設計詳細
-│   ├── DATABASE.md               # データベース設計詳細
-│   ├── API.md                    # API設計詳細
-│   ├── SECURITY.md               # セキュリティ設計詳細
-│   └── DEPENDENCIES.md           # 依存関係管理と自動更新
-├── test/                         # テスト戦略ディレクトリ
-│   ├── OVERVIEW.md                # テスト戦略（概要・単体・コンポーネント）
-│   ├── INTEGRATION.md    # 統合・E2Eテスト
-│   ├── SNAPSHOT.md       # スナップショットテスト
-│   ├── ACCESSIBILITY.md  # アクセシビリティテスト（WCAG 2.1）
-│   ├── PERFORMANCE.md    # パフォーマンステスト（Lighthouse CI）
-│   ├── SECURITY.md       # 静的セキュリティテスト
-│   └── SECURITY_DYNAMIC.md # 動的セキュリティテスト（OWASP ZAP）
-├── docs/                         # ユーザードキュメントディレクトリ
+├── docs/                         # ドキュメントディレクトリ
+│   ├── implement/                # 実装仕様ディレクトリ
+│   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
+│   │   ├── FRONTEND.md          # フロントエンド設計詳細
+│   │   ├── BACKEND.md           # バックエンド設計詳細
+│   │   ├── DATABASE.md          # データベース設計詳細
+│   │   ├── API.md               # API設計詳細
+│   │   ├── SECURITY.md          # セキュリティ設計詳細
+│   │   └── DEPENDENCIES.md      # 依存関係管理と自動更新
+│   ├── test/                    # テスト戦略ディレクトリ
+│   │   ├── OVERVIEW.md          # テスト戦略概要
+│   │   ├── UNIT.md              # 単体テスト
+│   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
+│   │   ├── INTEGRATION.md       # 統合テスト
+│   │   ├── E2E.md               # E2Eテスト（Cucumber + Playwright）
+│   │   ├── SNAPSHOT.md          # スナップショットテスト
+│   │   ├── ACCESSIBILITY.md     # アクセシビリティテスト（WCAG 2.1）
+│   │   ├── PERFORMANCE.md       # パフォーマンステスト（Lighthouse CI）
+│   │   ├── SECURITY.md          # 静的セキュリティテスト
+│   │   └── SECURITY_DYNAMIC.md  # 動的セキュリティテスト（OWASP ZAP）
 │   ├── MANUAL.md                # マニュアルナビゲーション
 │   ├── RELEASE_NOTES.md         # リリースノート
 │   ├── FAQ.md                   # よくある質問
 │   ├── guides/                  # ガイド
-│   │   ├── startup.md          # スタートアップガイド
-│   │   └── troubleshooting.md  # トラブルシューティング
+│   │   ├── startup.md           # スタートアップガイド
+│   │   └── troubleshooting.md   # トラブルシューティング
 │   ├── reference/               # 機能リファレンス
 │   │   ├── user-registration.md # ユーザー登録機能
-│   │   ├── login.md            # ログイン機能
-│   │   ├── logout.md           # ログアウト機能
-│   │   ├── clock-in-out.md     # 出勤・退勤打刻機能
+│   │   ├── login.md             # ログイン機能
+│   │   ├── logout.md            # ログアウト機能
+│   │   ├── clock-in-out.md      # 出勤・退勤打刻機能
 │   │   └── attendance-history.md # 勤怠履歴機能
 │   └── images/                  # ドキュメント用画像
 │       ├── user-registration.svg
@@ -54,41 +57,44 @@
 
 ## ドキュメント
 
-### 技術仕様（spec/）
+### 実装仕様（docs/implement/）
 
-#### 🏗️ [システムアーキテクチャ設計書](spec/ARCHITECTURE.md)
+#### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
 システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
 
-#### 📱 [フロントエンド設計](spec/FRONTEND.md)
+#### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
 React + TypeScriptの詳細設計とコンポーネント実装例。
 
-#### 🔧 [バックエンド設計](spec/BACKEND.md)
+#### 🔧 [バックエンド設計](docs/implement/BACKEND.md)
 NestJS + TypeScriptの詳細設計とサービス実装例。
 
-#### 💾 [データベース設計](spec/DATABASE.md)
+#### 💾 [データベース設計](docs/implement/DATABASE.md)
 PostgreSQLのテーブル設計とマイグレーション戦略。
 
-#### 🌐 [API設計](spec/API.md)
+#### 🌐 [API設計](docs/implement/API.md)
 RESTful APIのエンドポイント仕様とレスポンス形式。
 
-#### 🔒 [セキュリティ](spec/SECURITY.md)
+#### 🔒 [セキュリティ](docs/implement/SECURITY.md)
 認証・認可とセキュリティ対策の詳細。
 
-#### 🔗 [依存関係管理](spec/DEPENDENCIES.md)
+#### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-### テスト戦略（test/）
+### テスト戦略（docs/test/）
 
-#### ✅ [テスト戦略（概要）](test/OVERVIEW.md)
-テスト戦略の概要と基本テスト（単体テスト・コンポーネントテスト・Storybook）。
+#### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
+テスト戦略の全体像とテストピラミッド。
 
 ##### 詳細なテストドキュメント:
-- [統合・E2Eテスト](test/INTEGRATION.md) - Jest + Supertest統合テスト、Cucumber + Playwright E2Eテスト
-- [スナップショットテスト](test/SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
-- [アクセシビリティテスト](test/ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
-- [パフォーマンステスト](test/PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
-- [静的セキュリティテスト](test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
-- [動的セキュリティテスト](test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
+- [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
+- [コンポーネントテスト](docs/test/COMPONENT.md) - Storybook、ビジュアルテスト
+- [統合テスト](docs/test/INTEGRATION.md) - Jest + Supertest APIテスト
+- [E2Eテスト](docs/test/E2E.md) - Cucumber + Playwright、BDDテスト
+- [スナップショットテスト](docs/test/SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
+- [アクセシビリティテスト](docs/test/ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
+- [パフォーマンステスト](docs/test/PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
+- [静的セキュリティテスト](docs/test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
+- [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
 
 ### ユーザードキュメント（docs/）
 

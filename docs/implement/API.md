@@ -2,7 +2,7 @@
 
 本ドキュメントは、RESTful APIの設計詳細を説明します。
 
-**関連ドキュメント**: [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+**関連ドキュメント**: [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
 
 ## 目次
 
@@ -90,7 +90,7 @@
 ---
 
 **関連ドキュメント**:
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
 - [バックエンド設計](./BACKEND.md)
 - [セキュリティ](./SECURITY.md)
 

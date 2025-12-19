@@ -2,7 +2,7 @@
 
 本ドキュメントは、React + TypeScriptをベースとしたフロントエンド設計の詳細を説明します。
 
-**関連ドキュメント**: [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+**関連ドキュメント**: [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
 
 ## 目次
 
@@ -247,7 +247,7 @@ export default api;
 詳細な実装例については、各セクションに記載されています。
 
 **関連ドキュメント**:
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
 - [バックエンド設計](./BACKEND.md)
 - [テスト戦略](./TESTING.md)
 

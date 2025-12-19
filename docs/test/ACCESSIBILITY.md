@@ -3,8 +3,8 @@
 本ドキュメントは、アクセシビリティテスト(WCAG 2.1 Level AA準拠)の実装方法を説明します。
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./TESTING.md)
-- [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
+- [テスト戦略概要](./OVERVIEW.md)
+- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
 
 ## 目次
 
@@ -164,7 +164,7 @@ test.describe('アクセシビリティテスト', () => {
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./TESTING.md)
+- [テスト戦略概要](./OVERVIEW.md)
 - [統合・E2Eテスト](./INTEGRATION.md)
 - [スナップショットテスト](./SNAPSHOT.md)
 - [パフォーマンステスト](./PERFORMANCE.md)

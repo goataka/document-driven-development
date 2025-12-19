@@ -4,10 +4,10 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./TESTING.md)
+- [テスト戦略概要](./OVERVIEW.md)
 - [動的セキュリティテスト](./SECURITY_DYNAMIC.md)
-- [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
-- [セキュリティ設計書](../spec/SECURITY.md)
+- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [セキュリティ設計書](../implement/SECURITY.md)
 
 ## 目次
 
@@ -184,8 +184,8 @@ jobs:
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./TESTING.md)
+- [テスト戦略概要](./OVERVIEW.md)
 - [動的セキュリティテスト](./SECURITY_DYNAMIC.md)
 - [統合・E2Eテスト](./INTEGRATION.md)
-- [依存関係管理](../spec/DEPENDENCIES.md)
-- [セキュリティ設計書](../spec/SECURITY.md)
+- [依存関係管理](../implement/DEPENDENCIES.md)
+- [セキュリティ設計書](../implement/SECURITY.md)
