@@ -255,7 +255,7 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 - **[スナップショットテスト](../test/SNAPSHOT.md)**: Vitestスナップショット、視覚的回帰テスト
 - **[アクセシビリティテスト](../test/ACCESSIBILITY.md)**: WCAG 2.1 Level AA準拠、jest-axe
 - **[パフォーマンステスト](../test/PERFORMANCE.md)**: Lighthouse CI、Core Web Vitals
-- **[静的セキュリティテスト](../test/SECURITY.md)**: npm audit、audit-ci、GitHub CodeQL
+- **[静的セキュリティテスト](../test/SECURITY_STATIC.md)**: npm audit、audit-ci、GitHub CodeQL
 - **[動的セキュリティテスト](../test/SECURITY_DYNAMIC.md)**: OWASP ZAP、インジェクション攻撃テスト
 - **[依存関係管理](./DEPENDENCIES.md)**: Dependabot、Renovate
 
@@ -410,7 +410,7 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
   - [スナップショットテスト](../test/SNAPSHOT.md)
   - [アクセシビリティテスト](../test/ACCESSIBILITY.md)
   - [パフォーマンステスト](../test/PERFORMANCE.md)
-  - [静的セキュリティテスト](../test/SECURITY.md)
+  - [静的セキュリティテスト](../test/SECURITY_STATIC.md)
   - [動的セキュリティテスト](../test/SECURITY_DYNAMIC.md)
 - **[依存関係管理](./DEPENDENCIES.md)**: 依存関係の自動更新とセキュリティスキャン
 
