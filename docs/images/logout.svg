@@ -1,28 +1,28 @@
-<svg width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="500" height="300" fill="#f8f9fa"/>
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
   
   <!-- Header -->
-  <rect x="0" y="0" width="500" height="60" fill="#007cc5"/>
-  <text x="20" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">勤怠管理システム</text>
+  <rect x="0" y="0" width="1920" height="108" fill="#007cc5"/>
+  <text x="48" y="68" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white">勤怠管理システム</text>
   
   <!-- User Menu -->
-  <rect x="350" y="15" width="130" height="30" fill="#005a8c" stroke="none" rx="5"/>
-  <text x="365" y="36" font-family="Arial, sans-serif" font-size="13" fill="white">山田太郎 ▼</text>
+  <rect x="1544" y="27" width="312" height="54" fill="#005a8c" stroke="none" rx="5"/>
+  <text x="1576" y="62" font-family="Arial, sans-serif" font-size="28" fill="white">山田太郎 ▼</text>
   
   <!-- Dropdown Menu -->
-  <rect x="350" y="50" width="130" height="160" fill="white" stroke="#ced4da" stroke-width="2" rx="5"/>
+  <rect x="1544" y="90" width="312" height="287" fill="white" stroke="#ced4da" stroke-width="2" rx="5"/>
   
   <!-- Menu Items -->
-  <rect x="350" y="50" width="130" height="40" fill="#f8f9fa" stroke-width="0" rx="5 5 0 0"/>
-  <text x="365" y="75" font-family="Arial, sans-serif" font-size="12" fill="#495057">👤 プロフィール</text>
+  <rect x="1544" y="90" width="312" height="71" fill="#f8f9fa" stroke-width="0" rx="5 5 0 0"/>
+  <text x="1576" y="135" font-family="Arial, sans-serif" font-size="25" fill="#495057">👤 プロフィール</text>
   
-  <rect x="350" y="90" width="130" height="40" fill="white" stroke-width="0"/>
-  <text x="365" y="115" font-family="Arial, sans-serif" font-size="12" fill="#495057">⚙️ 設定</text>
+  <rect x="1544" y="162" width="312" height="71" fill="white" stroke-width="0"/>
+  <text x="1576" y="206" font-family="Arial, sans-serif" font-size="25" fill="#495057">⚙️ 設定</text>
   
-  <rect x="350" y="130" width="130" height="40" fill="white" stroke-width="0"/>
-  <text x="365" y="155" font-family="Arial, sans-serif" font-size="12" fill="#495057">❓ ヘルプ</text>
+  <rect x="1544" y="233" width="312" height="71" fill="white" stroke-width="0"/>
+  <text x="1576" y="278" font-family="Arial, sans-serif" font-size="25" fill="#495057">❓ ヘルプ</text>
   
-  <rect x="350" y="170" width="130" height="40" fill="#fff3cd" stroke-width="0" rx="0 0 5 5"/>
-  <text x="365" y="195" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc3545">🚪 ログアウト</text>
+  <rect x="1544" y="305" width="312" height="71" fill="#fff3cd" stroke-width="0" rx="0 0 5 5"/>
+  <text x="1576" y="350" font-family="Arial, sans-serif" font-size="25" font-weight="bold" fill="#dc3545">🚪 ログアウト</text>
 </svg>

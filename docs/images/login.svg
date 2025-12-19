@@ -1,30 +1,30 @@
-<svg width="800" height="530" xmlns="http://www.w3.org/2000/svg">
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="800" height="530" fill="#f8f9fa"/>
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
   
   <!-- Login Box -->
-  <rect x="250" y="100" width="300" height="280" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  <rect x="600" y="202" width="720" height="567" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
   
   <!-- Title -->
-  <text x="400" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">勤怠管理システム</text>
+  <text x="960" y="304" font-family="Arial, sans-serif" font-size="58" font-weight="bold" text-anchor="middle" fill="#333">勤怠管理システム</text>
   
   <!-- Email Label -->
-  <text x="270" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666">メールアドレス</text>
+  <text x="648" y="405" font-family="Arial, sans-serif" font-size="34" fill="#666">メールアドレス</text>
   
   <!-- Email Input -->
-  <rect x="270" y="210" width="260" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="648" y="425" width="624" height="70" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Password Label -->
-  <text x="270" y="270" font-family="Arial, sans-serif" font-size="14" fill="#666">パスワード</text>
+  <text x="648" y="547" font-family="Arial, sans-serif" font-size="34" fill="#666">パスワード</text>
   
   <!-- Password Input -->
-  <rect x="270" y="280" width="260" height="35" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <rect x="648" y="567" width="624" height="70" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
   
   <!-- Login Button -->
-  <rect x="270" y="335" width="260" height="40" fill="#007cc5" stroke="none" rx="5"/>
-  <text x="400" y="362" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">ログイン</text>
+  <rect x="648" y="678" width="624" height="81" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="960" y="733" font-family="Arial, sans-serif" font-size="38" font-weight="bold" text-anchor="middle" fill="white">ログイン</text>
   
   <!-- Registration Link (outside box) -->
-  <text x="400" y="415" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#666">アカウントをお持ちでない方は</text>
-  <text x="400" y="435" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#007cc5" style="text-decoration: underline; cursor: pointer;">新規登録</text>
+  <text x="960" y="840" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#666">アカウントをお持ちでない方は</text>
+  <text x="960" y="880" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#007cc5" style="text-decoration: underline; cursor: pointer;">新規登録</text>
 </svg>

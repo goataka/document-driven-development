@@ -15,7 +15,7 @@
 1. 左側のメニューから**「勤怠履歴」**をクリックします
 2. 自分の勤怠記録一覧が表示されます
 
-![勤怠履歴画面](../images/attendance-history.svg)
+![勤怠履歴画面](../images/attendance-monthly.svg)
 
 ### 表示月の変更
 
