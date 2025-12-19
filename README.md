@@ -12,10 +12,7 @@
 
 詳細は[開発の流れ](docs/DEVELOPMENT_FLOW.md)をご覧ください。
 
-### 実装仕様（docs/implement/）
-
-#### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
-システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
+### [実装仕様](docs/implement/)
 
 #### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
 React + TypeScriptの詳細設計とコンポーネント実装例。
@@ -35,10 +32,7 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 #### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-## テスト戦略（docs/test/）
-
-#### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
-テスト戦略の全体像とテストピラミッド。
+## [テスト戦略](docs/test/)
 
 #### 🧪 [単体テスト](docs/test/UNIT.md)
 Jest（backend）、Vitest + React Testing Library（frontend）。
@@ -61,13 +55,13 @@ WCAG 2.1 Level AA準拠、jest-axe。
 #### ⚡ [パフォーマンステスト](docs/test/PERFORMANCE.md)
 Lighthouse CI、Core Web Vitals。
 
-#### 🔐 [静的セキュリティテスト](docs/test/SECURITY.md)
+#### 🔐 [静的セキュリティテスト](docs/test/SECURITY_STATIC.md)
 npm audit、audit-ci、GitHub CodeQL（すべて無料）。
 
 #### 🛡️ [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
 OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 
-## ユーザー向けドキュメント（docs/user/）
+## [ユーザー向けドキュメント](docs/user/)
 
 ユーザーマニュアル、スタートアップガイド、機能リファレンス、FAQ、リリースノートなど、システムの利用に関する全てのドキュメント。
 
