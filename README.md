@@ -1,10 +1,11 @@
-# 勤怠管理システム - Document-Driven Development
+# Document-Driven Development
 
-## 概要
-
-このリポジトリは、**ドキュメント駆動開発（Document-Driven Development）** の実践例として、勤怠管理システムの開発を行うプロジェクトです。
-
+このリポジトリは、**ドキュメント駆動開発（Document-Driven Development）** の実践を行うプロジェクトです。\
 ドキュメント駆動開発とは、実装に先立ってドキュメントを作成し、システムの仕様や動作を明確にすることで、より質の高い開発を目指す手法です。
+
+## 対象システム
+
+勤怠管理システム
 
 ## ドキュメント
 
@@ -12,53 +13,101 @@
 
 詳細は[開発の流れ](docs/DEVELOPMENT_FLOW.md)をご覧ください。
 
+### 合意事項（docs/agreement/）
+
+#### 📝 [作業の進め方](docs/agreement/work-approach.md)
+
+変更の進め方と基本原則。
+
+#### 💬 [コードコメント規約](docs/agreement/code-comment.md)
+
+統一されたコードコメントの記述方法。
+
+#### 📋 [コミット規約](docs/agreement/commit-convention.md)
+
+統一されたコミットメッセージのフォーマット。
+
+#### 🗣️ [コミュニケーション規約](docs/agreement/communication.md)
+
+プロジェクト内でのコミュニケーション方法。
+
+#### 📊 [図表作成規約](docs/agreement/diagram-style.md)
+
+Mermaidを使用した図表の作成方法。
+
+#### 📄 [ドキュメント構造規約](docs/agreement/document-structure.md)
+
+統一されたドキュメントの構造と記述方法。
+
+#### 🔍 [レビューガイドライン](docs/agreement/review-guidelines.md)
+
+コードレビューとドキュメントレビューの観点。
+
+#### ✍️ [文章スタイル規約](docs/agreement/writing-style.md)
+
+統一された文章スタイル。
+
 ### [実装仕様](docs/implement/)
 
 #### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
+
 React + TypeScriptの詳細設計とコンポーネント実装例。
 
 #### 🔧 [バックエンド設計](docs/implement/BACKEND.md)
+
 NestJS + TypeScriptの詳細設計とサービス実装例。
 
 #### 💾 [データベース設計](docs/implement/DATABASE.md)
+
 PostgreSQLのテーブル設計とマイグレーション戦略。
 
 #### 🌐 [API設計](docs/implement/API.md)
+
 RESTful APIのエンドポイント仕様とレスポンス形式。
 
 #### 🔒 [セキュリティ](docs/implement/SECURITY.md)
+
 認証・認可とセキュリティ対策の詳細。
 
 #### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
+
 Dependabot、Renovateによる自動更新（すべて無料）。
 
 ## [テスト戦略](docs/test/)
 
 #### 🧪 [単体テスト](docs/test/UNIT.md)
+
 Jest（backend）、Vitest + React Testing Library（frontend）。
 
 #### 🎨 [コンポーネントテスト](docs/test/COMPONENT.md)
+
 Storybook、ビジュアルテスト。
 
 #### 🔗 [統合テスト](docs/test/INTEGRATION.md)
+
 Jest + Supertest APIテスト。
 
 #### 🎭 [E2Eテスト](docs/test/E2E.md)
+
 Cucumber + Playwright、BDDテスト。
 
 #### 📸 [スナップショットテスト](docs/test/SNAPSHOT.md)
 Vitestスナップショット、視覚的回帰テスト。
 
 #### ♿ [アクセシビリティテスト](docs/test/ACCESSIBILITY.md)
+
 WCAG 2.1 Level AA準拠、jest-axe。
 
 #### ⚡ [パフォーマンステスト](docs/test/PERFORMANCE.md)
+
 Lighthouse CI、Core Web Vitals。
 
 #### 🔐 [静的セキュリティテスト](docs/test/SECURITY_STATIC.md)
+
 npm audit、audit-ci、GitHub CodeQL（すべて無料）。
 
 #### 🛡️ [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
+
 OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 
 ## [ユーザー向けドキュメント](docs/user/)
