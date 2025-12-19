@@ -12,47 +12,48 @@
 .
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
-│   ├── MANUAL.md                # マニュアルナビゲーション
 │   ├── RELEASE_NOTES.md         # リリースノート
 │   ├── FAQ.md                   # よくある質問
-│   ├── guides/                  # ガイド
-│   │   ├── startup.md          # スタートアップガイド
-│   │   └── troubleshooting.md  # トラブルシューティング
-│   ├── reference/               # 機能リファレンス
-│   │   ├── user-registration.md # ユーザー登録機能
-│   │   ├── login.md            # ログイン機能
-│   │   ├── logout.md           # ログアウト機能
-│   │   ├── clock-in-out.md     # 出勤・退勤打刻機能
-│   │   └── attendance-history.md # 勤怠履歴機能
-│   └── images/                  # ドキュメント用画像
-│       ├── user-registration.svg
-│       ├── login-screen.svg
-│       ├── main-dashboard.svg
-│       ├── clock-in.svg
-│       ├── clock-out.svg
-│       ├── attendance-history.svg
-│       └── logout.svg
+│   └── user/                    # ユーザーマニュアル
+│       ├── MANUAL.md           # マニュアルナビゲーション
+│       ├── guides/              # ガイド
+│       │   ├── startup.md      # スタートアップガイド
+│       │   └── troubleshooting.md # トラブルシューティング
+│       ├── reference/           # 機能リファレンス
+│       │   ├── user-registration.md # ユーザー登録機能
+│       │   ├── login.md        # ログイン機能
+│       │   ├── logout.md       # ログアウト機能
+│       │   ├── clock-in-out.md # 出勤・退勤打刻機能
+│       │   └── attendance-history.md # 勤怠履歴機能
+│       └── images/              # ドキュメント用画像
+│           ├── user-registration.svg
+│           ├── login-screen.svg
+│           ├── main-dashboard.svg
+│           ├── clock-in.svg
+│           ├── clock-out.svg
+│           ├── attendance-history.svg
+│           └── logout.svg
 ├── CONTRIBUTING.md               # コントリビューションガイド
 └── LICENSE                       # ライセンス情報
 ```
 
 ## ドキュメント
 
-### 📘 [ユーザーマニュアル](docs/MANUAL.md)
+### 📘 [ユーザーマニュアル](docs/user/MANUAL.md)
 各種ドキュメントへのナビゲーションページ。目的に応じた適切なドキュメントを案内します。
 
-### 📖 [スタートアップガイド](docs/guides/startup.md)
+### 📖 [スタートアップガイド](docs/user/guides/startup.md)
 初めてシステムを使う方向けの基本的な使い方ガイド。利用の流れに沿って説明しています。
 
 ### 📚 機能リファレンス
 各機能の詳細な使い方を個別に解説：
-- [ユーザー登録機能](docs/reference/user-registration.md)
-- [ログイン機能](docs/reference/login.md)
-- [ログアウト機能](docs/reference/logout.md)
-- [出勤・退勤打刻機能](docs/reference/clock-in-out.md)
-- [勤怠履歴機能](docs/reference/attendance-history.md)
+- [ユーザー登録機能](docs/user/reference/user-registration.md)
+- [ログイン機能](docs/user/reference/login.md)
+- [ログアウト機能](docs/user/reference/logout.md)
+- [出勤・退勤打刻機能](docs/user/reference/clock-in-out.md)
+- [勤怠履歴機能](docs/user/reference/attendance-history.md)
 
-### 🔧 [トラブルシューティング](docs/guides/troubleshooting.md)
+### 🔧 [トラブルシューティング](docs/user/guides/troubleshooting.md)
 よくある問題と解決方法をカテゴリ別に整理。
 
 ### ❓ [FAQ](docs/FAQ.md)

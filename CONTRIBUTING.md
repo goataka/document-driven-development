@@ -198,7 +198,7 @@ function login(username, password) {
 #### 5. 画像
 
 - 説明的な代替テキストを必ず付ける
-- 画像は`docs/images/`ディレクトリに配置
+- 画像は`docs/user/images/`ディレクトリに配置
 
 ```markdown
 ![ログイン画面](images/login-screen.png)
