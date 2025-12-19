@@ -12,10 +12,10 @@
 .
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
-│   ├── RELEASE_NOTES.md         # リリースノート
-│   ├── FAQ.md                   # よくある質問
 │   └── user/                    # ユーザーマニュアル
 │       ├── MANUAL.md           # マニュアルナビゲーション
+│       ├── RELEASE_NOTES.md    # リリースノート
+│       ├── FAQ.md              # よくある質問
 │       ├── guides/              # ガイド
 │       │   ├── startup.md      # スタートアップガイド
 │       │   └── troubleshooting.md # トラブルシューティング
@@ -56,10 +56,10 @@
 ### 🔧 [トラブルシューティング](docs/user/guides/troubleshooting.md)
 よくある問題と解決方法をカテゴリ別に整理。
 
-### ❓ [FAQ](docs/FAQ.md)
+### ❓ [FAQ](docs/user/FAQ.md)
 システムに関するよくある質問と回答。
 
-### 📋 [リリースノート](docs/RELEASE_NOTES.md)
+### 📋 [リリースノート](docs/user/RELEASE_NOTES.md)
 システムの機能概要、バージョン情報、今後の予定など。
 
 ## システム要件
