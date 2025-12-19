@@ -95,6 +95,6 @@ npm test Button.snapshot.test.tsx -- -u
 ## 関連ドキュメント
 
 - [テスト戦略概要](./TESTING.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-- [アクセシビリティテスト](./TESTING_ACCESSIBILITY.md)
-- [パフォーマンステスト](./TESTING_PERFORMANCE.md)
+- [統合・E2Eテスト](./INTEGRATION.md)
+- [アクセシビリティテスト](./ACCESSIBILITY.md)
+- [パフォーマンステスト](./PERFORMANCE.md)

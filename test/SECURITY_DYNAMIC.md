@@ -5,7 +5,7 @@
 
 **関連ドキュメント**: 
 - [テスト戦略概要](./TESTING.md)
-- [静的セキュリティテスト](./TESTING_SECURITY.md)
+- [静的セキュリティテスト](./SECURITY.md)
 - [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
 - [セキュリティ設計書](../spec/SECURITY.md)
 
@@ -248,6 +248,6 @@ describe('レート制限テスト', () => {
 ## 関連ドキュメント
 
 - [テスト戦略概要](./TESTING.md)
-- [静的セキュリティテスト](./TESTING_SECURITY.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
+- [静的セキュリティテスト](./SECURITY.md)
+- [統合・E2Eテスト](./INTEGRATION.md)
 - [セキュリティ設計書](../spec/SECURITY.md)

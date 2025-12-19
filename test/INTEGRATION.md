@@ -359,8 +359,8 @@ npm run test:e2e -- --project=chromium
 ## 関連ドキュメント
 
 - [テスト戦略概要](./TESTING.md)
-- [スナップショットテスト](./TESTING_SNAPSHOT.md)
-- [アクセシビリティテスト](./TESTING_ACCESSIBILITY.md)
-- [パフォーマンステスト](./TESTING_PERFORMANCE.md)
-- [静的セキュリティテスト](./TESTING_SECURITY.md)
-- [動的セキュリティテスト](./TESTING_SECURITY_DYNAMIC.md)
+- [スナップショットテスト](./SNAPSHOT.md)
+- [アクセシビリティテスト](./ACCESSIBILITY.md)
+- [パフォーマンステスト](./PERFORMANCE.md)
+- [静的セキュリティテスト](./SECURITY.md)
+- [動的セキュリティテスト](./SECURITY_DYNAMIC.md)

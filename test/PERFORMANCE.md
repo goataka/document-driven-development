@@ -235,6 +235,6 @@ describe('API パフォーマンステスト', () => {
 ## 関連ドキュメント
 
 - [テスト戦略概要](./TESTING.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-- [スナップショットテスト](./TESTING_SNAPSHOT.md)
-- [アクセシビリティテスト](./TESTING_ACCESSIBILITY.md)
+- [統合・E2Eテスト](./INTEGRATION.md)
+- [スナップショットテスト](./SNAPSHOT.md)
+- [アクセシビリティテスト](./ACCESSIBILITY.md)

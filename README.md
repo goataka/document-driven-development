@@ -20,13 +20,13 @@
 │   ├── SECURITY.md               # セキュリティ設計詳細
 │   └── DEPENDENCIES.md           # 依存関係管理と自動更新
 ├── test/                         # テスト戦略ディレクトリ
-│   ├── TESTING.md                # テスト戦略（概要・単体・コンポーネント）
-│   ├── TESTING_INTEGRATION.md    # 統合・E2Eテスト
-│   ├── TESTING_SNAPSHOT.md       # スナップショットテスト
-│   ├── TESTING_ACCESSIBILITY.md  # アクセシビリティテスト（WCAG 2.1）
-│   ├── TESTING_PERFORMANCE.md    # パフォーマンステスト（Lighthouse CI）
-│   ├── TESTING_SECURITY.md       # 静的セキュリティテスト
-│   └── TESTING_SECURITY_DYNAMIC.md # 動的セキュリティテスト（OWASP ZAP）
+│   ├── OVERVIEW.md                # テスト戦略（概要・単体・コンポーネント）
+│   ├── INTEGRATION.md    # 統合・E2Eテスト
+│   ├── SNAPSHOT.md       # スナップショットテスト
+│   ├── ACCESSIBILITY.md  # アクセシビリティテスト（WCAG 2.1）
+│   ├── PERFORMANCE.md    # パフォーマンステスト（Lighthouse CI）
+│   ├── SECURITY.md       # 静的セキュリティテスト
+│   └── SECURITY_DYNAMIC.md # 動的セキュリティテスト（OWASP ZAP）
 ├── docs/                         # ユーザードキュメントディレクトリ
 │   ├── MANUAL.md                # マニュアルナビゲーション
 │   ├── RELEASE_NOTES.md         # リリースノート
@@ -79,16 +79,16 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 
 ### テスト戦略（test/）
 
-#### ✅ [テスト戦略（概要）](test/TESTING.md)
+#### ✅ [テスト戦略（概要）](test/OVERVIEW.md)
 テスト戦略の概要と基本テスト（単体テスト・コンポーネントテスト・Storybook）。
 
 ##### 詳細なテストドキュメント:
-- [統合・E2Eテスト](test/TESTING_INTEGRATION.md) - Jest + Supertest統合テスト、Cucumber + Playwright E2Eテスト
-- [スナップショットテスト](test/TESTING_SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
-- [アクセシビリティテスト](test/TESTING_ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
-- [パフォーマンステスト](test/TESTING_PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
-- [静的セキュリティテスト](test/TESTING_SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
-- [動的セキュリティテスト](test/TESTING_SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
+- [統合・E2Eテスト](test/INTEGRATION.md) - Jest + Supertest統合テスト、Cucumber + Playwright E2Eテスト
+- [スナップショットテスト](test/SNAPSHOT.md) - Vitestスナップショット、視覚的回帰テスト
+- [アクセシビリティテスト](test/ACCESSIBILITY.md) - WCAG 2.1 Level AA準拠、jest-axe
+- [パフォーマンステスト](test/PERFORMANCE.md) - Lighthouse CI、Core Web Vitals
+- [静的セキュリティテスト](test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
+- [動的セキュリティテスト](test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
 
 ### ユーザードキュメント（docs/）
 

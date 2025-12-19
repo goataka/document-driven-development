@@ -5,8 +5,8 @@
 
 **関連ドキュメント**: 
 - [システムアーキテクチャ設計書](./ARCHITECTURE.md)
-- [テスト戦略概要](../test/TESTING.md)
-- [静的セキュリティテスト](../test/TESTING_SECURITY.md)
+- [テスト戦略概要](../test/OVERVIEW.md)
+- [静的セキュリティテスト](../test/SECURITY.md)
 
 ## 目次
 
@@ -288,5 +288,5 @@ npm test
 ## 関連ドキュメント
 
 - [システムアーキテクチャ設計書](./ARCHITECTURE.md)
-- [テスト戦略概要](../test/TESTING.md)
-- [静的セキュリティテスト](../test/TESTING_SECURITY.md)
+- [テスト戦略概要](../test/OVERVIEW.md)
+- [静的セキュリティテスト](../test/SECURITY.md)

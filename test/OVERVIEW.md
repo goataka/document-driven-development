@@ -5,10 +5,10 @@
 
 **関連ドキュメント**: 
 - [システムアーキテクチャ設計書](../spec/ARCHITECTURE.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-- [品質テスト (スナップショット・アクセシビリティ・パフォーマンス)](./TESTING_QUALITY.md)
-- [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
-- [依存関係管理と自動更新](./TESTING_DEPENDENCIES.md)
+- [統合・E2Eテスト](./INTEGRATION.md)
+- [品質テスト (スナップショット・アクセシビリティ・パフォーマンス)](./QUALITY.md)
+- [セキュリティ・脆弱性テスト](./SECURITY.md)
+- [依存関係管理と自動更新](../spec/DEPENDENCIES.md)
 
 ## 目次
 
@@ -20,10 +20,10 @@
 6. [ベストプラクティス](#ベストプラクティス)
 
 **詳細なテスト戦略**:
-- **統合テスト・E2Eテスト**: [TESTING_INTEGRATION.md](./TESTING_INTEGRATION.md)を参照
-- **スナップショット・アクセシビリティ・パフォーマンステスト**: [TESTING_QUALITY.md](./TESTING_QUALITY.md)を参照
-- **セキュリティ・脆弱性テスト**: [TESTING_SECURITY.md](./TESTING_SECURITY.md)を参照
-- **依存関係管理**: [TESTING_DEPENDENCIES.md](./TESTING_DEPENDENCIES.md)を参照
+- **統合テスト・E2Eテスト**: [INTEGRATION.md](./INTEGRATION.md)を参照
+- **スナップショット・アクセシビリティ・パフォーマンステスト**: [QUALITY.md](./QUALITY.md)を参照
+- **セキュリティ・脆弱性テスト**: [SECURITY.md](./SECURITY.md)を参照
+- **依存関係管理**: [DEPENDENCIES.md](../spec/DEPENDENCIES.md)を参照
 
 ---
 
@@ -549,7 +549,7 @@ jobs:
 - [システムアーキテクチャ設計書](./ARCHITECTURE.md)
 - [フロントエンド設計書](./FRONTEND.md)
 - [バックエンド設計書](./BACKEND.md)
-- [統合・E2Eテスト](./TESTING_INTEGRATION.md)
-- [品質テスト](./TESTING_QUALITY.md)
-- [セキュリティ・脆弱性テスト](./TESTING_SECURITY.md)
-- [依存関係管理と自動更新](./TESTING_DEPENDENCIES.md)
+- [統合・E2Eテスト](./INTEGRATION.md)
+- [品質テスト](./QUALITY.md)
+- [セキュリティ・脆弱性テスト](./SECURITY.md)
+- [依存関係管理と自動更新](../spec/DEPENDENCIES.md)
