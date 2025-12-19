@@ -3,9 +3,9 @@
 本ドキュメントは、E2Eテストの実装方法を説明します。
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [統合テスト](./INTEGRATION.md)
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 
 ---
 
@@ -268,7 +268,7 @@ npm run test:e2e -- --project=chromium
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [スナップショットテスト](./SNAPSHOT.md)
 - [アクセシビリティテスト](./ACCESSIBILITY.md)
 - [パフォーマンステスト](./PERFORMANCE.md)
