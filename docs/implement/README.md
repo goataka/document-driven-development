@@ -250,7 +250,7 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 
 テスト戦略の詳細については、以下のドキュメントを参照してください：
 
-- **[テスト戦略（概要・単体・コンポーネント）](../test/OVERVIEW.md)**: テストピラミッド、単体テスト（Jest/Vitest）、Storybook
+- **[テスト戦略（概要・単体・コンポーネント）](../test/)**: テストピラミッド、単体テスト（Jest/Vitest）、Storybook
 - **[統合・E2Eテスト](../test/INTEGRATION.md)**: Jest + Supertest、Cucumber + Playwright
 - **[スナップショットテスト](../test/SNAPSHOT.md)**: Vitestスナップショット、視覚的回帰テスト
 - **[アクセシビリティテスト](../test/ACCESSIBILITY.md)**: WCAG 2.1 Level AA準拠、jest-axe
@@ -350,7 +350,7 @@ npm run migration:run
 
 ### CI/CDパイプライン
 
-GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュメント](../test/OVERVIEW.md#cicd統合)を参照してください。
+GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュメント](../test/#cicd統合)を参照してください。
 
 ### デプロイ先候補
 
@@ -405,7 +405,7 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 - **[データベース設計](./DATABASE.md)**: PostgreSQLのスキーマ設計
 - **[API設計](./API.md)**: RESTful APIの仕様
 - **[セキュリティ](./SECURITY.md)**: セキュリティ対策の詳細
-- **[テスト戦略](../test/OVERVIEW.md)**: テスト戦略概要・単体・コンポーネント
+- **[テスト戦略](../test/)**: テスト戦略概要・単体・コンポーネント
   - [統合・E2Eテスト](../test/INTEGRATION.md)
   - [スナップショットテスト](../test/SNAPSHOT.md)
   - [アクセシビリティテスト](../test/ACCESSIBILITY.md)

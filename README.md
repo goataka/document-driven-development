@@ -13,7 +13,7 @@
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
 │   ├── implement/                # 実装仕様ディレクトリ
-│   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
+│   │   ├── README.md            # システムアーキテクチャ設計書（概要）
 │   │   ├── FRONTEND.md          # フロントエンド設計詳細
 │   │   ├── BACKEND.md           # バックエンド設計詳細
 │   │   ├── DATABASE.md          # データベース設計詳細
@@ -21,7 +21,7 @@
 │   │   ├── SECURITY.md          # セキュリティ設計詳細
 │   │   └── DEPENDENCIES.md      # 依存関係管理と自動更新
 │   ├── test/                    # テスト戦略ディレクトリ
-│   │   ├── OVERVIEW.md          # テスト戦略概要
+│   │   ├── README.md            # テスト戦略概要
 │   │   ├── UNIT.md              # 単体テスト
 │   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
 │   │   ├── INTEGRATION.md       # 統合テスト
@@ -61,7 +61,7 @@
 
 ### 実装仕様（docs/implement/）
 
-#### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
+#### 🏗️ [システムアーキテクチャ設計書](docs/implement/)
 システム全体のアーキテクチャ概要と設計方針。React + NestJSベースの構成について解説。
 
 #### 📱 [フロントエンド設計](docs/implement/FRONTEND.md)
@@ -84,7 +84,7 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 
 ### ✅ テスト戦略（docs/test/）
 
-#### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
+#### ✅ [テスト戦略概要](docs/test/)
 テスト戦略の全体像とテストピラミッド。
 
 - [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
