@@ -13,6 +13,7 @@
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
 │   └── user/                    # ユーザーマニュアル
+│       ├── README.md           # ユーザー向けドキュメント一覧
 │       ├── MANUAL.md           # マニュアルナビゲーション
 │       ├── RELEASE_NOTES.md    # リリースノート
 │       ├── FAQ.md              # よくある質問
@@ -39,28 +40,8 @@
 
 ## ドキュメント
 
-### 📘 [ユーザーマニュアル](docs/user/MANUAL.md)
-各種ドキュメントへのナビゲーションページ。目的に応じた適切なドキュメントを案内します。
-
-### 📖 [スタートアップガイド](docs/user/guides/startup.md)
-初めてシステムを使う方向けの基本的な使い方ガイド。利用の流れに沿って説明しています。
-
-### 📚 機能リファレンス
-各機能の詳細な使い方を個別に解説：
-- [ユーザー登録機能](docs/user/reference/user-registration.md)
-- [ログイン機能](docs/user/reference/login.md)
-- [ログアウト機能](docs/user/reference/logout.md)
-- [出勤・退勤打刻機能](docs/user/reference/clock-in-out.md)
-- [勤怠履歴機能](docs/user/reference/attendance-history.md)
-
-### 🔧 [トラブルシューティング](docs/user/guides/troubleshooting.md)
-よくある問題と解決方法をカテゴリ別に整理。
-
-### ❓ [FAQ](docs/user/FAQ.md)
-システムに関するよくある質問と回答。
-
-### 📋 [リリースノート](docs/user/RELEASE_NOTES.md)
-システムの機能概要、バージョン情報、今後の予定など。
+### 📘 [ユーザー向けドキュメント](docs/user/)
+ユーザーマニュアル、スタートアップガイド、機能リファレンス、FAQ、リリースノートなど、システムの利用に関する全てのドキュメント。
 
 ## システム要件
 
