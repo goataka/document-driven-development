@@ -75,20 +75,8 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 📖 [スタートアップガイド](docs/user/guides/startup.md)
 初めてシステムを使う方向けの基本的な使い方ガイド。
 
-#### 📚 [機能リファレンス（ユーザー登録）](docs/user/reference/user-registration.md)
-ユーザー登録機能の詳細な使い方。
-
-#### 📚 [機能リファレンス（ログイン）](docs/user/reference/login.md)
-ログイン機能の詳細な使い方。
-
-#### 📚 [機能リファレンス（ログアウト）](docs/user/reference/logout.md)
-ログアウト機能の詳細な使い方。
-
-#### 📚 [機能リファレンス（出勤・退勤打刻）](docs/user/reference/clock-in-out.md)
-出勤・退勤打刻機能の詳細な使い方。
-
-#### 📚 [機能リファレンス（勤怠履歴）](docs/user/reference/attendance-history.md)
-勤怠履歴機能の詳細な使い方。
+#### 📚 [機能リファレンス](docs/user/)
+各機能の詳細な使い方（ユーザー登録、ログイン、ログアウト、出勤・退勤打刻、勤怠履歴）。
 
 #### 🔧 [トラブルシューティング](docs/user/guides/troubleshooting.md)
 よくある問題と解決方法をカテゴリ別に整理。
