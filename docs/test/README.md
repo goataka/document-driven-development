@@ -4,7 +4,7 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 - [単体テスト](./UNIT.md)
 - [コンポーネントテスト](./COMPONENT.md)
 - [統合テスト](./INTEGRATION.md)
@@ -204,7 +204,7 @@ jobs:
 ---
 
 **関連ドキュメント**:
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 - [フロントエンド設計](./FRONTEND.md)
 - [バックエンド設計](./BACKEND.md)
 
@@ -218,7 +218,7 @@ jobs:
 
 ## 関連ドキュメント
 
-- [システムアーキテクチャ設計書](./ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 - [フロントエンド設計書](./FRONTEND.md)
 - [バックエンド設計書](./BACKEND.md)
 - [統合・E2Eテスト](./INTEGRATION.md)

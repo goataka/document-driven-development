@@ -3,8 +3,8 @@
 本ドキュメントは、UIコンポーネントのスナップショットテストの実装方法を説明します。
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./OVERVIEW.md)
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [テスト戦略概要](./)
+- [システムアーキテクチャ設計書](../implement/)
 
 ## 目次
 
@@ -94,7 +94,7 @@ npm test Button.snapshot.test.tsx -- -u
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [統合・E2Eテスト](./INTEGRATION.md)
 - [アクセシビリティテスト](./ACCESSIBILITY.md)
 - [パフォーマンステスト](./PERFORMANCE.md)

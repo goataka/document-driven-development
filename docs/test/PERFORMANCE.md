@@ -3,8 +3,8 @@
 本ドキュメントは、パフォーマンステスト(Lighthouse CI、Core Web Vitals)の実装方法を説明します。
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./OVERVIEW.md)
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [テスト戦略概要](./)
+- [システムアーキテクチャ設計書](../implement/)
 
 ## 目次
 
@@ -234,7 +234,7 @@ describe('API パフォーマンステスト', () => {
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [統合・E2Eテスト](./INTEGRATION.md)
 - [スナップショットテスト](./SNAPSHOT.md)
 - [アクセシビリティテスト](./ACCESSIBILITY.md)

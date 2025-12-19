@@ -2,7 +2,7 @@
 
 本ドキュメントは、PostgreSQLをベースとしたデータベース設計の詳細を説明します。
 
-**関連ドキュメント**: [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+**関連ドキュメント**: [システムアーキテクチャ設計書](../implement/)
 
 ## 目次
 
@@ -64,7 +64,7 @@ CREATE INDEX idx_attendances_user_clock_in ON attendances(user_id, clock_in_time
 ---
 
 **関連ドキュメント**:
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 - [バックエンド設計](./BACKEND.md)
 - [API設計](./API.md)
 
