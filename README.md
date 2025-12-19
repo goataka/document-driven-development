@@ -31,26 +31,28 @@
 │   │   ├── PERFORMANCE.md       # パフォーマンステスト（Lighthouse CI）
 │   │   ├── SECURITY.md          # 静的セキュリティテスト
 │   │   └── SECURITY_DYNAMIC.md  # 動的セキュリティテスト（OWASP ZAP）
-│   ├── MANUAL.md                # マニュアルナビゲーション
-│   ├── RELEASE_NOTES.md         # リリースノート
-│   ├── FAQ.md                   # よくある質問
-│   ├── guides/                  # ガイド
-│   │   ├── startup.md           # スタートアップガイド
-│   │   └── troubleshooting.md   # トラブルシューティング
-│   ├── reference/               # 機能リファレンス
-│   │   ├── user-registration.md # ユーザー登録機能
-│   │   ├── login.md             # ログイン機能
-│   │   ├── logout.md            # ログアウト機能
-│   │   ├── clock-in-out.md      # 出勤・退勤打刻機能
-│   │   └── attendance-history.md # 勤怠履歴機能
-│   └── images/                  # ドキュメント用画像
-│       ├── user-registration.svg
-│       ├── login-screen.svg
-│       ├── main-dashboard.svg
-│       ├── clock-in.svg
-│       ├── clock-out.svg
-│       ├── attendance-history.svg
-│       └── logout.svg
+│   └── user/                    # ユーザーマニュアル
+│       ├── README.md           # ユーザー向けドキュメント一覧
+│       ├── MANUAL.md           # マニュアルナビゲーション
+│       ├── RELEASE_NOTES.md    # リリースノート
+│       ├── FAQ.md              # よくある質問
+│       ├── guides/              # ガイド
+│       │   ├── startup.md      # スタートアップガイド
+│       │   └── troubleshooting.md # トラブルシューティング
+│       ├── reference/           # 機能リファレンス
+│       │   ├── user-registration.md # ユーザー登録機能
+│       │   ├── login.md        # ログイン機能
+│       │   ├── logout.md       # ログアウト機能
+│       │   ├── clock-in-out.md # 出勤・退勤打刻機能
+│       │   └── attendance-history.md # 勤怠履歴機能
+│       └── images/              # ドキュメント用画像
+│           ├── user-registration.svg
+│           ├── login.svg
+│           ├── main-dashboard.svg
+│           ├── clock-in.svg
+│           ├── clock-out.svg
+│           ├── attendance-history.svg
+│           └── logout.svg
 ├── CONTRIBUTING.md               # コントリビューションガイド
 └── LICENSE                       # ライセンス情報
 ```
@@ -80,12 +82,11 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 #### 🔗 [依存関係管理](docs/implement/DEPENDENCIES.md)
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-### テスト戦略（docs/test/）
+### ✅ テスト戦略（docs/test/）
 
 #### ✅ [テスト戦略概要](docs/test/OVERVIEW.md)
 テスト戦略の全体像とテストピラミッド。
 
-##### 詳細なテストドキュメント:
 - [単体テスト](docs/test/UNIT.md) - Jest（backend）、Vitest + React Testing Library（frontend）
 - [コンポーネントテスト](docs/test/COMPONENT.md) - Storybook、ビジュアルテスト
 - [統合テスト](docs/test/INTEGRATION.md) - Jest + Supertest APIテスト
@@ -96,30 +97,9 @@ Dependabot、Renovateによる自動更新（すべて無料）。
 - [静的セキュリティテスト](docs/test/SECURITY.md) - npm audit、audit-ci、GitHub CodeQL（すべて無料）
 - [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md) - OWASP ZAP、インジェクション攻撃テスト（すべて無料）
 
-### ユーザードキュメント（docs/）
+### 📘 [ユーザー向けドキュメント](docs/user/)
 
-#### 📘 [ユーザーマニュアル](docs/MANUAL.md)
-各種ドキュメントへのナビゲーションページ。目的に応じた適切なドキュメントを案内します。
-
-### 📖 [スタートアップガイド](docs/guides/startup.md)
-初めてシステムを使う方向けの基本的な使い方ガイド。利用の流れに沿って説明しています。
-
-### 📚 機能リファレンス
-各機能の詳細な使い方を個別に解説：
-- [ユーザー登録機能](docs/reference/user-registration.md)
-- [ログイン機能](docs/reference/login.md)
-- [ログアウト機能](docs/reference/logout.md)
-- [出勤・退勤打刻機能](docs/reference/clock-in-out.md)
-- [勤怠履歴機能](docs/reference/attendance-history.md)
-
-### 🔧 [トラブルシューティング](docs/guides/troubleshooting.md)
-よくある問題と解決方法をカテゴリ別に整理。
-
-### ❓ [FAQ](docs/FAQ.md)
-システムに関するよくある質問と回答。
-
-### 📋 [リリースノート](docs/RELEASE_NOTES.md)
-システムの機能概要、バージョン情報、今後の予定など。
+ユーザーマニュアル、スタートアップガイド、機能リファレンス、FAQ、リリースノートなど、システムの利用に関する全てのドキュメント。
 
 ## システム要件
 

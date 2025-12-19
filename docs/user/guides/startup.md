@@ -34,7 +34,7 @@
 2. メールアドレスとパスワードを入力
 3. 「ログイン」ボタンをクリック
 
-![ログイン画面](../images/login-screen.svg)
+![ログイン画面](../images/login.svg)
 
 **詳細**: [ログイン機能リファレンス](../reference/login.md)
 
@@ -94,7 +94,7 @@
 1. 左メニューから**「勤怠履歴」**をクリック
 2. 月単位で勤怠記録が表示されます
 
-![勤怠履歴画面](../images/attendance-history.svg)
+![勤怠履歴画面](../images/attendance-monthly.svg)
 
 ### 月の切り替え
 

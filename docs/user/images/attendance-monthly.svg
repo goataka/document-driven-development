@@ -1,0 +1,160 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1920" height="108" fill="#007cc5"/>
+  <text x="48" y="67" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white">勤怠管理システム</text>
+  <text x="1680" y="67" font-family="Arial, sans-serif" font-size="22" fill="white">ユーザー名 ▼</text>
+  
+  <!-- Sidebar Menu -->
+  <rect x="0" y="108" width="400" height="972" fill="#e9ecef" stroke="#dee2e6" stroke-width="1"/>
+  <text x="32" y="162" font-family="Arial, sans-serif" font-size="25" font-weight="bold" fill="#495057">メニュー</text>
+  
+  <rect x="32" y="189" width="336" height="54" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="56" y="224" font-family="Arial, sans-serif" font-size="22" fill="white">🏠 ダッシュボード</text>
+  
+  <rect x="32" y="256" width="336" height="54" fill="#6c757d" stroke="none" rx="5"/>
+  <text x="56" y="291" font-family="Arial, sans-serif" font-size="22" fill="white">📊 勤務実績</text>
+  
+  <rect x="32" y="324" width="336" height="54" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <text x="56" y="359" font-family="Arial, sans-serif" font-size="22" fill="#495057">⚙️ 設定</text>
+  
+  <!-- Main Content Area -->
+  <rect x="432" y="135" width="1456" height="918" fill="white" stroke="#dee2e6" stroke-width="3" rx="10"/>
+  
+  <!-- Month Navigation (Centered) -->
+  <g>
+    <rect x="952" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="984" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">◀</text>
+    
+    <rect x="1032" y="159" width="288" height="40" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
+    <text x="1176" y="187" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月</text>
+    
+    <rect x="1336" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="1368" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">▶</text>
+  </g>
+  
+  <!-- Summary Section -->
+  <rect x="464" y="222" width="1408" height="135" fill="white" stroke="#007cc5" stroke-width="4" rx="8"/>
+  <g>
+    <text x="816" y="267" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">勤務時間</text>
+    <text x="816" y="327" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#007cc5">63時間15分</text>
+  </g>
+  <g>
+    <text x="1520" y="267" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#666">残業時間</text>
+    <text x="1520" y="327" font-family="Arial, sans-serif" font-size="44" font-weight="bold" text-anchor="middle" fill="#dc3545">5時間15分</text>
+  </g>
+  
+  <!-- Table -->
+  <rect x="464" y="378" width="1408" height="634" fill="white" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  
+  <!-- Table Header -->
+  <rect x="464" y="378" width="1408" height="54" fill="#007cc5" stroke="none" rx="5 5 0 0"/>
+  <text x="496" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">日付</text>
+  <text x="672" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">曜日</text>
+  <text x="800" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">出勤</text>
+  <text x="960" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">退勤</text>
+  <text x="1120" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">勤務時間</text>
+  <text x="1344" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">残業時間</text>
+  <text x="1600" y="413" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">ステータス</text>
+  
+  <!-- Row 1: 12/8 (月) -->
+  <rect x="464" y="432" width="1408" height="54" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="465" font-family="Arial, sans-serif" font-size="19" fill="#212529">12/8</text>
+  <text x="672" y="465" font-family="Arial, sans-serif" font-size="19" fill="#212529">月</text>
+  <text x="800" y="465" font-family="Arial, sans-serif" font-size="19" fill="#212529">09:00</text>
+  <text x="960" y="465" font-family="Arial, sans-serif" font-size="19" fill="#212529">18:00</text>
+  <text x="1120" y="465" font-family="Arial, sans-serif" font-size="19" fill="#212529">9時間00分</text>
+  <text x="1344" y="465" font-family="Arial, sans-serif" font-size="19" fill="#dc3545">1時間00分</text>
+  <rect x="1568" y="441" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="463" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
+  
+  <!-- Row 2: 12/7 (日) - Holiday -->
+  <rect x="464" y="486" width="1408" height="54" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">12/7</text>
+  <text x="672" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">日</text>
+  <text x="800" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="960" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1120" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1344" y="519" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <rect x="1568" y="495" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="517" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">休日</text>
+  
+  <!-- Row 3: 12/6 (土) - Holiday -->
+  <rect x="464" y="540" width="1408" height="54" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">12/6</text>
+  <text x="672" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">土</text>
+  <text x="800" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="960" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1120" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1344" y="573" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <rect x="1568" y="549" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="571" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">休日</text>
+  
+  <!-- Row 4: 12/5 (金) -->
+  <rect x="464" y="594" width="1408" height="54" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="627" font-family="Arial, sans-serif" font-size="19" fill="#212529">12/5</text>
+  <text x="672" y="627" font-family="Arial, sans-serif" font-size="19" fill="#212529">金</text>
+  <text x="800" y="627" font-family="Arial, sans-serif" font-size="19" fill="#212529">08:55</text>
+  <text x="960" y="627" font-family="Arial, sans-serif" font-size="19" fill="#212529">17:50</text>
+  <text x="1120" y="627" font-family="Arial, sans-serif" font-size="19" fill="#212529">8時間55分</text>
+  <text x="1344" y="627" font-family="Arial, sans-serif" font-size="19" fill="#dc3545">0時間55分</text>
+  <rect x="1568" y="603" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="625" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
+  
+  <!-- Row 5: 12/4 (木) -->
+  <rect x="464" y="648" width="1408" height="54" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="681" font-family="Arial, sans-serif" font-size="19" fill="#212529">12/4</text>
+  <text x="672" y="681" font-family="Arial, sans-serif" font-size="19" fill="#212529">木</text>
+  <text x="800" y="681" font-family="Arial, sans-serif" font-size="19" fill="#212529">09:10</text>
+  <text x="960" y="681" font-family="Arial, sans-serif" font-size="19" fill="#212529">18:30</text>
+  <text x="1120" y="681" font-family="Arial, sans-serif" font-size="19" fill="#212529">9時間20分</text>
+  <text x="1344" y="681" font-family="Arial, sans-serif" font-size="19" fill="#dc3545">1時間20分</text>
+  <rect x="1568" y="657" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="679" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
+  
+  <!-- Row 6: 12/3 (水) - Working -->
+  <rect x="464" y="702" width="1408" height="54" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="735" font-family="Arial, sans-serif" font-size="19" fill="#212529">12/3</text>
+  <text x="672" y="735" font-family="Arial, sans-serif" font-size="19" fill="#212529">水</text>
+  <text x="800" y="735" font-family="Arial, sans-serif" font-size="19" fill="#212529">09:00</text>
+  <text x="960" y="735" font-family="Arial, sans-serif" font-size="19" fill="#28a745">勤務中</text>
+  <text x="1120" y="735" font-family="Arial, sans-serif" font-size="19" fill="#28a745">-</text>
+  <text x="1344" y="735" font-family="Arial, sans-serif" font-size="19" fill="#28a745">-</text>
+  <rect x="1568" y="711" width="272" height="29" fill="#28a745" fill-opacity="0.2" stroke="#28a745" stroke-width="1" rx="3"/>
+  <text x="1704" y="733" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#28a745">勤務中</text>
+  
+  <!-- Row 7: 12/2 (火) - No entry -->
+  <rect x="464" y="756" width="1408" height="54" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">12/2</text>
+  <text x="672" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">火</text>
+  <text x="800" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="960" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1120" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <text x="1344" y="789" font-family="Arial, sans-serif" font-size="19" fill="#999">-</text>
+  <rect x="1568" y="765" width="272" height="29" fill="#ffc107" fill-opacity="0.2" stroke="#ffc107" stroke-width="1" rx="3"/>
+  <text x="1704" y="787" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#856404">打刻なし</text>
+  
+  <!-- Row 8: 12/1 (月) -->
+  <rect x="464" y="810" width="1408" height="54" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="496" y="843" font-family="Arial, sans-serif" font-size="19" fill="#212529">12/1</text>
+  <text x="672" y="843" font-family="Arial, sans-serif" font-size="19" fill="#212529">月</text>
+  <text x="800" y="843" font-family="Arial, sans-serif" font-size="19" fill="#212529">09:05</text>
+  <text x="960" y="843" font-family="Arial, sans-serif" font-size="19" fill="#212529">18:00</text>
+  <text x="1120" y="843" font-family="Arial, sans-serif" font-size="19" fill="#212529">8時間55分</text>
+  <text x="1344" y="843" font-family="Arial, sans-serif" font-size="19" fill="#dc3545">0時間55分</text>
+  <rect x="1568" y="819" width="272" height="29" fill="#6c757d" fill-opacity="0.2" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="1704" y="841" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">退勤済み</text>
+  
+  <!-- Pagination at bottom -->
+  <g transform="translate(800, 990)">
+    <rect x="0" y="0" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="32" y="28" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">◀</text>
+    
+    <text x="128" y="28" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#6c757d">ページ: 1/2</text>
+    
+    <rect x="192" y="0" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+    <text x="224" y="28" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">▶</text>
+  </g>
+</svg>
