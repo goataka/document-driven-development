@@ -19,7 +19,9 @@
 │   │   ├── communication.md     # コミュニケーション規約
 │   │   ├── commit-convention.md # コミット規約
 │   │   ├── code-comment.md      # コードコメント規約
-│   │   └── document-structure.md # ドキュメント構造規約
+│   │   ├── document-structure.md # ドキュメント構造規約
+│   │   ├── work-approach.md     # 作業の進め方
+│   │   └── review-guidelines.md # レビューガイドライン
 │   ├── implement/                # 実装仕様ディレクトリ
 │   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
 │   │   ├── FRONTEND.md          # フロントエンド設計詳細
@@ -171,6 +173,8 @@ AIエージェントがこのリポジトリで作業する際のガイドライ
 - コミット規約
 - コードコメント規約
 - ドキュメント構造規約
+- 作業の進め方
+- レビューガイドライン
 
 ## コントリビューション
 
