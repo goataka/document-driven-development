@@ -13,7 +13,7 @@
 ├── README.md                     # このファイル
 ├── docs/                         # ドキュメントディレクトリ
 │   ├── implement/                # 実装仕様ディレクトリ
-│   │   ├── README.md            # システムアーキテクチャ設計書（概要）
+│   │   ├── ARCHITECTURE.md      # システムアーキテクチャ設計書（概要）
 │   │   ├── FRONTEND.md          # フロントエンド設計詳細
 │   │   ├── BACKEND.md           # バックエンド設計詳細
 │   │   ├── DATABASE.md          # データベース設計詳細
@@ -21,7 +21,7 @@
 │   │   ├── SECURITY.md          # セキュリティ設計詳細
 │   │   └── DEPENDENCIES.md      # 依存関係管理と自動更新
 │   ├── test/                    # テスト戦略ディレクトリ
-│   │   ├── README.md            # テスト戦略概要
+│   │   ├── OVERVIEW.md          # テスト戦略概要
 │   │   ├── UNIT.md              # 単体テスト
 │   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
 │   │   ├── INTEGRATION.md       # 統合テスト
