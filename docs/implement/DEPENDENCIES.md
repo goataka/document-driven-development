@@ -4,8 +4,8 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
-- [テスト戦略概要](../test/OVERVIEW.md)
+- [システムアーキテクチャ設計書](../implement/)
+- [テスト戦略概要](../test/)
 - [静的セキュリティテスト](../test/SECURITY.md)
 
 ## 目次
@@ -287,6 +287,6 @@ npm test
 
 ## 関連ドキュメント
 
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
-- [テスト戦略概要](../test/OVERVIEW.md)
+- [システムアーキテクチャ設計書](../implement/)
+- [テスト戦略概要](../test/)
 - [静的セキュリティテスト](../test/SECURITY.md)

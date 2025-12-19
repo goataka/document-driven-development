@@ -4,9 +4,9 @@
 **すべて無料のツールを使用しています。**
 
 **関連ドキュメント**: 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [静的セキュリティテスト](./SECURITY.md)
-- [システムアーキテクチャ設計書](../implement/ARCHITECTURE.md)
+- [システムアーキテクチャ設計書](../implement/)
 - [セキュリティ設計書](../implement/SECURITY.md)
 
 ## 目次
@@ -247,7 +247,7 @@ describe('レート制限テスト', () => {
 
 ## 関連ドキュメント
 
-- [テスト戦略概要](./OVERVIEW.md)
+- [テスト戦略概要](./)
 - [静的セキュリティテスト](./SECURITY.md)
 - [統合・E2Eテスト](./INTEGRATION.md)
 - [セキュリティ設計書](../implement/SECURITY.md)
