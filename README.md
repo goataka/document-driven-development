@@ -12,6 +12,10 @@
 
 詳細は[開発の流れ](docs/DEVELOPMENT_FLOW.md)をご覧ください。
 
+### 合意事項（docs/agreement/）
+
+プロジェクトでの作業における規約や合意事項に関するドキュメント。
+
 ### 実装仕様（docs/implement/）
 
 #### 🏗️ [システムアーキテクチャ設計書](docs/implement/ARCHITECTURE.md)
