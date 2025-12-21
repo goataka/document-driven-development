@@ -78,7 +78,7 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-#### 📄 [website連携](docs/implement/WEBSITE.md)
+#### 📄 [ウェブサイト設計](docs/implement/WEBSITE.md)
 
 ドキュメントwebsiteとアプリケーションの連携、ヘルプボタン実装。
 
