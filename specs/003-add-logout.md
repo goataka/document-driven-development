@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ログアウト](images/03-logout.svg)
+![ログアウト](images/003-logout.svg)
 
 ### 画面要素
 
@@ -200,7 +200,7 @@
 
 ## 関連仕様
 
-- [ログイン機能](02-add-login.md)
+- [ログイン機能](002-add-login.md)
 - [認証・認可仕様](authentication.md)
 - [セッション管理仕様](session-management.md)
 

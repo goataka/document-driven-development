@@ -8,17 +8,17 @@
 
 ### 出勤打刻UI構成
 
-![出勤打刻](images/04-clock-in.svg)
+![出勤打刻](images/004-clock-in.svg)
 
 ### 退勤打刻UI構成
 
-![退勤打刻](images/04-clock-out.svg)
+![退勤打刻](images/004-clock-out.svg)
 
 ### 画面要素
 
 #### メインダッシュボード
 
-![メインダッシュボード](images/04-main-dashboard.svg)
+![メインダッシュボード](images/004-main-dashboard.svg)
 
 1. **現在時刻表示**
    - 表示形式: YYYY/MM/DD HH:MM:SS
@@ -303,7 +303,7 @@
 
 ## 関連仕様
 
-- [勤怠履歴機能](05-add-attendance-history.md)
+- [勤怠履歴機能](005-add-attendance-history.md)
 - [メインダッシュボード](main-dashboard.md)
 - [認証・認可仕様](authentication.md)
 

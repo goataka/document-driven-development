@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ユーザー登録画面](images/01-user-registration.svg)
+![ユーザー登録画面](images/001-user-registration.svg)
 
 ### 画面要素
 
@@ -219,7 +219,7 @@
 
 ## 関連仕様
 
-- [ログイン機能](02-add-login.md)
+- [ログイン機能](002-add-login.md)
 - [メール送信機能](email-notification.md)
 - [認証・認可仕様](authentication.md)
 

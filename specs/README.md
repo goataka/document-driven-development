@@ -10,11 +10,11 @@
 
 仕様書は実装順序に従って番号が付けられています。
 
-1. **[01-add-user-registration.md](01-add-user-registration.md)**: ユーザー登録機能 - 新規ユーザーアカウントの作成
-2. **[02-add-login.md](02-add-login.md)**: ログイン機能 - メールアドレスとパスワードによる認証
-3. **[03-add-logout.md](03-add-logout.md)**: ログアウト機能 - セッション終了とログアウト処理
-4. **[04-add-clock-in-out.md](04-add-clock-in-out.md)**: 出勤・退勤打刻機能 - 出勤時刻と退勤時刻の記録
-5. **[05-add-attendance-history.md](05-add-attendance-history.md)**: 勤怠履歴機能 - 過去の勤怠記録の閲覧
+1. **[001-add-user-registration.md](001-add-user-registration.md)**: ユーザー登録機能 - 新規ユーザーアカウントの作成
+2. **[002-add-login.md](002-add-login.md)**: ログイン機能 - メールアドレスとパスワードによる認証
+3. **[003-add-logout.md](003-add-logout.md)**: ログアウト機能 - セッション終了とログアウト処理
+4. **[004-add-clock-in-out.md](004-add-clock-in-out.md)**: 出勤・退勤打刻機能 - 出勤時刻と退勤時刻の記録
+5. **[005-add-attendance-history.md](005-add-attendance-history.md)**: 勤怠履歴機能 - 過去の勤怠記録の閲覧
 
 ## 仕様書の構成
 
@@ -67,15 +67,15 @@
 
 | ファイル名 | 説明 | 対応仕様書 |
 |-----------|------|-----------|
-| 01-user-registration.svg | ユーザー登録画面 | 01-add-user-registration.md |
-| 02-login.svg | ログイン画面 | 02-add-login.md |
-| 03-logout.svg | ログアウトメニュー | 03-add-logout.md |
-| 04-main-dashboard.svg | メインダッシュボード | 04-add-clock-in-out.md |
-| 04-clock-in.svg | 出勤打刻確認ダイアログ | 04-add-clock-in-out.md |
-| 04-clock-out.svg | 退勤打刻確認ダイアログ | 04-add-clock-in-out.md |
-| 05-attendance-monthly.svg | 月次勤怠履歴 | 05-add-attendance-history.md |
-| 05-attendance-daily.svg | 日次勤怠表示 | 05-add-attendance-history.md |
-| 05-clock-history.svg | 打刻履歴画面 | 05-add-attendance-history.md |
+| 001-user-registration.svg | ユーザー登録画面 | 001-add-user-registration.md |
+| 002-login.svg | ログイン画面 | 002-add-login.md |
+| 003-logout.svg | ログアウトメニュー | 003-add-logout.md |
+| 004-main-dashboard.svg | メインダッシュボード | 004-add-clock-in-out.md |
+| 004-clock-in.svg | 出勤打刻確認ダイアログ | 004-add-clock-in-out.md |
+| 004-clock-out.svg | 退勤打刻確認ダイアログ | 004-add-clock-in-out.md |
+| 005-attendance-monthly.svg | 月次勤怠履歴 | 005-add-attendance-history.md |
+| 005-attendance-daily.svg | 日次勤怠表示 | 005-add-attendance-history.md |
+| 005-clock-history.svg | 打刻履歴画面 | 005-add-attendance-history.md |
 
 ## 仕様書の活用方法
 
