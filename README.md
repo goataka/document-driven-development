@@ -72,9 +72,6 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
 GitHub Actionsでのビルド方針、キャッシュ戦略。
 
-#### 🔍 [トラブルシューティング](docs/build/TROUBLESHOOTING.md)
-ビルドに関する一般的な問題への対処方針。
-
 ## [リリース管理](docs/release/)
 
 #### 🏷️ [バージョニング戦略](docs/release/VERSIONING.md)

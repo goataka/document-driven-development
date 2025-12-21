@@ -218,7 +218,6 @@ lambda-package.zip
 - [ビルド戦略概要](./README.md)
 - [フロントエンドビルド](./FRONTEND.md)
 - [CI/CDビルド](./CI_CD.md)
-- [トラブルシューティング](./TROUBLESHOOTING.md)
 - [デプロイ戦略](../deploy/BACKEND.md)
 
 ---

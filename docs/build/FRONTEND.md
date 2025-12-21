@@ -189,7 +189,6 @@ frontend/dist/
 - [ビルド戦略概要](./README.md)
 - [バックエンドビルド](./BACKEND.md)
 - [CI/CDビルド](./CI_CD.md)
-- [トラブルシューティング](./TROUBLESHOOTING.md)
 - [デプロイ戦略](../deploy/FRONTEND.md)
 
 ---
