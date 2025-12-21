@@ -64,8 +64,7 @@ React + TypeScriptの詳細設計とコンポーネント実装例。
 NestJS + TypeScriptの詳細設計とサービス実装例。
 
 #### 💾 [データベース設計](docs/implement/DATABASE.md)
-
-PostgreSQLのテーブル設計とマイグレーション戦略。
+DynamoDBのテーブル設計とデータモデリング戦略。
 
 #### 🌐 [API設計](docs/implement/API.md)
 
@@ -115,6 +114,82 @@ npm audit、audit-ci、GitHub CodeQL（すべて無料）。
 #### 🛡️ [動的セキュリティテスト](docs/test/SECURITY_DYNAMIC.md)
 
 OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
+
+## [ビルド戦略](docs/build/)
+
+#### 📱 [フロントエンドビルド](docs/build/FRONTEND.md)
+フロントエンドのビルド方針、最適化戦略、環境別設定方針。
+
+#### 🔧 [バックエンドビルド](docs/build/BACKEND.md)
+バックエンドのビルド方針、Lambda対応バンドル戦略、最適化方針。
+
+#### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
+GitHub Actionsでのビルド方針、キャッシュ戦略。
+
+## [リリース管理](docs/release/)
+
+#### 🏷️ [バージョニング戦略](docs/release/VERSIONING.md)
+セマンティックバージョニング、バージョン決定基準。
+
+#### 🔄 [リリースプロセス](docs/release/PROCESS.md)
+リリース計画、リリース手順、自動化されたリリース。
+
+#### 📝 [チェンジログ管理](docs/release/CHANGELOG.md)
+CHANGELOG.md の構造、コミットメッセージ規約。
+
+#### 📄 [リリースノート](docs/release/NOTES.md)
+リリースノートのテンプレート、作成方法。
+
+## [デプロイ戦略](docs/deploy/)
+
+#### 📱 [フロントエンドデプロイ](docs/deploy/FRONTEND.md)
+Vercel、Netlify、AWS S3 + CloudFrontへのデプロイ。
+
+#### 🔧 [バックエンドデプロイ](docs/deploy/BACKEND.md)
+Docker コンテナ化、Heroku、AWS ECS/Fargateへのデプロイ。
+
+#### 💾 [データベース管理](docs/deploy/DATABASE.md)
+データモデル設計、バックアップ戦略。
+
+#### 🎯 [デプロイメント戦略](docs/deploy/STRATEGIES.md)
+ローリングデプロイ、ブルーグリーンデプロイ、カナリアリリース。
+
+#### 🔄 [CI/CD パイプライン](docs/deploy/CI_CD.md)
+GitHub Actionsデプロイ設定、環境変数管理。
+
+## [運用管理](docs/operate/)
+
+#### 📅 [日常運用タスク](docs/operate/DAILY.md)
+毎日のチェックリスト、システムヘルスチェック。
+
+#### 🔧 [システムメンテナンス](docs/operate/MAINTENANCE.md)
+定期メンテナンス、データベースメンテナンス。
+
+#### 💾 [バックアップとリストア](docs/operate/BACKUP.md)
+バックアップ戦略、自動バックアップ設定、リストア手順。
+
+#### 🔒 [セキュリティ運用](docs/operate/SECURITY.md)
+セキュリティチェックリスト、セキュリティインシデント対応。
+
+#### 🚨 [インシデント対応](docs/operate/INCIDENTS.md)
+インシデント管理フロー、インシデントレポート。
+
+## [監視戦略](docs/monitor/)
+
+#### 📝 [ログ管理](docs/monitor/LOGGING.md)
+ログレベル、Winston/Pino設定、ログローテーション。
+
+#### 📊 [メトリクス収集](docs/monitor/METRICS.md)
+Prometheus設定、カスタムメトリクス。
+
+#### 🔔 [アラート設定](docs/monitor/ALERTS.md)
+アラートルール、Alertmanager設定、通知設定。
+
+#### 🐛 [エラー追跡](docs/monitor/ERRORS.md)
+Sentry設定、エラーレポート、スタックトレース分析。
+
+#### 📈 [ダッシュボード](docs/monitor/DASHBOARDS.md)
+Grafanaダッシュボード設定、可視化パネル。
 
 ## [ユーザー向けドキュメント](docs/user/)
 

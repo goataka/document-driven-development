@@ -101,7 +101,8 @@
 
 | カテゴリ | 技術 | バージョン | 用途 |
 |---------|------|-----------|------|
-| **RDBMS** | PostgreSQL | 15.x | メインデータベース |
+| **NoSQL** | DynamoDB | - | メインデータベース（AWS） |
+| **ローカルDB** | LocalStack | latest | DynamoDBローカルエミュレーション |
 | **キャッシュ** | Redis | 7.x | セッション管理、キャッシュ（オプション） |
 
 ### インフラ・DevOps
@@ -128,7 +129,7 @@ graph TB
     Controllers[Controllers<br/>API Endpoints]
     Services[Services<br/>Business Logic]
     Repositories[Repositories<br/>Data Access]
-    DB[(PostgreSQL Database<br/>Users, Attendance Records)]
+    DB[(DynamoDB<br/>Users, Attendance Records)]
     Redis[(Redis Cache<br/>Session, Token Store<br/>オプション)]
     
     Client -->|HTTPS| CDN
@@ -214,7 +215,7 @@ frontend/
 
 ### 概要
 
-- **RDBMS**: PostgreSQL 15.x
+- **NoSQL**: DynamoDB（AWS）/ LocalStack（ローカル・CI）
 - **主要テーブル**: users, attendances
 - **マイグレーション**: TypeORM Migrations
 
@@ -277,7 +278,7 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 - Node.js 20.x LTS
 - npm または yarn
 - Docker & Docker Compose
-- PostgreSQL 15.x（Dockerで実行可）
+- DynamoDB Local / LocalStack（ローカル・CI環境）
 
 #### セットアップ手順
 
@@ -369,7 +370,7 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 
 #### データベース
 
-- **AWS RDS**: マネージドPostgreSQL
+- **AWS DynamoDB**: フルマネージドNoSQLデータベース
 - **Heroku Postgres**: 統合管理
 - **Supabase**: BaaS（Backend as a Service）
 
@@ -395,24 +396,6 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 3. 実装フェーズ（スプリント計画）
 4. テスト計画の策定
 5. デプロイ戦略の確定
-
-### 関連ドキュメント
-
-#### 技術ドキュメント
-
-- **[フロントエンド設計](./FRONTEND.md)**: React + TypeScriptの詳細設計
-- **[バックエンド設計](./BACKEND.md)**: NestJS + TypeScriptの詳細設計
-- **[データベース設計](./DATABASE.md)**: PostgreSQLのスキーマ設計
-- **[API設計](./API.md)**: RESTful APIの仕様
-- **[セキュリティ](./SECURITY.md)**: セキュリティ対策の詳細
-- **[テスト戦略](../test/)**: テスト戦略概要・単体・コンポーネント
-  - [統合・E2Eテスト](../test/INTEGRATION.md)
-  - [スナップショットテスト](../test/SNAPSHOT.md)
-  - [アクセシビリティテスト](../test/ACCESSIBILITY.md)
-  - [パフォーマンステスト](../test/PERFORMANCE.md)
-  - [静的セキュリティテスト](../test/SECURITY_STATIC.md)
-  - [動的セキュリティテスト](../test/SECURITY_DYNAMIC.md)
-- **[依存関係管理](./DEPENDENCIES.md)**: 依存関係の自動更新とセキュリティスキャン
 
 #### ユーザードキュメント
 
