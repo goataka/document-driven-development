@@ -6,8 +6,8 @@
 
 | 対象 | 役割 | 詳細 |
 |------|------|------|
-| **人間** | 指示・レビューのみを行ってください | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| **AIエージェント** | 実装・テスト・運用を行います | [agent.md](agent.md) |
+| **人間** | 指示・レビュー | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| **AIエージェント** | 実装・テスト・運用 | [agent.md](agent.md) |
 
 ## 対象システム
 
