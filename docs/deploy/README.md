@@ -173,6 +173,9 @@ DynamoDBの運用方針、データモデル設計戦略。
 ### 🔄 [CI/CD パイプライン](./CI_CD.md)
 GitHub Actionsでの自動デプロイ方針、環境別デプロイフロー。
 
+### 📄 [静的サイトデプロイ](./STATIC_SITE.md)
+ドキュメント静的サイトのホスティング方針、GitHub Pages/Vercel/Netlifyデプロイ戦略。
+
 ---
 
 ---

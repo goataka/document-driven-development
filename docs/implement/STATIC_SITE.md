@@ -1,16 +1,22 @@
-# 静的サイト - アプリケーション連携
+# 静的サイトアプリケーション連携
 
-このドキュメントは、アプリケーション機能内から静的サイトへのリンク方法を説明します。
+本ドキュメントは、アプリケーション機能内から静的ドキュメントサイトへのリンク方法を説明します。
 
-## 連携の目的
+## 概要
+
+アプリ内の「ヘルプ」ボタンや機能説明から、関連するマニュアルページへユーザーを誘導します。
+
+### 連携の目的
 
 - アプリ内からコンテキストに応じた適切なマニュアルページへ誘導
 - リリースノートで新機能の詳細情報を提供
 - トラブルシューティングガイドへの簡単なアクセス
 
-## リンク方法
+---
 
-### 1. ヘルプボタン
+## 実装方法
+
+### 1. ヘルプボタンコンポーネント
 
 各画面にヘルプボタンを配置し、該当機能のマニュアルへリンク：
 
@@ -91,6 +97,8 @@ export const ContextHelp: React.FC = () => {
 };
 ```
 
+---
+
 ## リリースノート連携
 
 ### 1. 新機能通知
@@ -112,7 +120,7 @@ export const ReleaseNotification: React.FC = () => {
   const [dismissed, setDismissed] = useState(false);
   
   useEffect(() => {
-    // リリース情報を取得（API経由またはローカルストレージ）
+    // リリース情報を取得
     fetchLatestRelease().then(release => {
       const lastSeenVersion = localStorage.getItem('lastSeenVersion');
       if (release.version !== lastSeenVersion) {
@@ -177,6 +185,8 @@ export const Footer: React.FC = () => {
 };
 ```
 
+---
+
 ## エラーメッセージからのリンク
 
 エラー発生時にトラブルシューティングガイドへリンク：
@@ -237,56 +247,20 @@ export class ErrorBoundary extends Component<Props, State> {
 }
 ```
 
-## 検索機能との連携
+---
 
-アプリ内検索から静的サイトの検索へ誘導：
-
-```typescript
-// SearchWidget.tsx
-import React, { useState } from 'react';
-
-export const SearchWidget: React.FC = () => {
-  const [query, setQuery] = useState('');
-  
-  const handleSearch = () => {
-    // アプリ内検索を実行
-    performInAppSearch(query);
-  };
-  
-  const searchInDocs = () => {
-    const docsSearchUrl = `${process.env.REACT_APP_DOCS_URL}/?q=${encodeURIComponent(query)}`;
-    window.open(docsSearchUrl, '_blank', 'noopener,noreferrer');
-  };
-  
-  return (
-    <div className="search-widget">
-      <input
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="検索..."
-      />
-      <button onClick={handleSearch}>アプリ内を検索</button>
-      <button onClick={searchInDocs}>マニュアルを検索</button>
-    </div>
-  );
-};
-```
-
-## ディープリンク（特定セクションへのリンク）
+## ディープリンク
 
 マニュアルページの特定セクションへ直接リンク：
 
 ```typescript
-// DeepLinkExample.tsx
-import React from 'react';
-
-// アンカーリンクを含むURL生成
+// ディープリンクの生成
 const createDeepLink = (docPath: string, anchor?: string): string => {
   const baseUrl = process.env.REACT_APP_DOCS_URL || 'https://docs.example.com';
   return anchor ? `${baseUrl}/${docPath}#${anchor}` : `${baseUrl}/${docPath}`;
 };
 
+// 使用例
 export const ClockInHelp: React.FC = () => {
   return (
     <div>
@@ -307,6 +281,8 @@ export const ClockInHelp: React.FC = () => {
 };
 ```
 
+---
+
 ## 環境変数設定
 
 各環境でドキュメントURLを設定：
@@ -322,63 +298,7 @@ REACT_APP_DOCS_URL=https://staging-docs.example.com
 REACT_APP_DOCS_URL=https://docs.example.com
 ```
 
-## アクセス解析
-
-静的サイトへのアクセスを追跡：
-
-```typescript
-// analytics.ts
-export const trackDocsNavigation = (docPath: string) => {
-  // Google Analytics イベント送信
-  if (typeof window.gtag !== 'undefined') {
-    window.gtag('event', 'docs_navigation', {
-      event_category: 'help',
-      event_label: docPath,
-    });
-  }
-};
-
-// 使用例
-<HelpButton 
-  docPath={helpLinks.login}
-  onClick={() => trackDocsNavigation(helpLinks.login)}
-/>
-```
-
-## モバイルアプリからの連携
-
-React Nativeアプリの場合：
-
-```typescript
-// MobileHelpButton.tsx
-import React from 'react';
-import { TouchableOpacity, Text, Linking } from 'react-native';
-
-interface MobileHelpButtonProps {
-  docPath: string;
-}
-
-export const MobileHelpButton: React.FC<MobileHelpButtonProps> = ({ docPath }) => {
-  const docsBaseUrl = 'https://docs.example.com';
-  
-  const openDocs = async () => {
-    const url = `${docsBaseUrl}/${docPath}`;
-    const supported = await Linking.canOpenURL(url);
-    
-    if (supported) {
-      await Linking.openURL(url);
-    } else {
-      console.error(`Cannot open URL: ${url}`);
-    }
-  };
-  
-  return (
-    <TouchableOpacity onPress={openDocs}>
-      <Text>ヘルプ</Text>
-    </TouchableOpacity>
-  );
-};
-```
+---
 
 ## バックエンドAPI経由でのリンク提供
 
@@ -411,7 +331,9 @@ export class HelpController {
 }
 ```
 
-## アクセシビリティ考慮事項
+---
+
+## アクセシビリティ
 
 ### スクリーンリーダー対応
 
@@ -441,6 +363,8 @@ export class HelpController {
   ヘルプ
 </button>
 ```
+
+---
 
 ## まとめ
 

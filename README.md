@@ -78,6 +78,10 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 
 Dependabot、Renovateによる自動更新（すべて無料）。
 
+#### 📄 [静的サイト連携](docs/implement/STATIC_SITE.md)
+
+ドキュメント静的サイトとアプリケーションの連携、ヘルプボタン実装。
+
 ## [テスト戦略](docs/test/)
 
 #### 🧪 [単体テスト](docs/test/UNIT.md)
@@ -126,6 +130,9 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
 GitHub Actionsでのビルド方針、キャッシュ戦略。
 
+#### 📄 [静的サイトビルド](docs/build/STATIC_SITE.md)
+ドキュメント静的サイトのビルド方針、MkDocs/VitePress設定。
+
 ## [リリース管理](docs/release/)
 
 #### 🏷️ [バージョニング戦略](docs/release/VERSIONING.md)
@@ -156,6 +163,9 @@ Docker コンテナ化、Heroku、AWS ECS/Fargateへのデプロイ。
 
 #### 🔄 [CI/CD パイプライン](docs/deploy/CI_CD.md)
 GitHub Actionsデプロイ設定、環境変数管理。
+
+#### 📄 [静的サイトデプロイ](docs/deploy/STATIC_SITE.md)
+ドキュメント静的サイトのホスティング、GitHub Pages/Vercel/Netlifyデプロイ。
 
 ## [運用管理](docs/operate/)
 
@@ -216,24 +226,6 @@ Grafanaダッシュボード設定、可視化パネル。
 #### 📋 [リリースノート](docs/user/RELEASE_NOTES.md)
 
 システムの機能概要、バージョン情報、今後の予定など。
-
-## [静的サイト管理](docs/static-site/)
-
-#### 🌐 [静的サイト概要](docs/static-site/README.md)
-
-リリースノートとマニュアルを静的サイトとして提供する方針。
-
-#### 📦 [デプロイ戦略](docs/static-site/DEPLOYMENT.md)
-
-GitHub Pages、Vercel、Netlifyへのデプロイ方法、CI/CD設定。
-
-#### 🏗️ [サイト構造](docs/static-site/STRUCTURE.md)
-
-MkDocs/VitePressの設定、ナビゲーション設計、ディレクトリ構成。
-
-#### 🔗 [アプリ連携](docs/static-site/INTEGRATION.md)
-
-アプリケーション機能内からのリンク方法、コンテキストヘルプ実装。
 
 ## [モノレポ構成](docs/monorepo/)
 
