@@ -117,6 +117,9 @@
 ### 🔄 [CI/CDビルド](./CI_CD.md)
 GitHub Actionsでのビルド方針、キャッシュ戦略、並列化方針。
 
+### 📄 [websiteビルド](./WEBSITE.md)
+ドキュメントwebsite（ユーザーマニュアル、リリースノート）のビルド方針、MkDocs/VitePress設定。
+
 ---
 
 ---

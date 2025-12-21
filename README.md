@@ -78,6 +78,10 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 
 Dependabot、Renovateによる自動更新（すべて無料）。
 
+#### 📄 [ウェブサイト設計](docs/implement/WEBSITE.md)
+
+ドキュメントwebsiteとアプリケーションの連携、ヘルプボタン実装。
+
 ## [テスト戦略](docs/test/)
 
 #### 🧪 [単体テスト](docs/test/UNIT.md)
@@ -126,6 +130,9 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
 GitHub Actionsでのビルド方針、キャッシュ戦略。
 
+#### 📄 [websiteビルド](docs/build/WEBSITE.md)
+ドキュメントwebsiteのビルド方針、MkDocs/VitePress設定。
+
 ## [リリース管理](docs/release/)
 
 #### 🏷️ [バージョニング戦略](docs/release/VERSIONING.md)
@@ -156,6 +163,9 @@ Docker コンテナ化、Heroku、AWS ECS/Fargateへのデプロイ。
 
 #### 🔄 [CI/CD パイプライン](docs/deploy/CI_CD.md)
 GitHub Actionsデプロイ設定、環境変数管理。
+
+#### 📄 [websiteデプロイ](docs/deploy/WEBSITE.md)
+ドキュメントwebsiteのホスティング、GitHub Pages/Vercel/Netlifyデプロイ。
 
 ## [運用管理](docs/operate/)
 
@@ -216,6 +226,24 @@ Grafanaダッシュボード設定、可視化パネル。
 #### 📋 [リリースノート](docs/user/RELEASE_NOTES.md)
 
 システムの機能概要、バージョン情報、今後の予定など。
+
+## [モノレポ構成](docs/monorepo/)
+
+#### 📂 [モノレポ概要](docs/monorepo/README.md)
+
+モノレポ採用理由、メリット・デメリット、適用シナリオ。
+
+#### 🗂️ [ディレクトリ構造](docs/monorepo/STRUCTURE.md)
+
+apps/、packages/、static-sites/の詳細構成、命名規則。
+
+#### 🔄 [ワークフロー](docs/monorepo/WORKFLOWS.md)
+
+開発フロー、CI/CD設定、Turborepoによるタスク実行。
+
+#### 🔗 [依存関係管理](docs/monorepo/DEPENDENCIES.md)
+
+パッケージ間の依存関係、バージョン管理、セキュリティ対策。
 
 ## ライセンス
 

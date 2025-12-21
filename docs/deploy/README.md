@@ -159,7 +159,7 @@
 ## ドキュメント一覧
 
 ### 📱 [フロントエンドデプロイ](./FRONTEND.md)
-S3 + CloudFrontでの静的サイト配信方針、CDN戦略。
+S3 + CloudFrontでのwebsite配信方針、CDN戦略。
 
 ### 🔧 [バックエンドデプロイ](./BACKEND.md)
 Lambda関数のデプロイ方針、API Gateway連携戦略。
@@ -172,6 +172,9 @@ DynamoDBの運用方針、データモデル設計戦略。
 
 ### 🔄 [CI/CD パイプライン](./CI_CD.md)
 GitHub Actionsでの自動デプロイ方針、環境別デプロイフロー。
+
+### 📄 [websiteデプロイ](./WEBSITE.md)
+ドキュメントwebsiteのホスティング方針、GitHub Pages/Vercel/Netlifyデプロイ戦略。
 
 ---
 
