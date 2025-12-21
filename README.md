@@ -74,6 +74,9 @@ GitHub Actionsでのビルド方針、キャッシュ戦略。
 
 ## [リリース管理](docs/release/)
 
+#### 🏷️ [バージョニング戦略](docs/release/VERSIONING.md)
+セマンティックバージョニング、バージョン決定基準。
+
 #### 🔄 [リリースプロセス](docs/release/PROCESS.md)
 リリース計画、リリース手順、自動化されたリリース。
 
