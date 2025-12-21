@@ -64,19 +64,16 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 ## [ビルド戦略](docs/build/)
 
 #### 📱 [フロントエンドビルド](docs/build/FRONTEND.md)
-React + Viteのビルド設定、成果物、環境変数。
+フロントエンドのビルド方針、最適化戦略、環境別設定方針。
 
 #### 🔧 [バックエンドビルド](docs/build/BACKEND.md)
-NestJSのビルド設定、TypeScript設定、成果物。
-
-#### ⚡ [ビルド最適化](docs/build/OPTIMIZATION.md)
-コード分割、画像最適化、キャッシュ戦略。
+バックエンドのビルド方針、Lambda対応バンドル戦略、最適化方針。
 
 #### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
-GitHub Actionsのビルド設定、キャッシュ戦略。
+GitHub Actionsでのビルド方針、キャッシュ戦略。
 
 #### 🔍 [トラブルシューティング](docs/build/TROUBLESHOOTING.md)
-よくある問題と解決方法、ビルドログの確認。
+ビルドに関する一般的な問題への対処方針。
 
 ## [リリース管理](docs/release/)
 
