@@ -1,7 +1,5 @@
 # Document-Driven Development
 
-## 目的
-
 **AIエージェント**との**ドキュメント駆動開発（Document-Driven Development）** を実践・検証するリポジトリです。
 
 ## コントリビューション
