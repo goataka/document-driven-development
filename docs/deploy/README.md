@@ -139,7 +139,7 @@
 - **DynamoDB**: NoSQLデータベース（オンデマンド課金）
 - **S3**: 静的ファイルホスティング
 - **CloudFront**: CDN（低レイテンシ配信）
-- **API Gateway**: APIエンドポイント管理（オプション）
+- **API Gateway**: APIエンドポイント管理（オプション、[ADR-012](../../specs/architecture/012-api-gateway-integration.md)参照）
 - **CloudWatch**: ログとメトリクス（無料枠活用）
 
 ### LocalStack方針（ローカル・CI）

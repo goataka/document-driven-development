@@ -88,6 +88,8 @@
 現在の設計では、Users と Attendances を別テーブルとしています。
 今後のスケールに応じて、Single Table Design への移行を検討可能です。
 
+詳細は[ADR-006: DynamoDB Single Table Design](../../specs/architecture/006-dynamodb-single-table-design.md)を参照してください。
+
 ### バックアップ戦略
 
 - ポイントインタイムリカバリ（PITR）有効化
