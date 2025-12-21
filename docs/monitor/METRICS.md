@@ -2,10 +2,6 @@
 
 本ドキュメントは、Prometheusメトリクス収集を説明します。
 
-**関連ドキュメント**: 
-- [監視戦略概要](./README.md)
-- [アラート設定](./ALERTS.md)
-
 ## Prometheus設定
 
 ```yaml
