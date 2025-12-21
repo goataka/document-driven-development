@@ -68,7 +68,7 @@ document-driven-development/
 │   ├── types/              # 型定義
 │   ├── utils/              # ユーティリティ
 │   └── config/             # 共通設定
-├── sites/                  # 静的サイト
+├── sites/                  # website
 │   ├── user-docs/          # ユーザーマニュアル
 │   └── release-notes/      # リリースノート
 └── tools/                  # 開発ツール・スクリプト

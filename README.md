@@ -78,9 +78,9 @@ RESTful APIのエンドポイント仕様とレスポンス形式。
 
 Dependabot、Renovateによる自動更新（すべて無料）。
 
-#### 📄 [静的サイト連携](docs/implement/STATIC_SITE.md)
+#### 📄 [website連携](docs/implement/WEBSITE.md)
 
-ドキュメント静的サイトとアプリケーションの連携、ヘルプボタン実装。
+ドキュメントwebsiteとアプリケーションの連携、ヘルプボタン実装。
 
 ## [テスト戦略](docs/test/)
 
@@ -130,8 +130,8 @@ OWASP ZAP、インジェクション攻撃テスト（すべて無料）。
 #### 🔄 [CI/CDビルド](docs/build/CI_CD.md)
 GitHub Actionsでのビルド方針、キャッシュ戦略。
 
-#### 📄 [静的サイトビルド](docs/build/STATIC_SITE.md)
-ドキュメント静的サイトのビルド方針、MkDocs/VitePress設定。
+#### 📄 [websiteビルド](docs/build/WEBSITE.md)
+ドキュメントwebsiteのビルド方針、MkDocs/VitePress設定。
 
 ## [リリース管理](docs/release/)
 
@@ -164,8 +164,8 @@ Docker コンテナ化、Heroku、AWS ECS/Fargateへのデプロイ。
 #### 🔄 [CI/CD パイプライン](docs/deploy/CI_CD.md)
 GitHub Actionsデプロイ設定、環境変数管理。
 
-#### 📄 [静的サイトデプロイ](docs/deploy/STATIC_SITE.md)
-ドキュメント静的サイトのホスティング、GitHub Pages/Vercel/Netlifyデプロイ。
+#### 📄 [websiteデプロイ](docs/deploy/WEBSITE.md)
+ドキュメントwebsiteのホスティング、GitHub Pages/Vercel/Netlifyデプロイ。
 
 ## [運用管理](docs/operate/)
 

@@ -20,7 +20,7 @@ document-driven-development/
 │   ├── utils/                  # ユーティリティ関数
 │   ├── config/                 # 共通設定
 │   └── eslint-config/          # ESLint設定
-├── sites/               # 静的サイト
+├── sites/               # website
 │   ├── user-docs/              # ユーザーマニュアル
 │   └── release-notes/          # リリースノート
 ├── docs/                       # プロジェクトドキュメント
@@ -33,7 +33,6 @@ document-driven-development/
 │   ├── monitor/                # 監視戦略
 │   ├── release/                # リリース管理
 │   ├── user/                   # ユーザー向け
-│   ├── static-site/            # 静的サイト方針
 │   └── monorepo/               # モノレポ構成（このディレクトリ）
 ├── tools/                      # 開発ツール
 │   ├── scripts/                # スクリプト
@@ -189,9 +188,9 @@ packages/eslint-config/
 └── README.md
 ```
 
-## sites/ - 静的サイト
+## sites/ - website
 
-静的サイトジェネレーターで生成するサイト。
+websiteジェネレーターで生成するサイト。
 
 ### sites/user-docs/
 

@@ -1,10 +1,10 @@
-# 静的サイトデプロイ方針
+# websiteデプロイ方針
 
-本ドキュメントは、ドキュメント静的サイトのホスティングとデプロイ方法を説明します。
+本ドキュメントは、ドキュメントwebsiteのホスティングとデプロイ方法を説明します。
 
 ## 概要
 
-ユーザーマニュアルとリリースノートを静的サイトとして提供します。
+ユーザーマニュアルとリリースノートをwebsiteとして提供します。
 
 ### 基本方針
 
@@ -131,7 +131,7 @@ on:
       - main
     paths:
       - 'docs/**'
-      - 'static-sites/**'
+      - 'sites/**'
 
 jobs:
   deploy:
@@ -215,7 +215,7 @@ jobs:
 
 ## フロントエンドからの検索機能
 
-静的サイトの検索は、フロントエンドアプリケーションから利用可能です。
+websiteの検索は、フロントエンドアプリケーションから利用可能です。
 
 ### 実装方法
 
@@ -357,7 +357,7 @@ S3 + CloudFrontでフロントエンドから検索インデックスにアク�
 graph LR
     A[Markdownを更新] --> B[GitHubにプッシュ]
     B --> C[GitHub Actions起動]
-    C --> D[静的サイト生成]
+    C --> D[website生成]
     D --> E[S3へアップロード]
     E --> F[CloudFrontキャッシュ無効化]
     F --> G[サイト更新完了]
@@ -367,12 +367,12 @@ graph LR
 
 ```bash
 # MkDocsの場合
-cd static-sites/user-docs
+cd sites/user-docs
 mkdocs build
 mkdocs gh-deploy
 
 # VitePressの場合
-cd static-sites/user-docs
+cd sites/user-docs
 npm run docs:build
 # 生成されたdist/をホスティング先へアップロード
 ```
@@ -567,7 +567,7 @@ blc https://your-docs-site.com -ro
 
 ## 次のステップ
 
-- [ビルド方針](../build/STATIC_SITE.md) - 静的サイトのビルド設定
+- [ビルド方針](../build/STATIC_SITE.md) - websiteのビルド設定
 - [アプリ連携](../implement/STATIC_SITE.md) - アプリケーションからのリンク方法
 
 ---
