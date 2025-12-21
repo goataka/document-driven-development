@@ -8,15 +8,15 @@
 
 ### 月次履歴表示UI構成
 
-![勤怠履歴画面（月次）](../images/005-attendance-monthly.svg)
+![勤怠履歴画面（月次）](images/005-attendance-monthly.svg)
 
 ### 日次履歴表示UI構成
 
-![勤怠履歴画面（日次）](../images/005-attendance-daily.svg)
+![勤怠履歴画面（日次）](images/005-attendance-daily.svg)
 
 ### 打刻履歴表示UI構成
 
-![打刻履歴画面](../images/005-clock-history.svg)
+![打刻履歴画面](images/005-clock-history.svg)
 
 ### 画面要素
 
