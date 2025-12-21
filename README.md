@@ -9,7 +9,7 @@
 - **人間**は、 指示・レビューのみを行ってください
 - **AIエージェント**が、実装・テスト・運用を行います
 
-人間の貢献方法の詳細は[CONTRIBUTING.md](CONTRIBUTING.md)をご覧ください。
+詳細は[CONTRIBUTING.md](CONTRIBUTING.md)をご覧ください。
 
 ## 対象システム
 
