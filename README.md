@@ -111,9 +111,6 @@ GitHub Actionsデプロイ設定、環境変数管理。
 #### 🔧 [システムメンテナンス](docs/operate/MAINTENANCE.md)
 定期メンテナンス、データベースメンテナンス。
 
-#### 🔍 [トラブルシューティング](docs/operate/TROUBLESHOOTING.md)
-一般的な問題と解決方法、トラブルシューティングフロー。
-
 #### 💾 [バックアップとリストア](docs/operate/BACKUP.md)
 バックアップ戦略、自動バックアップ設定、リストア手順。
 
