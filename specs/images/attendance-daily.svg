@@ -1,0 +1,92 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1920" height="108" fill="#007cc5"/>
+  <text x="48" y="67" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white">勤怠管理システム - 勤務実績（日次）</text>
+  <text x="1680" y="67" font-family="Arial, sans-serif" font-size="22" fill="white">ユーザー名 ▼</text>
+  
+  <!-- Sidebar Menu -->
+  <rect x="0" y="108" width="400" height="972" fill="#e9ecef" stroke="#dee2e6" stroke-width="1"/>
+  <text x="32" y="162" font-family="Arial, sans-serif" font-size="25" font-weight="bold" fill="#495057">メニュー</text>
+  
+  <rect x="32" y="189" width="336" height="54" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="56" y="224" font-family="Arial, sans-serif" font-size="22" fill="white">🏠 ダッシュボード</text>
+  
+  <rect x="32" y="256" width="336" height="54" fill="#6c757d" stroke="none" rx="5"/>
+  <text x="56" y="291" font-family="Arial, sans-serif" font-size="22" fill="white">📊 勤務実績</text>
+  
+  <rect x="32" y="324" width="336" height="54" fill="#e9ecef" stroke="#ced4da" stroke-width="1" rx="5"/>
+  <text x="56" y="359" font-family="Arial, sans-serif" font-size="22" fill="#495057">⚙️ 設定</text>
+  
+  <!-- Main Content Area -->
+  <rect x="432" y="135" width="1456" height="918" fill="white" stroke="#dee2e6" stroke-width="3" rx="10"/>
+  
+  <!-- Date Selector -->
+  <rect x="968" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+  <text x="1000" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">◀</text>
+  
+  <rect x="1048" y="159" width="288" height="40" fill="white" stroke="#ced4da" stroke-width="1" rx="3"/>
+  <text x="1192" y="187" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#495057">2025年12月8日（月）</text>
+  
+  <rect x="1352" y="159" width="64" height="40" fill="#007cc5" stroke="none" rx="3"/>
+  <text x="1384" y="187" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="white">▶</text>
+  
+  <!-- Summary Card -->
+  <rect x="464" y="229" width="1408" height="796" fill="white" stroke="#dee2e6" stroke-width="3" rx="10"/>
+  
+  <!-- Status (below date) -->
+  <rect x="560" y="243" width="880" height="54" fill="#6c757d" fill-opacity="0.1" stroke="#6c757d" stroke-width="3" rx="8"/>
+  <text x="1000" y="276" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#6c757d">ステータス: 退勤済み</text>
+  
+  <!-- Content Area -->
+  <g transform="translate(0, 0)">
+    <!-- Clock-in Time -->
+    <rect x="560" y="324" width="400" height="108" fill="#f8f9fa" stroke="#007cc5" stroke-width="3" rx="8"/>
+    <text x="760" y="357" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#666">出勤時刻</text>
+    <text x="760" y="405" font-family="Arial, sans-serif" font-size="51" font-weight="bold" text-anchor="middle" fill="#007cc5">09:00</text>
+    
+    <!-- Clock-out Time -->
+    <rect x="1040" y="324" width="400" height="108" fill="#f8f9fa" stroke="#dc3545" stroke-width="3" rx="8"/>
+    <text x="1240" y="357" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#666">退勤時刻</text>
+    <text x="1240" y="405" font-family="Arial, sans-serif" font-size="51" font-weight="bold" text-anchor="middle" fill="#dc3545">18:00</text>
+    
+    <!-- Work Hours -->
+    <rect x="560" y="459" width="400" height="108" fill="#f8f9fa" stroke="#28a745" stroke-width="3" rx="8"/>
+    <text x="760" y="492" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#666">勤務時間</text>
+    <text x="760" y="540" font-family="Arial, sans-serif" font-size="51" font-weight="bold" text-anchor="middle" fill="#28a745">9時間00分</text>
+    
+    <!-- Overtime Hours -->
+    <rect x="1040" y="459" width="400" height="108" fill="#f8f9fa" stroke="#dc3545" stroke-width="3" rx="8"/>
+    <text x="1240" y="492" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#666">残業時間</text>
+    <text x="1240" y="540" font-family="Arial, sans-serif" font-size="51" font-weight="bold" text-anchor="middle" fill="#dc3545">1時間00分</text>
+    
+    <!-- Note (to the right of overtime) -->
+    <text x="1480" y="492" font-family="Arial, sans-serif" font-size="19" fill="#666">※所定労働時間: 8時間</text>
+    <text x="1480" y="519" font-family="Arial, sans-serif" font-size="19" fill="#666">※残業時間 = 勤務時間</text>
+    <text x="1480" y="540" font-family="Arial, sans-serif" font-size="19" fill="#666">　　　　　 - 所定労働時間</text>
+    
+    <!-- Time Entry List -->
+    <rect x="560" y="594" width="1280" height="270" fill="#f8f9fa" stroke="#dee2e6" stroke-width="3" rx="8"/>
+    
+    <!-- Table Header -->
+    <rect x="560" y="594" width="1280" height="54" fill="#007cc5" stroke="none" rx="8"/>
+    <rect x="560" y="604" width="1280" height="43" fill="#007cc5" stroke="none"/>
+    <text x="640" y="627" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">時刻</text>
+    <text x="920" y="627" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">区分</text>
+    <text x="1320" y="627" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">備考</text>
+    
+    <!-- Entry 1: Clock-in -->
+    <rect x="560" y="648" width="1280" height="54" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <text x="640" y="681" font-family="Arial, sans-serif" font-size="20" fill="#212529">09:00:00</text>
+    <text x="920" y="681" font-family="Arial, sans-serif" font-size="20" fill="#007cc5" font-weight="bold">出勤</text>
+    <text x="1320" y="681" font-family="Arial, sans-serif" font-size="20" fill="#495057">通常勤務</text>
+    
+    <!-- Entry 2: Clock-out -->
+    <rect x="560" y="702" width="1280" height="54" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="640" y="735" font-family="Arial, sans-serif" font-size="20" fill="#212529">18:00:00</text>
+    <text x="920" y="735" font-family="Arial, sans-serif" font-size="20" fill="#dc3545" font-weight="bold">退勤</text>
+    <text x="1320" y="735" font-family="Arial, sans-serif" font-size="20" fill="#495057">通常退勤</text>
+  </g>
+</svg>

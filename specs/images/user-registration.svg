@@ -1,0 +1,42 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#f8f9fa"/>
+  
+  <!-- Registration Box -->
+  <rect x="480" y="104" width="960" height="872" fill="white" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  
+  <!-- Title -->
+  <text x="960" y="208" font-family="Arial, sans-serif" font-size="59" font-weight="bold" text-anchor="middle" fill="#333">新規ユーザー登録</text>
+  
+  <!-- Name Label -->
+  <text x="528" y="301" font-family="Arial, sans-serif" font-size="35" fill="#666">氏名</text>
+  
+  <!-- Name Input -->
+  <rect x="528" y="321" width="864" height="73" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  
+  <!-- Email Label -->
+  <text x="528" y="447" font-family="Arial, sans-serif" font-size="35" fill="#666">メールアドレス</text>
+  
+  <!-- Email Input -->
+  <rect x="528" y="467" width="864" height="73" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  
+  <!-- Password Label -->
+  <text x="528" y="591" font-family="Arial, sans-serif" font-size="35" fill="#666">パスワード</text>
+  
+  <!-- Password Input -->
+  <rect x="528" y="613" width="864" height="73" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  
+  <!-- Password Confirm Label -->
+  <text x="528" y="737" font-family="Arial, sans-serif" font-size="35" fill="#666">パスワード（確認）</text>
+  
+  <!-- Password Confirm Input -->
+  <rect x="528" y="759" width="864" height="73" fill="white" stroke="#ced4da" stroke-width="1" rx="5"/>
+  
+  <!-- Register Button -->
+  <rect x="528" y="872" width="864" height="84" fill="#007cc5" stroke="none" rx="5"/>
+  <text x="960" y="927" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="white">登録</text>
+  
+  <!-- Login Link -->
+  <text x="960" y="1007" font-family="Arial, sans-serif" font-size="29" text-anchor="middle" fill="#666">すでにアカウントをお持ちの方は</text>
+  <text x="960" y="1042" font-family="Arial, sans-serif" font-size="29" text-anchor="middle" fill="#007cc5" style="text-decoration: underline; cursor: pointer;">ログイン</text>
+</svg>
