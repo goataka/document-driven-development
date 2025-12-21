@@ -91,10 +91,3 @@ npm test Button.snapshot.test.tsx -- -u
 7. **重要なプロップをテスト**: 全バリエーションをカバー、エッジケースも含める
 
 ---
-
-## 関連ドキュメント
-
-- [テスト戦略概要](./)
-- [統合・E2Eテスト](./INTEGRATION.md)
-- [アクセシビリティテスト](./ACCESSIBILITY.md)
-- [パフォーマンステスト](./PERFORMANCE.md)

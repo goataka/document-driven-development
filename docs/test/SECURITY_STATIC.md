@@ -181,11 +181,3 @@ jobs:
    - OWASP Top 10を理解
 
 ---
-
-## 関連ドキュメント
-
-- [テスト戦略概要](./)
-- [動的セキュリティテスト](./SECURITY_DYNAMIC.md)
-- [統合・E2Eテスト](./INTEGRATION.md)
-- [依存関係管理](../implement/DEPENDENCIES.md)
-- [セキュリティ設計書](../implement/SECURITY.md)

@@ -218,13 +218,3 @@ jobs:
 
 
 ---
-
-## 関連ドキュメント
-
-- [システムアーキテクチャ設計書](../implement/)
-- [フロントエンド設計書](./FRONTEND.md)
-- [バックエンド設計書](./BACKEND.md)
-- [統合・E2Eテスト](./INTEGRATION.md)
-- [品質テスト](./QUALITY.md)
-- [セキュリティ・脆弱性テスト](./SECURITY.md)
-- [依存関係管理と自動更新](../implement/DEPENDENCIES.md)

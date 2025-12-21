@@ -397,24 +397,6 @@ GitHub Actionsを使用した自動化の詳細は、[テスト戦略ドキュ�
 4. テスト計画の策定
 5. デプロイ戦略の確定
 
-### 関連ドキュメント
-
-#### 技術ドキュメント
-
-- **[フロントエンド設計](./FRONTEND.md)**: React + TypeScriptの詳細設計
-- **[バックエンド設計](./BACKEND.md)**: NestJS + TypeScriptの詳細設計
-- **[データベース設計](./DATABASE.md)**: DynamoDBのテーブル設計とデータモデリング
-- **[API設計](./API.md)**: RESTful APIの仕様
-- **[セキュリティ](./SECURITY.md)**: セキュリティ対策の詳細
-- **[テスト戦略](../test/)**: テスト戦略概要・単体・コンポーネント
-  - [統合・E2Eテスト](../test/INTEGRATION.md)
-  - [スナップショットテスト](../test/SNAPSHOT.md)
-  - [アクセシビリティテスト](../test/ACCESSIBILITY.md)
-  - [パフォーマンステスト](../test/PERFORMANCE.md)
-  - [静的セキュリティテスト](../test/SECURITY_STATIC.md)
-  - [動的セキュリティテスト](../test/SECURITY_DYNAMIC.md)
-- **[依存関係管理](./DEPENDENCIES.md)**: 依存関係の自動更新とセキュリティスキャン
-
 #### ユーザードキュメント
 
 - **[ユーザーマニュアル](./MANUAL.md)**: エンドユーザー向けマニュアル

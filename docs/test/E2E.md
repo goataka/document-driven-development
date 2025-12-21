@@ -265,12 +265,3 @@ npm run test:e2e -- --project=chromium
    - クリーンアップを適切に実施
 
 ---
-
-## 関連ドキュメント
-
-- [テスト戦略概要](./)
-- [スナップショットテスト](./SNAPSHOT.md)
-- [アクセシビリティテスト](./ACCESSIBILITY.md)
-- [パフォーマンステスト](./PERFORMANCE.md)
-- [静的セキュリティテスト](./SECURITY.md)
-- [動的セキュリティテスト](./SECURITY_DYNAMIC.md)
