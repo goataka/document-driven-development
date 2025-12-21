@@ -107,8 +107,6 @@
 **ビルド方法**:
 - 最高レベルの最適化
 - サーバーレス構成（Lambda + DynamoDB）
-- 完全最適化ビルド
-- サーバーレス構成（Lambda + Aurora Serverless）
 - CloudFront CDNキャッシュ活用
 
 ---
