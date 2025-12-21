@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ユーザー登録画面](images/001-user-registration.svg)
+![ユーザー登録画面](../images/001-user-registration.svg)
 
 ### 画面要素
 

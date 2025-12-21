@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ログアウト](images/003-logout.svg)
+![ログアウト](../images/003-logout.svg)
 
 ### 画面要素
 

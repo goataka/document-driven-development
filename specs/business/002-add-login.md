@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ログイン画面](images/002-login.svg)
+![ログイン画面](../images/002-login.svg)
 
 ### 画面要素
 
