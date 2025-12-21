@@ -1,6 +1,6 @@
 # データベース設計
 
-本ドキュメントは、PostgreSQLをベースとしたデータベース設計の詳細を説明します。
+本ドキュメントは、DynamoDBをベースとしたデータベース設計の詳細を説明します。
 
 **関連ドキュメント**: [システムアーキテクチャ設計書](../implement/)
 
@@ -8,58 +8,91 @@
 
 1. [テーブル設計](#テーブル設計)
 2. [インデックス設計](#インデックス設計)
-3. [マイグレーション戦略](#マイグレーション戦略)
+3. [データモデリング戦略](#データモデリング戦略)
 
 ---
 
 ## テーブル設計
 
-### 1. users テーブル
+### 1. Users テーブル
 
-| カラム名 | 型 | 制約 | 説明 |
-|---------|-----|-----|-----|
-| id | UUID | PRIMARY KEY | ユーザーID |
-| email | VARCHAR(255) | UNIQUE, NOT NULL | メールアドレス |
-| password | VARCHAR(255) | NOT NULL | ハッシュ化パスワード |
-| company_code | VARCHAR(50) | NOT NULL | 会社コード |
-| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 作成日時 |
-| updated_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 更新日時 |
+**パーティションキー**: `userId` (String, UUID)  
+**ソートキー**: なし
 
-### 2. attendances テーブル
+| 属性名 | 型 | 説明 |
+|---------|-----|-----|
+| userId | String (UUID) | ユーザーID（PK） |
+| email | String | メールアドレス |
+| passwordHash | String | ハッシュ化パスワード |
+| companyCode | String | 会社コード |
+| createdAt | Number | 作成日時（Unix timestamp） |
+| updatedAt | Number | 更新日時（Unix timestamp） |
 
-| カラム名 | 型 | 制約 | 説明 |
-|---------|-----|-----|-----|
-| id | UUID | PRIMARY KEY | 勤怠記録ID |
-| user_id | UUID | FOREIGN KEY (users.id), NOT NULL | ユーザーID |
-| clock_in_time | TIMESTAMP | NOT NULL | 出勤時刻 |
-| clock_out_time | TIMESTAMP | NULL | 退勤時刻 |
-| work_duration_minutes | INTEGER | NULL | 勤務時間（分） |
-| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 作成日時 |
-| updated_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 更新日時 |
+**GSI**: `email-index`
+- パーティションキー: `email`
+- ソートキー: なし
+
+**GSI**: `companyCode-index`
+- パーティションキー: `companyCode`
+- ソートキー: `createdAt`
+
+### 2. Attendances テーブル
+
+**パーティションキー**: `userId` (String)  
+**ソートキー**: `clockInTime` (Number)
+
+| 属性名 | 型 | 説明 |
+|---------|-----|-----|
+| userId | String (UUID) | ユーザーID（PK） |
+| clockInTime | Number | 出勤時刻（SK, Unix timestamp） |
+| attendanceId | String (UUID) | 勤怠記録ID |
+| clockOutTime | Number | 退勤時刻（Unix timestamp） |
+| workDurationMinutes | Number | 勤務時間（分） |
+| createdAt | Number | 作成日時（Unix timestamp） |
+| updatedAt | Number | 更新日時（Unix timestamp） |
 
 ---
 
 ## インデックス設計
 
-```sql
--- users テーブル
-CREATE INDEX idx_users_email ON users(email);
-CREATE INDEX idx_users_company_code ON users(company_code);
+### Users テーブルのインデックス
 
--- attendances テーブル
-CREATE INDEX idx_attendances_user_id ON attendances(user_id);
-CREATE INDEX idx_attendances_clock_in_time ON attendances(clock_in_time);
-CREATE INDEX idx_attendances_user_clock_in ON attendances(user_id, clock_in_time);
-```
+**email-index (GSI)**:
+- 用途: メールアドレスでのユーザー検索
+- プロジェクション: ALL
+
+**companyCode-index (GSI)**:
+- 用途: 会社コードでのユーザー一覧取得、作成日時順でソート
+- プロジェクション: ALL
+
+### Attendances テーブルのインデックス
+
+**デフォルトインデックス**:
+- パーティションキー: userId
+- ソートキー: clockInTime
+- 用途: ユーザーごとの勤怠履歴を時系列で取得
 
 ---
 
-## マイグレーション戦略
+## データモデリング戦略
 
-- **TypeORM Migrations**または**Prisma Migrate**を使用
-- 本番環境へのマイグレーションは自動化せず、手動実行を推奨
-- ロールバック計画を事前に準備
-- バックアップを必ず取得してから実行
+### アクセスパターン
+
+1. **ユーザー認証**: email で検索 → email-index 使用
+2. **会社別ユーザー一覧**: companyCode で検索 → companyCode-index 使用
+3. **ユーザーの勤怠履歴**: userId で検索、clockInTime でソート → テーブルキー使用
+4. **特定期間の勤怠**: userId + clockInTime の範囲クエリ → テーブルキー使用
+
+### Single Table Design の検討
+
+現在の設計では、Users と Attendances を別テーブルとしています。
+今後のスケールに応じて、Single Table Design への移行を検討可能です。
+
+### バックアップ戦略
+
+- ポイントインタイムリカバリ（PITR）有効化
+- 環境別バックアップ保持期間設定
+- 定期的なオンデマンドバックアップ
 
 ---
 
@@ -70,5 +103,5 @@ CREATE INDEX idx_attendances_user_clock_in ON attendances(user_id, clock_in_time
 
 ---
 
-**最終更新日**: 2024年12月17日  
-**バージョン**: 1.0.0
+**最終更新日**: 2024年12月21日  
+**バージョン**: 2.0.0

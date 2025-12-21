@@ -23,17 +23,17 @@
 #### 1. ローカル環境
 - Docker Composeで NestJS サーバーを起動
 - ホットリロード有効で開発効率化
-- PostgreSQLコンテナと連携
+- LocalStackでDynamoDBをエミュレート
 
 #### 2. CI環境
-- TestContainersでテスト用環境構築
+- LocalStackでテスト用環境構築
 - 統合テスト完了後に自動クリーンアップ
 - ビルド成果物をアーティファクトとして保存
 
 #### 3. 検証・ステージング・本番環境（AWS）
 - Lambda関数としてデプロイ
 - API Gatewayでエンドポイント管理（オプション）
-- Aurora Serverlessと接続
+- DynamoDBと接続
 
 ---
 
@@ -57,7 +57,7 @@
 
 ---
 
-## Docker Compose 方針（ローカル・CI）
+## Docker Compose 方針（ローカル）
 
 ### ローカル開発
 **目的**: 
@@ -68,19 +68,19 @@
 ```yaml
 services:
   - backend: NestJSアプリケーション
-  - postgres: データベース
+  - localstack: DynamoDB/S3エミュレーション
   - redis: セッション管理（オプション）
 ```
 
-### CI環境（TestContainers）
+### LocalStack の活用
 **目的**:
-- 独立したテスト環境
-- 並列実行可能
+- AWS サービスのローカルエミュレーション
+- コストゼロでの開発・テスト
 
 **使用方針**:
-- 統合テスト時にDB・サービスを自動起動
-- テスト完了後に自動削除
-- GitHub Actions無料枠内で実行
+- DynamoDBのローカルエミュレーション
+- S3のローカルエミュレーション（オプション）
+- AWS SDKと完全互換
 
 ---
 

@@ -21,7 +21,7 @@ React + TypeScriptの詳細設計とコンポーネント実装例。
 NestJS + TypeScriptの詳細設計とサービス実装例。
 
 #### 💾 [データベース設計](docs/implement/DATABASE.md)
-PostgreSQLのテーブル設計とマイグレーション戦略。
+DynamoDBのテーブル設計とデータモデリング戦略。
 
 #### 🌐 [API設計](docs/implement/API.md)
 RESTful APIのエンドポイント仕様とレスポンス形式。
@@ -95,7 +95,7 @@ Vercel、Netlify、AWS S3 + CloudFrontへのデプロイ。
 Docker コンテナ化、Heroku、AWS ECS/Fargateへのデプロイ。
 
 #### 💾 [データベース管理](docs/deploy/DATABASE.md)
-マイグレーション実行、バックアップ戦略。
+データモデル設計、バックアップ戦略。
 
 #### 🎯 [デプロイメント戦略](docs/deploy/STRATEGIES.md)
 ローリングデプロイ、ブルーグリーンデプロイ、カナリアリリース。

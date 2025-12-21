@@ -60,31 +60,31 @@
 **ビルド方法**:
 - 開発モード（非最適化ビルド）
 - ソースマップ有効
-- Docker Composeで全サービスを起動
+- LocalStack + Docker Composeで全サービスを起動
 
 ### 2. CI環境（GitHub Actions）
 
 **方針**:
 - すべてのコミットで自動ビルド・テスト
-- TestContainersで独立したテスト環境
+- LocalStackで独立したテスト環境
 - 並列実行によるビルド時間短縮
 - 無料枠内での実行
 
 **ビルド方法**:
 - 本番相当のビルド設定
-- TestContainersでDB・サービス起動
+- LocalStackでDynamoDB・S3起動
 - アーティファクトをキャッシュして高速化
 
 ### 3. 検証環境（AWS）
 
 **方針**:
-- 開発チーム内での動作確認
-- 低コストで運用
-- ステージングと同じ構成
+- 開発チーム内でのテスト
+- サーバーレス構成（Lambda + DynamoDB）
+- 低コスト運用
 
 **ビルド方法**:
 - 本番用最適化ビルド
-- サーバーレス構成（Lambda + Aurora Serverless）
+- サーバーレス構成（Lambda + DynamoDB）
 
 ### 4. ステージング環境（AWS）
 
@@ -95,7 +95,7 @@
 
 **ビルド方法**:
 - 本番と同じビルドプロセス
-- サーバーレス構成（Lambda + Aurora Serverless）
+- サーバーレス構成（Lambda + DynamoDB）
 
 ### 5. 本番環境（AWS）
 
@@ -105,6 +105,8 @@
 - 自動スケーリング
 
 **ビルド方法**:
+- 最高レベルの最適化
+- サーバーレス構成（Lambda + DynamoDB）
 - 完全最適化ビルド
 - サーバーレス構成（Lambda + Aurora Serverless）
 - CloudFront CDNキャッシュ活用

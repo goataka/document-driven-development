@@ -50,26 +50,26 @@
 ### 1. 開発環境（ローカル）
 
 **方針**:
-- Docker Composeで全サービスを実行
+- Docker Compose + LocalStackで全サービスを実行
 - 開発者のマシン上で完結
 - コストゼロ
 
 **構成**:
 - フロントエンド: Vite開発サーバー
 - バックエンド: NestJS開発サーバー
-- データベース: PostgreSQLコンテナ
+- データベース: LocalStack DynamoDB
 - その他: Redisコンテナ（必要時）
 
 ### 2. CI環境（GitHub Actions）
 
 **方針**:
-- TestContainersで独立環境
+- LocalStackで独立環境
 - すべてのPRで自動実行
 - GitHub無料枠内で運用
 
 **構成**:
 - ランナー: GitHub提供Ubuntu
-- コンテナ: TestContainersでDB起動
+- コンテナ: LocalStackでDynamoDB起動
 - 成果物: ビルド済みアーティファクト
 
 ### 3. 検証環境（AWS）
@@ -82,10 +82,10 @@
 **構成**:
 - フロントエンド: S3 + CloudFront
 - バックエンド: Lambda（従量課金）
-- データベース: Aurora Serverless v2（最小容量）
+- データベース: DynamoDB（オンデマンド課金）
 - 監視: CloudWatch（無料枠）
 
-**コスト目安**: 月額 $10-20
+**コスト目安**: 月額 $5-10
 
 ### 4. ステージング環境（AWS）
 
@@ -97,10 +97,10 @@
 **構成**:
 - フロントエンド: S3 + CloudFront
 - バックエンド: Lambda（従量課金）
-- データベース: Aurora Serverless v2（最小容量）
+- データベース: DynamoDB（オンデマンド課金）
 - 監視: CloudWatch（無料枠）
 
-**コスト目安**: 月額 $15-30
+**コスト目安**: 月額 $10-20
 
 ### 5. 本番環境（AWS）
 
@@ -112,11 +112,11 @@
 **構成**:
 - フロントエンド: S3 + CloudFront（エッジキャッシュ）
 - バックエンド: Lambda（自動スケーリング）
-- データベース: Aurora Serverless v2（オートスケーリング）
+- データベース: DynamoDB（オンデマンド/プロビジョニング）
 - 監視: CloudWatch + X-Ray
 - CDN: CloudFront（低コストグローバル配信）
 
-**コスト目安**: 月額 $30-100（トラフィック次第）
+**コスト目安**: 月額 $20-80（トラフィック次第）
 
 ---
 
@@ -142,21 +142,21 @@
 ### 技術選定
 
 - **Lambda**: バックエンドAPI（Node.js 20ランタイム）
-- **Aurora Serverless v2**: PostgreSQL互換DB
+- **DynamoDB**: NoSQLデータベース（オンデマンド課金）
 - **S3**: 静的ファイルホスティング
 - **CloudFront**: CDN（低レイテンシ配信）
 - **API Gateway**: APIエンドポイント管理（オプション）
 - **CloudWatch**: ログとメトリクス（無料枠活用）
 
-### Docker Compose方針（ローカル・CI）
+### LocalStack方針（ローカル・CI）
 
 **ローカル開発**:
-- すべてのサービスをコンテナ化
-- docker-compose.ymlで一括管理
-- ボリュームマウントでホットリロード
+- LocalStackでAWSサービスをエミュレート
+- DynamoDB, S3などをローカル実行
+- AWS SDKと完全互換
 
 **CI環境**:
-- TestContainersでテスト用DB起動
+- LocalStackでテスト用AWS環境構築
 - 各テスト実行後に自動クリーンアップ
 - 並列実行で高速化
 
@@ -171,7 +171,7 @@ S3 + CloudFrontでの静的サイト配信方針、CDN戦略。
 Lambda関数のデプロイ方針、API Gateway連携戦略。
 
 ### 💾 [データベース管理](./DATABASE.md)
-Aurora Serverlessの運用方針、マイグレーション戦略。
+DynamoDBの運用方針、データモデル設計戦略。
 
 ### 🎯 [デプロイメント戦略](./STRATEGIES.md)
 ブルーグリーンデプロイ、カナリアリリースの実施方針。
@@ -191,6 +191,6 @@ GitHub Actionsでの自動デプロイ方針、環境別デプロイフロー。
 
 ---
 
-**最終更新日**: 2024年12月20日  
-**バージョン**: 2.0.0  
+**最終更新日**: 2024年12月21日  
+**バージョン**: 3.0.0  
 **ドキュメント管理者**: 開発チーム

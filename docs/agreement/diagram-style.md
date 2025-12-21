@@ -28,16 +28,16 @@ Mermaidを使用したシステム構成図の例：
 graph TD
     A[フロントエンド<br/>React] --> B[API<br/>REST]
     B --> C[バックエンド<br/>NestJS]
-    C --> D[(データベース<br/>PostgreSQL)]
+    C --> D[(データベース<br/>DynamoDB)]
 ```
 
-マークダウンでは以下のように記述します：
+マークダウンでは以下のように記述します:
 
     ```mermaid
     graph TD
         A[フロントエンド<br/>React] --> B[API<br/>REST]
         B --> C[バックエンド<br/>NestJS]
-        C --> D[(データベース<br/>PostgreSQL)]
+        C --> D[(データベース<br/>DynamoDB)]
     ```
 
 ### シーケンス図

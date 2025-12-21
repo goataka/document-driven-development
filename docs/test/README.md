@@ -110,12 +110,12 @@ jobs:
   integration-test:
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres:15
+      localstack:
+        image: localstack/localstack:latest
         env:
-          POSTGRES_PASSWORD: postgres
+          SERVICES: dynamodb
         options: >-
-          --health-cmd pg_isready
+          --health-cmd "awslocal dynamodb list-tables"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -131,7 +131,10 @@ jobs:
           npm ci
           npm run test:e2e
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          AWS_ENDPOINT: http://localhost:4566
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: test
+          AWS_SECRET_ACCESS_KEY: test
 
   e2e-test:
     runs-on: ubuntu-latest
