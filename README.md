@@ -217,6 +217,42 @@ Grafanaダッシュボード設定、可視化パネル。
 
 システムの機能概要、バージョン情報、今後の予定など。
 
+## [静的サイト管理](docs/static-site/)
+
+#### 🌐 [静的サイト概要](docs/static-site/README.md)
+
+リリースノートとマニュアルを静的サイトとして提供する方針。
+
+#### 📦 [デプロイ戦略](docs/static-site/DEPLOYMENT.md)
+
+GitHub Pages、Vercel、Netlifyへのデプロイ方法、CI/CD設定。
+
+#### 🏗️ [サイト構造](docs/static-site/STRUCTURE.md)
+
+MkDocs/VitePressの設定、ナビゲーション設計、ディレクトリ構成。
+
+#### 🔗 [アプリ連携](docs/static-site/INTEGRATION.md)
+
+アプリケーション機能内からのリンク方法、コンテキストヘルプ実装。
+
+## [モノレポ構成](docs/monorepo/)
+
+#### 📂 [モノレポ概要](docs/monorepo/README.md)
+
+モノレポ採用理由、メリット・デメリット、適用シナリオ。
+
+#### 🗂️ [ディレクトリ構造](docs/monorepo/STRUCTURE.md)
+
+apps/、packages/、static-sites/の詳細構成、命名規則。
+
+#### 🔄 [ワークフロー](docs/monorepo/WORKFLOWS.md)
+
+開発フロー、CI/CD設定、Turborepoによるタスク実行。
+
+#### 🔗 [依存関係管理](docs/monorepo/DEPENDENCIES.md)
+
+パッケージ間の依存関係、バージョン管理、セキュリティ対策。
+
 ## AIエージェント向け指示
 
 AIエージェントがこのリポジトリで作業する際のガイドラインを[agent.md](agent.md)に記載しています。
