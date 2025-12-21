@@ -27,7 +27,7 @@
 
 #### 3. 検証・ステージング・本番環境（AWS）
 - Lambda関数としてデプロイ
-- API Gatewayでエンドポイント管理（オプション）
+- API Gatewayでエンドポイント管理（オプション、[ADR-012](../../specs/architecture/012-api-gateway-integration.md)参照）
 - DynamoDBと接続
 
 ---
@@ -46,7 +46,7 @@
 - 同時実行数: 10-100（環境に応じて制限）
 
 ### コールドスタート対策方針
-- Provisioned Concurrencyの検討（本番のみ）
+- Provisioned Concurrencyの検討（本番環境のコールドスタート対策、[ADR-013](../../specs/architecture/013-lambda-provisioned-concurrency.md)参照）
 - 軽量な初期化処理
 - 接続プールの適切な管理
 
@@ -64,7 +64,7 @@
 services:
   - backend: NestJSアプリケーション
   - localstack: DynamoDB/S3エミュレーション
-  - redis: セッション管理（オプション）
+  - redis: セッション管理（オプション、[ADR-004](../../specs/architecture/004-redis-cache-usage.md)参照）
 ```
 
 ### LocalStack の活用
@@ -74,7 +74,7 @@ services:
 
 **使用方針**:
 - DynamoDBのローカルエミュレーション
-- S3のローカルエミュレーション（オプション）
+- S3のローカルエミュレーション（オプション、[ADR-014](../../specs/architecture/014-s3-local-emulation.md)参照）
 - AWS SDKと完全互換
 
 ---

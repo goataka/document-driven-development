@@ -78,7 +78,7 @@
 - DynamoDB（オンデマンド課金）
 - ポイントインタイムリカバリ: 有効
 - 自動バックアップ: 7日保持
-- グローバルテーブル: 検討可能（多地域展開時）
+- グローバルテーブル: 多地域展開時に検討可能（[ADR-010](../../specs/architecture/010-dynamodb-global-tables.md)参照）
 - DynamoDB Streams: イベント駆動処理用
 
 **コスト目安**: 月額 $15-60（トラフィック次第）
@@ -88,7 +88,7 @@
 ## データモデル設計戦略
 
 ### 方針
-- Single Table Designの検討
+- Single Table Designの検討（[ADR-006](../../specs/architecture/006-dynamodb-single-table-design.md)参照）
 - アクセスパターンベースの設計
 - パーティションキーとソートキーの最適化
 
@@ -100,7 +100,7 @@
 
 ### ツール
 - AWS SDK for JavaScript
-- DynamoDB Toolboxの検討
+- DynamoDB Toolboxの検討（[ADR-007](../../specs/architecture/007-dynamodb-toolbox-adoption.md)参照）
 - インフラストラクチャ as Code（CDK/Terraform）
 
 ---
@@ -147,7 +147,7 @@
 ### アクセス制御
 - IAM ロールベースのアクセス制御
 - 最小権限の原則
-- VPCエンドポイント経由のアクセス（オプション）
+- VPCエンドポイント経由のアクセス（オプション、[ADR-011](../../specs/architecture/011-vpc-endpoint-usage.md)参照）
 
 ### データ暗号化
 - 保存データ暗号化（デフォルト有効、AWS KMS）
@@ -165,7 +165,7 @@
 
 ### インデックス戦略
 - グローバルセカンダリインデックス（GSI）の活用
-- ローカルセカンダリインデックス（LSI）の検討
+- ローカルセカンダリインデックス（LSI）の検討（[ADR-009](../../specs/architecture/009-dynamodb-lsi-usage.md)参照）
 - スパースインデックスの利用
 
 ### クエリ最適化
@@ -174,7 +174,7 @@
 - ページネーション実装
 
 ### キャッシュ戦略
-- DAX（DynamoDB Accelerator）の検討（高頻度読み取り）
+- DAX（DynamoDB Accelerator）の検討（高頻度読み取り時、[ADR-008](../../specs/architecture/008-dynamodb-dax-usage.md)参照）
 - アプリケーションレベルキャッシュ
 - CloudFrontでのAPIキャッシュ（適宜）
 
