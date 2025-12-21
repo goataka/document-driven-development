@@ -77,7 +77,7 @@ AWSが提供するフルマネージドなAPIサービスで、RESTful API、HTT
 
 ### 1. Lambda Function URL（API Gateway なし）
 
-```typescript
+```hcl
 // Lambda関数にFunction URLを設定
 resource "aws_lambda_function_url" "app" {
   function_name      = aws_lambda_function.app.function_name
@@ -99,7 +99,7 @@ output "function_url" {
 
 ### 2. HTTP API（推奨）
 
-```typescript
+```hcl
 // HTTP API作成
 resource "aws_apigatewayv2_api" "app" {
   name          = "attendance-api"
@@ -252,7 +252,7 @@ export const handler = async (event) => {
 
 ### HTTP API + JWT Authorizer
 
-```typescript
+```hcl
 // API Gatewayで自動的にJWT検証
 resource "aws_apigatewayv2_authorizer" "jwt" {
   api_id           = aws_apigatewayv2_api.app.id

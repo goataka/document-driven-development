@@ -73,7 +73,7 @@ VPC内のリソースがAWSサービスにプライベートに接続できる�
 
 ### 1. Gateway エンドポイント（DynamoDB）の作成
 
-```typescript
+```hcl
 // Terraform例
 resource "aws_vpc_endpoint" "dynamodb" {
   vpc_id            = aws_vpc.main.id
@@ -92,7 +92,7 @@ resource "aws_vpc_endpoint" "dynamodb" {
 
 ### 2. Interface エンドポイント（Secrets Manager）の作成
 
-```typescript
+```hcl
 // Terraform例
 resource "aws_vpc_endpoint" "secretsmanager" {
   vpc_id              = aws_vpc.main.id
@@ -111,7 +111,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
 
 ### 3. Lambda 関数からの利用
 
-```typescript
+```hcl
 // Lambda関数をVPC内に配置
 resource "aws_lambda_function" "app" {
   function_name = "attendance-api"
@@ -192,7 +192,7 @@ DynamoDB (AWS Managed)
 
 ### セキュリティグループ（Interface エンドポイント）
 
-```typescript
+```hcl
 resource "aws_security_group" "vpc_endpoint" {
   name   = "vpc-endpoint-sg"
   vpc_id = aws_vpc.main.id

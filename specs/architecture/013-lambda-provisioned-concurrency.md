@@ -89,7 +89,7 @@ Lambda関数が初めて呼び出されるとき、または一定期間未使�
 
 ### 1. オンデマンド Lambda（現在）
 
-```typescript
+```hcl
 // 通常のLambda関数
 resource "aws_lambda_function" "app" {
   function_name = "attendance-api"
@@ -112,7 +112,7 @@ resource "aws_lambda_function" "app" {
 
 ### 2. Provisioned Concurrency
 
-```typescript
+```hcl
 // Lambda関数
 resource "aws_lambda_function" "app" {
   function_name = "attendance-api"
@@ -143,7 +143,7 @@ resource "aws_lambda_provisioned_concurrency_config" "prod" {
 
 ### 3. Application Auto Scaling（動的調整）
 
-```typescript
+```hcl
 // 時間帯によって自動調整
 resource "aws_appautoscaling_target" "lambda" {
   max_capacity       = 20
@@ -204,7 +204,7 @@ export const handler = async (event) => {
 
 ### 2. メモリサイズの最適化
 
-```typescript
+```hcl
 // メモリ増加 = CPU増加 = 高速化
 resource "aws_lambda_function" "app" {
   memory_size = 1024 // 512MB → 1024MB（2倍高速）
@@ -221,7 +221,7 @@ Java関数の起動時間を90%削減する機能（Node.jsは未対応）
 
 ### 4. 定期的なウォームアップ
 
-```typescript
+```hcl
 // CloudWatch Eventsで5分ごとに呼び出し
 resource "aws_cloudwatch_event_rule" "warmup" {
   name                = "lambda-warmup"
