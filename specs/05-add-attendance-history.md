@@ -8,15 +8,15 @@
 
 ### 月次履歴表示UI構成
 
-![勤怠履歴画面（月次）](images/attendance-monthly.svg)
+![勤怠履歴画面（月次）](images/05-attendance-monthly.svg)
 
 ### 日次履歴表示UI構成
 
-![勤怠履歴画面（日次）](images/attendance-daily.svg)
+![勤怠履歴画面（日次）](images/05-attendance-daily.svg)
 
 ### 打刻履歴表示UI構成
 
-![打刻履歴画面](images/clock-history.svg)
+![打刻履歴画面](images/05-clock-history.svg)
 
 ### 画面要素
 
@@ -343,7 +343,7 @@ GET /api/attendance/history?year=2025&month=12&page=1&perPage=30
 
 ## 関連仕様
 
-- [出勤・退勤打刻機能](clock-in-out.md)
+- [出勤・退勤打刻機能](04-add-clock-in-out.md)
 - [メインダッシュボード](main-dashboard.md)
 - [勤怠データエクスポート機能](attendance-export.md)
 

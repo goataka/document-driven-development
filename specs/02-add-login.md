@@ -8,7 +8,7 @@
 
 ### UI構成
 
-![ログイン画面](images/login.svg)
+![ログイン画面](images/02-login.svg)
 
 ### 画面要素
 
@@ -252,8 +252,8 @@
 
 ## 関連仕様
 
-- [ユーザー登録機能](user-registration.md)
-- [ログアウト機能](logout.md)
+- [ユーザー登録機能](01-add-user-registration.md)
+- [ログアウト機能](03-add-logout.md)
 - [パスワードリセット機能](password-reset.md)
 - [認証・認可仕様](authentication.md)
 

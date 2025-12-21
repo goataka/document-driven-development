@@ -8,16 +8,13 @@
 
 ## 仕様書一覧
 
-### 認証機能
+仕様書は実装順序に従って番号が付けられています。
 
-- **[ユーザー登録機能](user-registration.md)**: 新規ユーザーアカウントの作成
-- **[ログイン機能](login.md)**: メールアドレスとパスワードによる認証
-- **[ログアウト機能](logout.md)**: セッション終了とログアウト処理
-
-### 勤怠管理機能
-
-- **[出勤・退勤打刻機能](clock-in-out.md)**: 出勤時刻と退勤時刻の記録
-- **[勤怠履歴機能](attendance-history.md)**: 過去の勤怠記録の閲覧
+1. **[01-add-user-registration.md](01-add-user-registration.md)**: ユーザー登録機能 - 新規ユーザーアカウントの作成
+2. **[02-add-login.md](02-add-login.md)**: ログイン機能 - メールアドレスとパスワードによる認証
+3. **[03-add-logout.md](03-add-logout.md)**: ログアウト機能 - セッション終了とログアウト処理
+4. **[04-add-clock-in-out.md](04-add-clock-in-out.md)**: 出勤・退勤打刻機能 - 出勤時刻と退勤時刻の記録
+5. **[05-add-attendance-history.md](05-add-attendance-history.md)**: 勤怠履歴機能 - 過去の勤怠記録の閲覧
 
 ## 仕様書の構成
 
@@ -66,19 +63,19 @@
 
 ## 画像ファイル
 
-各仕様書で参照される画面UI画像は、[images](images/)ディレクトリに格納されています。
+各仕様書で参照される画面UI画像は、[images](images/)ディレクトリに格納されています。画像ファイルには対応する仕様書の番号が付けられています。
 
-| ファイル名 | 説明 |
-|-----------|------|
-| user-registration.svg | ユーザー登録画面 |
-| login.svg | ログイン画面 |
-| logout.svg | ログアウトメニュー |
-| main-dashboard.svg | メインダッシュボード |
-| clock-in.svg | 出勤打刻確認ダイアログ |
-| clock-out.svg | 退勤打刻確認ダイアログ |
-| clock-history.svg | 打刻履歴画面 |
-| attendance-daily.svg | 日次勤怠表示 |
-| attendance-monthly.svg | 月次勤怠履歴 |
+| ファイル名 | 説明 | 対応仕様書 |
+|-----------|------|-----------|
+| 01-user-registration.svg | ユーザー登録画面 | 01-add-user-registration.md |
+| 02-login.svg | ログイン画面 | 02-add-login.md |
+| 03-logout.svg | ログアウトメニュー | 03-add-logout.md |
+| 04-main-dashboard.svg | メインダッシュボード | 04-add-clock-in-out.md |
+| 04-clock-in.svg | 出勤打刻確認ダイアログ | 04-add-clock-in-out.md |
+| 04-clock-out.svg | 退勤打刻確認ダイアログ | 04-add-clock-in-out.md |
+| 05-attendance-monthly.svg | 月次勤怠履歴 | 05-add-attendance-history.md |
+| 05-attendance-daily.svg | 日次勤怠表示 | 05-add-attendance-history.md |
+| 05-clock-history.svg | 打刻履歴画面 | 05-add-attendance-history.md |
 
 ## 仕様書の活用方法
 
