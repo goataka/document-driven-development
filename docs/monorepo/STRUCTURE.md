@@ -20,7 +20,7 @@ document-driven-development/
 │   ├── utils/                  # ユーティリティ関数
 │   ├── config/                 # 共通設定
 │   └── eslint-config/          # ESLint設定
-├── static-sites/               # 静的サイト
+├── sites/               # 静的サイト
 │   ├── user-docs/              # ユーザーマニュアル
 │   └── release-notes/          # リリースノート
 ├── docs/                       # プロジェクトドキュメント
@@ -189,14 +189,14 @@ packages/eslint-config/
 └── README.md
 ```
 
-## static-sites/ - 静的サイト
+## sites/ - 静的サイト
 
 静的サイトジェネレーターで生成するサイト。
 
-### static-sites/user-docs/
+### sites/user-docs/
 
 ```
-static-sites/user-docs/
+sites/user-docs/
 ├── mkdocs.yml                  # MkDocs設定
 ├── docs/
 │   ├── index.md
@@ -207,10 +207,10 @@ static-sites/user-docs/
 └── README.md
 ```
 
-### static-sites/release-notes/
+### sites/release-notes/
 
 ```
-static-sites/release-notes/
+sites/release-notes/
 ├── mkdocs.yml
 ├── docs/
 │   ├── index.md
@@ -254,7 +254,7 @@ tools/generators/
   "workspaces": [
     "apps/*",
     "packages/*",
-    "static-sites/*"
+    "sites/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -379,7 +379,7 @@ coverage/
 
 # ドキュメント
 /docs/ @tech-writers
-/static-sites/ @tech-writers
+/sites/ @tech-writers
 
 # 設定ファイル
 *.json @team-lead

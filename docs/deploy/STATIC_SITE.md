@@ -10,14 +10,107 @@
 
 - 認証なしで誰でもアクセス可能
 - HTTPS対応必須
-- 高速な表示（CDN活用）
+- 高速な表示（CloudFront CDN活用）
 - 自動デプロイ（CI/CD）
+- フロントエンドアプリケーションから検索可能
 
 ---
 
 ## ホスティングオプション
 
-### 1. GitHub Pages（推奨）
+### 1. AWS S3 + CloudFront（推奨）
+
+**メリット**:
+- AWSエコシステムとの統合
+- CloudFront CDNで高速グローバル配信
+- 低コスト（静的ファイルホスティング）
+- 高可用性とスケーラビリティ
+- カスタムドメイン対応
+
+**概算コスト**: 月額 $1-5（トラフィック次第）
+
+**構成**:
+- **S3**: 静的ファイルホスティング
+- **CloudFront**: CDN配信、HTTPS対応
+- **Route 53**: カスタムドメイン（オプション）
+
+**設定方法**:
+```yaml
+# .github/workflows/deploy-docs.yml
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'sites/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      
+      - name: Install MkDocs
+        run: |
+          pip install mkdocs-material
+      
+      - name: Build docs
+        run: |
+          cd sites/user-docs
+          mkdocs build
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+      
+      - name: Deploy to S3
+        run: |
+          aws s3 sync sites/user-docs/site/ s3://docs-bucket/ --delete
+      
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+```
+
+**S3バケット設定**:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::docs-bucket/*"
+    }
+  ]
+}
+```
+
+**CloudFront設定**:
+- **Origin**: S3バケット
+- **Viewer Protocol Policy**: Redirect HTTP to HTTPS
+- **Compress Objects Automatically**: Yes
+- **Default Root Object**: index.html
+- **Custom Error Responses**: 404 → /404.html
+
+**公開URL**: `https://d1234567890abc.cloudfront.net` または `https://docs.example.com`
+
+### 2. GitHub Pages（代替案）
 
 **メリット**:
 - 完全無料
@@ -57,14 +150,14 @@ jobs:
       
       - name: Build docs
         run: |
-          cd static-sites/user-docs
+          cd sites/user-docs
           mkdocs build
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./static-sites/user-docs/site
+          publish_dir: ./sites/user-docs/site
 ```
 
 **カスタムドメイン設定**:
@@ -75,7 +168,7 @@ jobs:
    CNAME docs.example.com -> <username>.github.io
    ```
 
-### 2. Vercel
+### 3. Vercel（代替案）
 
 **メリット**:
 - 高速なCDN
@@ -89,13 +182,13 @@ jobs:
 ```json
 // vercel.json
 {
-  "buildCommand": "cd static-sites/user-docs && mkdocs build",
-  "outputDirectory": "static-sites/user-docs/site",
-  "devCommand": "cd static-sites/user-docs && mkdocs serve"
+  "buildCommand": "cd sites/user-docs && mkdocs build",
+  "outputDirectory": "sites/user-docs/site",
+  "devCommand": "cd sites/user-docs && mkdocs serve"
 }
 ```
 
-### 3. Netlify
+### 4. Netlify（代替案）
 
 **メリット**:
 - 簡単なデプロイ設定
@@ -109,8 +202,8 @@ jobs:
 ```toml
 # netlify.toml
 [build]
-  command = "cd static-sites/user-docs && mkdocs build"
-  publish = "static-sites/user-docs/site"
+  command = "cd sites/user-docs && mkdocs build"
+  publish = "sites/user-docs/site"
 
 [[redirects]]
   from = "/*"
@@ -118,18 +211,141 @@ jobs:
   status = 200
 ```
 
-### 4. AWS S3 + CloudFront
+---
 
-**メリット**:
-- AWSエコシステムとの統合
-- 高度なカスタマイズ可能
-- 企業向け運用に適している
+## フロントエンドからの検索機能
 
-**デメリット**:
-- 初期設定が複雑
-- コストがかかる
+静的サイトの検索は、フロントエンドアプリケーションから利用可能です。
 
-**概算コスト**: 月額 $1-5（トラフィック次第）
+### 実装方法
+
+#### 1. 検索インデックスの生成
+
+MkDocsは自動的に検索インデックスを生成します：
+
+```yaml
+# mkdocs.yml
+plugins:
+  - search:
+      lang: ja
+      separator: '[\s\-\.]+'
+```
+
+生成されるファイル: `site/search/search_index.json`
+
+#### 2. フロントエンドからの検索
+
+```typescript
+// フロントエンドアプリケーションからドキュメント検索
+import axios from 'axios';
+
+interface SearchResult {
+  title: string;
+  text: string;
+  location: string;
+}
+
+export async function searchDocs(query: string): Promise<SearchResult[]> {
+  const docsUrl = process.env.REACT_APP_DOCS_URL || 'https://docs.example.com';
+  
+  // 検索インデックスを取得
+  const response = await axios.get(`${docsUrl}/search/search_index.json`);
+  const index = response.data;
+  
+  // クライアント側で検索実行
+  const results: SearchResult[] = [];
+  const searchTerm = query.toLowerCase();
+  
+  for (const [location, doc] of Object.entries(index.docs)) {
+    const docData = doc as { title: string; text: string };
+    if (
+      docData.title.toLowerCase().includes(searchTerm) ||
+      docData.text.toLowerCase().includes(searchTerm)
+    ) {
+      results.push({
+        title: docData.title,
+        text: docData.text.substring(0, 200) + '...',
+        location: `${docsUrl}/${location}`,
+      });
+    }
+  }
+  
+  return results.slice(0, 10); // 上位10件を返す
+}
+```
+
+#### 3. 検索UIコンポーネント
+
+```typescript
+// SearchDocs.tsx
+import React, { useState } from 'react';
+import { searchDocs } from './searchService';
+
+export const SearchDocs: React.FC = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  const handleSearch = async () => {
+    if (!query.trim()) return;
+    
+    setLoading(true);
+    try {
+      const searchResults = await searchDocs(query);
+      setResults(searchResults);
+    } catch (error) {
+      console.error('ドキュメント検索エラー:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  return (
+    <div className="docs-search">
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+        placeholder="ドキュメントを検索..."
+      />
+      <button onClick={handleSearch} disabled={loading}>
+        {loading ? '検索中...' : '検索'}
+      </button>
+      
+      <div className="search-results">
+        {results.map((result, index) => (
+          <div key={index} className="result-item">
+            <h3>
+              <a href={result.location} target="_blank" rel="noopener noreferrer">
+                {result.title}
+              </a>
+            </h3>
+            <p>{result.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+```
+
+### CORS設定
+
+S3 + CloudFrontでフロントエンドから検索インデックスにアクセスする場合、CORS設定が必要です：
+
+```json
+// S3バケットCORS設定
+[
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["GET", "HEAD"],
+    "AllowedOrigins": ["https://your-app-domain.com"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3000
+  }
+]
+```
 
 ---
 
@@ -142,8 +358,9 @@ graph LR
     A[Markdownを更新] --> B[GitHubにプッシュ]
     B --> C[GitHub Actions起動]
     C --> D[静的サイト生成]
-    D --> E[ホスティング先へデプロイ]
-    E --> F[サイト更新完了]
+    D --> E[S3へアップロード]
+    E --> F[CloudFrontキャッシュ無効化]
+    F --> G[サイト更新完了]
 ```
 
 ### 手動デプロイ

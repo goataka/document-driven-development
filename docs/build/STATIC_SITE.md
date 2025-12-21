@@ -201,7 +201,7 @@ jobs:
 ### 推奨構成（MkDocs）
 
 ```
-static-sites/user-docs/
+sites/user-docs/
 ├── mkdocs.yml              # MkDocs設定ファイル
 ├── docs/
 │   ├── index.md            # トップページ
@@ -226,7 +226,7 @@ static-sites/user-docs/
 ### 推奨構成（VitePress）
 
 ```
-static-sites/user-docs/
+sites/user-docs/
 ├── package.json
 ├── docs/
 │   ├── .vitepress/

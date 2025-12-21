@@ -219,14 +219,14 @@ jobs:
       
       - name: Build user docs
         run: |
-          cd static-sites/user-docs
+          cd sites/user-docs
           mkdocs build
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./static-sites/user-docs/site
+          publish_dir: ./sites/user-docs/site
 ```
 
 #### 3. 依存関係の自動更新
@@ -316,7 +316,7 @@ npm run build --remote-cache=...
     "dev": "turbo run dev --parallel",
     "dev:frontend": "turbo run dev --filter=@apps/frontend",
     "dev:backend": "turbo run dev --filter=@apps/backend",
-    "dev:docs": "cd static-sites/user-docs && mkdocs serve"
+    "dev:docs": "cd sites/user-docs && mkdocs serve"
   }
 }
 ```

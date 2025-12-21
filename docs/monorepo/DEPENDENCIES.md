@@ -59,7 +59,7 @@ npmレジストリからインストールする外部ライブラリ。
   "workspaces": [
     "apps/*",
     "packages/*",
-    "static-sites/*"
+    "sites/*"
   ]
 }
 ```
@@ -76,7 +76,7 @@ npmレジストリからインストールする外部ライブラリ。
 packages:
   - 'apps/*'
   - 'packages/*'
-  - 'static-sites/*'
+  - 'sites/*'
 ```
 
 **メリット**:
