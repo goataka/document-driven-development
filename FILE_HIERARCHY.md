@@ -6,132 +6,132 @@
 
 ```
 .
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── agent.md
-├── docs/
-│   ├── DEVELOPMENT_FLOW.md
-│   ├── agreement/
-│   │   ├── code-comment.md
-│   │   ├── commit-convention.md
-│   │   ├── communication.md
-│   │   ├── diagram-style.md
-│   │   ├── document-structure.md
-│   │   ├── review-guidelines.md
-│   │   ├── work-approach.md
-│   │   └── writing-style.md
-│   ├── build/
-│   │   ├── BACKEND.md
-│   │   ├── CI_CD.md
-│   │   ├── FRONTEND.md
-│   │   ├── README.md
-│   │   └── WEBSITE.md
-│   ├── deploy/
-│   │   ├── BACKEND.md
-│   │   ├── CI_CD.md
-│   │   ├── DATABASE.md
-│   │   ├── FRONTEND.md
-│   │   ├── README.md
-│   │   ├── STRATEGIES.md
-│   │   └── WEBSITE.md
-│   ├── implement/
-│   │   ├── API.md
-│   │   ├── BACKEND.md
-│   │   ├── DATABASE.md
-│   │   ├── DEPENDENCIES.md
-│   │   ├── FRONTEND.md
-│   │   ├── README.md
-│   │   ├── SECURITY.md
-│   │   └── WEBSITE.md
-│   ├── monitor/
-│   │   ├── ALERTS.md
-│   │   ├── DASHBOARDS.md
-│   │   ├── ERRORS.md
-│   │   ├── LOGGING.md
-│   │   ├── METRICS.md
-│   │   └── README.md
-│   ├── monorepo/
-│   │   ├── DEPENDENCIES.md
-│   │   ├── README.md
-│   │   ├── STRUCTURE.md
-│   │   └── WORKFLOWS.md
-│   ├── operate/
-│   │   ├── BACKUP.md
-│   │   ├── DAILY.md
-│   │   ├── INCIDENTS.md
-│   │   ├── MAINTENANCE.md
-│   │   ├── README.md
-│   │   └── SECURITY.md
-│   ├── release/
-│   │   ├── CHANGELOG.md
-│   │   ├── NOTES.md
-│   │   ├── PROCESS.md
-│   │   ├── README.md
-│   │   └── VERSIONING.md
-│   ├── test/
-│   │   ├── ACCESSIBILITY.md
-│   │   ├── COMPONENT.md
-│   │   ├── E2E.md
-│   │   ├── INTEGRATION.md
-│   │   ├── PERFORMANCE.md
-│   │   ├── README.md
-│   │   ├── SECURITY_DYNAMIC.md
-│   │   ├── SECURITY_STATIC.md
-│   │   ├── SNAPSHOT.md
-│   │   └── UNIT.md
-│   └── user/
-│       ├── FAQ.md
-│       ├── MANUAL.md
-│       ├── README.md
-│       ├── RELEASE_NOTES.md
-│       ├── guides/
-│       │   ├── startup.md
-│       │   └── troubleshooting.md
-│       └── images/
-│           ├── attendance-daily.svg
-│           ├── attendance-monthly.svg
-│           ├── clock-history.svg
-│           ├── clock-in.svg
-│           ├── clock-out.svg
-│           ├── login.svg
-│           ├── logout.svg
-│           ├── main-dashboard.svg
-│           └── user-registration.svg
-└── specs/
-    ├── README.md
-    ├── architecture/
-    │   ├── 001-state-management-library.md
-    │   ├── 002-ui-library-selection.md
-    │   ├── 003-orm-selection.md
-    │   ├── 004-redis-cache-usage.md
-    │   ├── 005-cloud-hosting-platform.md
-    │   ├── 006-dynamodb-single-table-design.md
-    │   ├── 007-dynamodb-toolbox-adoption.md
-    │   ├── 008-dynamodb-dax-usage.md
-    │   ├── 009-dynamodb-lsi-usage.md
-    │   ├── 010-dynamodb-global-tables.md
-    │   ├── 011-vpc-endpoint-usage.md
-    │   ├── 012-api-gateway-integration.md
-    │   ├── 013-lambda-provisioned-concurrency.md
-    │   ├── 014-s3-local-emulation.md
-    │   └── README.md
-    └── business/
-        ├── 001-add-user-registration.md
-        ├── 002-add-login.md
-        ├── 003-add-logout.md
-        ├── 004-add-clock-in-out.md
-        ├── 005-add-attendance-history.md
-        └── images/
-            ├── 001-user-registration.svg
-            ├── 002-login.svg
-            ├── 003-logout.svg
-            ├── 004-clock-in.svg
-            ├── 004-clock-out.svg
-            ├── 004-main-dashboard.svg
-            ├── 005-attendance-daily.svg
-            ├── 005-attendance-monthly.svg
-            └── 005-clock-history.svg
+├── CONTRIBUTING.md              # コントリビューションガイド（人間向け）
+├── LICENSE                      # MITライセンスファイル
+├── README.md                    # プロジェクトの概要と目次
+├── agent.md                     # AIエージェント向けの作業ガイド
+├── docs/                        # プロジェクトドキュメント
+│   ├── DEVELOPMENT_FLOW.md      # 開発フローの全体像
+│   ├── agreement/               # 合意事項・規約
+│   │   ├── code-comment.md      # コードコメント規約
+│   │   ├── commit-convention.md # コミットメッセージ規約
+│   │   ├── communication.md     # コミュニケーション規約
+│   │   ├── diagram-style.md     # 図表作成規約（Mermaid）
+│   │   ├── document-structure.md # ドキュメント構造規約
+│   │   ├── review-guidelines.md # レビューガイドライン
+│   │   ├── work-approach.md     # 作業の進め方
+│   │   └── writing-style.md     # 文章スタイル規約
+│   ├── build/                   # ビルド戦略
+│   │   ├── BACKEND.md           # バックエンドビルド戦略
+│   │   ├── CI_CD.md             # CI/CDビルド設定
+│   │   ├── FRONTEND.md          # フロントエンドビルド戦略
+│   │   ├── README.md            # ビルド戦略の概要
+│   │   └── WEBSITE.md           # ドキュメントウェブサイトビルド戦略
+│   ├── deploy/                  # デプロイ戦略
+│   │   ├── BACKEND.md           # バックエンドデプロイ方針
+│   │   ├── CI_CD.md             # CI/CDパイプライン設定
+│   │   ├── DATABASE.md          # データベース管理
+│   │   ├── FRONTEND.md          # フロントエンドデプロイ方針
+│   │   ├── README.md            # デプロイ戦略の概要
+│   │   ├── STRATEGIES.md        # デプロイメント戦略（ローリング、ブルーグリーン等）
+│   │   └── WEBSITE.md           # ドキュメントウェブサイトデプロイ方針
+│   ├── implement/               # 実装仕様
+│   │   ├── API.md               # API設計とエンドポイント仕様
+│   │   ├── BACKEND.md           # バックエンド設計（NestJS + TypeScript）
+│   │   ├── DATABASE.md          # データベース設計（DynamoDB）
+│   │   ├── DEPENDENCIES.md      # 依存関係管理（Dependabot、Renovate）
+│   │   ├── FRONTEND.md          # フロントエンド設計（React + TypeScript）
+│   │   ├── README.md            # 実装仕様の概要
+│   │   ├── SECURITY.md          # セキュリティ設計（認証・認可）
+│   │   └── WEBSITE.md           # ウェブサイト設計
+│   ├── monitor/                 # 監視戦略
+│   │   ├── ALERTS.md            # アラート設定
+│   │   ├── DASHBOARDS.md        # ダッシュボード設定（Grafana）
+│   │   ├── ERRORS.md            # エラー追跡（Sentry）
+│   │   ├── LOGGING.md           # ログ管理（Winston/Pino）
+│   │   ├── METRICS.md           # メトリクス収集（Prometheus）
+│   │   └── README.md            # 監視戦略の概要
+│   ├── monorepo/                # モノレポ構成
+│   │   ├── DEPENDENCIES.md      # パッケージ間依存関係管理
+│   │   ├── README.md            # モノレポ概要
+│   │   ├── STRUCTURE.md         # ディレクトリ構造（計画中）
+│   │   └── WORKFLOWS.md         # 開発ワークフロー
+│   ├── operate/                 # 運用管理
+│   │   ├── BACKUP.md            # バックアップとリストア
+│   │   ├── DAILY.md             # 日常運用タスク
+│   │   ├── INCIDENTS.md         # インシデント対応
+│   │   ├── MAINTENANCE.md       # システムメンテナンス
+│   │   ├── README.md            # 運用管理の概要
+│   │   └── SECURITY.md          # セキュリティ運用
+│   ├── release/                 # リリース管理
+│   │   ├── CHANGELOG.md         # チェンジログ管理
+│   │   ├── NOTES.md             # リリースノート
+│   │   ├── PROCESS.md           # リリースプロセス
+│   │   ├── README.md            # リリース管理の概要
+│   │   └── VERSIONING.md        # バージョニング戦略
+│   ├── test/                    # テスト戦略
+│   │   ├── ACCESSIBILITY.md     # アクセシビリティテスト（WCAG 2.1 Level AA）
+│   │   ├── COMPONENT.md         # コンポーネントテスト（Storybook）
+│   │   ├── E2E.md               # E2Eテスト（Cucumber + Playwright）
+│   │   ├── INTEGRATION.md       # 統合テスト（Jest + Supertest）
+│   │   ├── PERFORMANCE.md       # パフォーマンステスト（Lighthouse CI）
+│   │   ├── README.md            # テスト戦略の概要
+│   │   ├── SECURITY_DYNAMIC.md  # 動的セキュリティテスト（OWASP ZAP）
+│   │   ├── SECURITY_STATIC.md   # 静的セキュリティテスト（npm audit、CodeQL）
+│   │   ├── SNAPSHOT.md          # スナップショットテスト（Vitest）
+│   │   └── UNIT.md              # 単体テスト（Jest、Vitest）
+│   └── user/                    # ユーザー向けドキュメント
+│       ├── FAQ.md               # よくある質問と回答
+│       ├── MANUAL.md            # ユーザーマニュアル（ナビゲーション）
+│       ├── README.md            # 機能リファレンス
+│       ├── RELEASE_NOTES.md     # リリースノート
+│       ├── guides/              # ガイド
+│       │   ├── startup.md       # スタートアップガイド
+│       │   └── troubleshooting.md # トラブルシューティング
+│       └── images/              # UIスクリーンショット・図表
+│           ├── attendance-daily.svg   # 日次勤怠画面
+│           ├── attendance-monthly.svg # 月次勤怠画面
+│           ├── clock-history.svg      # 打刻履歴画面
+│           ├── clock-in.svg           # 出勤打刻画面
+│           ├── clock-out.svg          # 退勤打刻画面
+│           ├── login.svg              # ログイン画面
+│           ├── logout.svg             # ログアウト画面
+│           ├── main-dashboard.svg     # メインダッシュボード画面
+│           └── user-registration.svg  # ユーザー登録画面
+└── specs/                       # 仕様書
+    ├── README.md                # 仕様書の概要
+    ├── architecture/            # アーキテクチャ決定記録（ADR）
+    │   ├── 001-state-management-library.md # 状態管理ライブラリの選定
+    │   ├── 002-ui-library-selection.md     # UIライブラリの選定
+    │   ├── 003-orm-selection.md            # ORMの選定
+    │   ├── 004-redis-cache-usage.md        # Redisキャッシュ利用
+    │   ├── 005-cloud-hosting-platform.md   # クラウドホスティングプラットフォーム選定
+    │   ├── 006-dynamodb-single-table-design.md # DynamoDBシングルテーブル設計
+    │   ├── 007-dynamodb-toolbox-adoption.md    # DynamoDB Toolbox採用
+    │   ├── 008-dynamodb-dax-usage.md       # DynamoDB DAX利用
+    │   ├── 009-dynamodb-lsi-usage.md       # DynamoDB LSI利用
+    │   ├── 010-dynamodb-global-tables.md   # DynamoDBグローバルテーブル
+    │   ├── 011-vpc-endpoint-usage.md       # VPCエンドポイント利用
+    │   ├── 012-api-gateway-integration.md  # API Gateway統合
+    │   ├── 013-lambda-provisioned-concurrency.md # Lambdaプロビジョニング済み同時実行数
+    │   ├── 014-s3-local-emulation.md       # S3ローカルエミュレーション
+    │   └── README.md                       # アーキテクチャ決定記録の概要
+    └── business/                # ビジネス要件仕様
+        ├── 001-add-user-registration.md # ユーザー登録機能
+        ├── 002-add-login.md             # ログイン機能
+        ├── 003-add-logout.md            # ログアウト機能
+        ├── 004-add-clock-in-out.md      # 出勤・退勤打刻機能
+        ├── 005-add-attendance-history.md # 勤怠履歴機能
+        └── images/              # ビジネス要件関連図表
+            ├── 001-user-registration.svg # ユーザー登録フロー図
+            ├── 002-login.svg             # ログインフロー図
+            ├── 003-logout.svg            # ログアウトフロー図
+            ├── 004-clock-in.svg          # 出勤打刻フロー図
+            ├── 004-clock-out.svg         # 退勤打刻フロー図
+            ├── 004-main-dashboard.svg    # メインダッシュボード図
+            ├── 005-attendance-daily.svg  # 日次勤怠履歴図
+            ├── 005-attendance-monthly.svg # 月次勤怠履歴図
+            └── 005-clock-history.svg     # 打刻履歴図
 ```
 
 ## ディレクトリ・ファイル概要
