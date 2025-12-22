@@ -57,7 +57,7 @@ packages/
 ### 対象プロジェクト
 
 ```
-document-driven-development/
+spec-driven-development/
 ├── docs/                   # ドキュメント
 ├── apps/                   # アプリケーション
 │   ├── frontend/           # フロントエンドアプリ

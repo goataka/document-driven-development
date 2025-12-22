@@ -285,7 +285,7 @@ API設計の詳細については、[API設計ドキュメント](./API.md)を�
 ```bash
 # リポジトリクローン
 git clone <repository-url>
-cd document-driven-development
+cd spec-driven-development
 
 # フロントエンド
 cd frontend

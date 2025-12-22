@@ -5,7 +5,7 @@
 ## ルートディレクトリ構成
 
 ```
-document-driven-development/
+spec-driven-development/
 ├── .github/                    # GitHub設定
 │   ├── workflows/              # GitHub Actions
 │   ├── CODEOWNERS              # コードオーナー設定
@@ -247,7 +247,7 @@ tools/generators/
 
 ```json
 {
-  "name": "document-driven-development",
+  "name": "spec-driven-development",
   "version": "1.0.0",
   "private": true,
   "workspaces": [

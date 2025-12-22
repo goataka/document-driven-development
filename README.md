@@ -1,6 +1,6 @@
-# Document-Driven Development
+# Spec-Driven Development
 
-**AIエージェント**との**ドキュメント駆動開発（Document-Driven Development）** を実践・検証するリポジトリです。
+**AIエージェント**との**仕様駆動開発（Spec-Driven Development）** を実践・検証するリポジトリです。
 
 ## コントリビューション
 

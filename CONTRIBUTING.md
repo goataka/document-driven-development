@@ -16,7 +16,7 @@
 
 ## はじめに
 
-本プロジェクトは**ドキュメント駆動開発（Document-Driven Development）** の実践例です。
+本プロジェクトは**仕様駆動開発（Spec-Driven Development）** の実践例です。
 
 ### 基本方針
 
@@ -41,8 +41,8 @@
 ### リポジトリのクローン
 
 ```bash
-git clone https://github.com/goataka/document-driven-development.git
-cd document-driven-development
+git clone https://github.com/goataka/spec-driven-development.git
+cd spec-driven-development
 ```
 
 ---
