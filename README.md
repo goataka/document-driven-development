@@ -13,6 +13,10 @@
 
 勤怠管理システム
 
+## リポジトリ構造
+
+リポジトリの詳細なファイル階層については、[FILE_HIERARCHY.md](FILE_HIERARCHY.md)をご覧ください。
+
 ## アーキテクチャ決定記録（ADR）
 
 アーキテクチャに関する重要な決定事項と検討中の項目については、[specs/architecture/](specs/architecture/)ディレクトリを参照してください。
