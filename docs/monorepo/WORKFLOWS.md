@@ -8,8 +8,8 @@
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/goataka/document-driven-development.git
-cd document-driven-development
+git clone https://github.com/goataka/spec-driven-development.git
+cd spec-driven-development
 
 # 依存関係のインストール
 npm install

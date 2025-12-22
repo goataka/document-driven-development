@@ -54,7 +54,7 @@ npmレジストリからインストールする外部ライブラリ。
 ```json
 // ルート package.json
 {
-  "name": "document-driven-development",
+  "name": "spec-driven-development",
   "private": true,
   "workspaces": [
     "apps/*",

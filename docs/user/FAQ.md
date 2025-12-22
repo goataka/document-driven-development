@@ -158,7 +158,7 @@ Internet Explorerはサポートされていません。
 本FAQに記載されていない質問や問題がある場合は、以下の方法でお問い合わせください：
 
 1. **システム管理者に連絡**: 社内の連絡先を使用
-2. **GitHubのIssue**: [Issue作成ページ](https://github.com/goataka/document-driven-development/issues)
+2. **GitHubのIssue**: [Issue作成ページ](https://github.com/goataka/spec-driven-development/issues)
 3. **ユーザーマニュアルを確認**: [MANUAL.md](MANUAL.md)
 
 ---
